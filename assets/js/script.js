@@ -1,3 +1,14 @@
+// Classe 'active' navbar
+const navbarLinks = document.querySelectorAll('nav li a');
+const urlAtual = window.location.pathname.split('/').pop();
+
+navbarLinks.forEach(link => {
+  let href = link.getAttribute('href');
+  if (href === urlAtual) {
+    link.parentElement.classList.add('active');
+  }
+});
+
 // Possbilita manipular SVGs diretamente no DOM (no CSS)
 function imgToSVGElement(elementId) {
 
