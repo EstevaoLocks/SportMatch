@@ -886,6 +886,112 @@ footer {
     margin: 0 8px;
 }
 
+.mainEstreita {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+
+    background-color: aquamarine;
+}
+
+/* --Section 1-- */
+.conteudoAnuncio {
+    width: 75%;
+    height: auto;
+    margin-top: 32px;
+
+    background-color: antiquewhite;
+}
+
+.conteudoPrincipal-pgAnuncio {
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+}
+
+.containerImagensAnuncio {
+    width: 65%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: blue;
+}
+
+.containerInfo {
+    width: 35%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: coral;
+}
+
+.titleAnuncio-pgAnuncio {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 32px;
+
+    background-color: red;
+}
+
+.caracteristicasAnuncio-pgAnuncio {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 32px;
+
+    background-color: cadetblue;
+}
+
+/* --Section 2-- */
+.containerCalendario-pgAnuncio {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: darkmagenta;
+}
+
+.containerHorasSemana-pgAnuncio {
+    width: 100%;
+    height: 200px;
+
+    background-color: crimson;
+}
+
+/* --Section 3-- */
+.opcoesAnuncio {
+    width: 25%;
+    height: auto;
+    margin-top: 32px;
+    padding: 16px;
+
+    background-color: #f6ae2d;
+}
+
+.containerPrecoReserva {
+    width: 100%;
+    height: 300px;
+    margin-top: 32px;
+
+    background-color: blueviolet;
+}
+
+.containerBtnReserva {
+    width: 100%;
+    height: 300px;
+
+    background-color: chocolate;
+}
+
+.containerPerfilInstituicao {
+    width: 100%;
+    height: 300px;
+
+    background-color: darkcyan;
+}
+
 /*   CSS Celular e Tablet   */
 @media (max-width: 768px) {
     .menu ul {
