@@ -73,7 +73,7 @@ h2 {
     cursor: pointer;
 }
 
-.menu .links ul li.ativo {
+.menu .links ul li.active {
     height: calc(100% - 3px);
 
     background-color: #15293F;
