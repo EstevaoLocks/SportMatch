@@ -13,7 +13,7 @@
     <div class="links">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">Registrar</a></li>
+            <li><a href="anuncioQuadra.php">Registrar</a></li>
             <li><a href="#">Categorias</a></li>
             <li><a href="#">Perto de você</a></li>
             <li><a href="#">Por que escolher?</a></li>
