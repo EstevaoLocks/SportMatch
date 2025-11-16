@@ -992,6 +992,13 @@ footer {
     background-color: darkcyan;
 }
 
+
+/* CSS página Profile.php */
+.main-pgProfile {
+    position: relative;
+    padding-top: 216px;
+}
+
 /*   CSS Celular e Tablet   */
 @media (max-width: 768px) {
     .menu ul {
