@@ -24,7 +24,6 @@
     <?php include 'navbarProfile.php'?>
 
     <main class="main-pgProfile">
-
     </main>
 
     <?php include 'footer.php'?>
