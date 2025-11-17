@@ -992,6 +992,92 @@ footer {
     background-color: darkcyan;
 }
 
+
+/* CSS página Profile.php */
+.menu-pgProfile {
+    height: 144px;
+    width: 100%;
+    margin-top: 72px;
+
+    background-color: #e2e2e2;
+    position: absolute;
+    z-index: 9;
+
+    color: #000000;
+}
+
+.rowCima-navPgProfile {
+    width: 100%;
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.imgProfile-navPgProfile {
+    width: 50px;
+    height: 50px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+
+    background-color: #74DDDD;
+    border-radius: 100px;
+}
+
+.iconeProfile-navPgProfile {
+    width: auto;
+    height: 70%;
+}
+
+.iconeProfile-navPgProfile path {
+    fill: #0F2F51;
+}
+
+.nomeUser-navPgProfile {
+    margin-left: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nomeUser-navPgProfile .azul {
+    color: #0F2F51;
+    font-weight: bold;
+}
+
+.rowBaixo-navPgProfile {
+    width: 100%;
+
+    display: flex;
+}
+
+.links-pgProfileNav {
+    height: 100%;
+
+    display: flex;
+    align-items: end;
+    margin-right: 32px;
+}
+
+.link-pgProfileNav {
+    padding: 10px 15px;
+    height: 100%;
+    
+    transition: background-color 0.3s ease;
+    color: #353535;
+}
+
+.main-pgProfile {
+    position: relative;
+    padding-top: 216px;
+}
+
 /*   CSS Celular e Tablet   */
 @media (max-width: 768px) {
     .menu ul {

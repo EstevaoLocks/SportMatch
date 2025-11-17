@@ -48,3 +48,6 @@ imgToSVGElement("iconeTelefone-Footer");
 imgToSVGElement("iconeEmail-Footer");
 imgToSVGElement("iconeWhatsapp-Footer");
 imgToSVGElement("iconeLocal-Footer");
+
+// Ícone Perfil Navbar Profile Page
+imgToSVGElement("iconeProfile-navPgProfile");
