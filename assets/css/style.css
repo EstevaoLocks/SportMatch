@@ -993,9 +993,9 @@ footer {
 }
 
 
-/* CSS página Profile.php */
+/* CSS página navbarProfile.php */
 .menu-pgProfile {
-    height: 144px;
+    height: auto;
     width: 100%;
     margin-top: 72px;
 
@@ -1007,12 +1007,21 @@ footer {
 }
 
 .rowCima-navPgProfile {
+    height: 52px;
     width: 100%;
     padding: 10px 0;
+    border-top: 1px solid #cecece;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
 
+.leftContentRowCima-navPgProfile {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
 }
 
 .imgProfile-navPgProfile {
@@ -1052,9 +1061,14 @@ footer {
 }
 
 .rowBaixo-navPgProfile {
-    width: 100%;
+    height: auto;
+    width: calc(100% - 32px);
+    padding: 0 16px;
 
     display: flex;
+    flex-direction: column;
+
+    border-bottom: 1px solid #cecece;
 }
 
 .links-pgProfileNav {
@@ -1067,15 +1081,33 @@ footer {
 
 .link-pgProfileNav {
     padding: 10px 15px;
-    height: 100%;
-    
+    height: auto;
+
+    border-radius: 5px 5px 0 0;    
     transition: background-color 0.3s ease;
     color: #353535;
 }
 
+.link-pgProfileNav:hover {
+    transition: background-color 0.3s ease;
+    background-color: #c4c4c4;
+}
+
+.liLink-pgProfileNav {
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS página Profile.php */
 .main-pgProfile {
     position: relative;
     padding-top: 216px;
+
+    height: 2000px;
+    background-color:aquamarine;
 }
 
 /*   CSS Celular e Tablet   */

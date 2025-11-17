@@ -20,7 +20,7 @@
     <title>Seu perfil</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php'?>
     <?php include 'navbarProfile.php'?>
 
     <main class="main-pgProfile">
