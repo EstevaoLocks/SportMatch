@@ -13,12 +13,12 @@
     <div class="rowBaixo-navPgProfile">
         <div class="links-pgProfileNav">
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="anuncioQuadra.php">Registrar</a></li>
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Perto de você</a></li>
-                <li><a href="#">Por que escolher?</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a class="link-pgProfileNav" href="index.php">Home</a></li>
+                <li><a class="link-pgProfileNav" href="anuncioQuadra.php">Registrar</a></li>
+                <li><a class="link-pgProfileNav" href="#">Categorias</a></li>
+                <li><a class="link-pgProfileNav" href="#">Perto de você</a></li>
+                <li><a class="link-pgProfileNav" href="#">Por que escolher?</a></li>
+                <li><a class="link-pgProfileNav" href="#">Contato</a></li>
             </ul>
         </div>
 
