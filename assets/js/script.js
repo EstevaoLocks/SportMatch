@@ -48,3 +48,4 @@ imgToSVGElement("iconeTelefone-Footer");
 imgToSVGElement("iconeEmail-Footer");
 imgToSVGElement("iconeWhatsapp-Footer");
 imgToSVGElement("iconeLocal-Footer");
+imgToSVGElement("iconeProfile-navPgProfile");
