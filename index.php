@@ -21,7 +21,6 @@
 
     <title>Home</title>
 </head>
-
 <body>
     <?php
     if ((!isset($_SESSION['id'])) and (!isset($_SESSION['nome'])) and (!isset($_SESSION['email']))) {
