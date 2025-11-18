@@ -23,6 +23,13 @@
                         <h2 class="card-title">Login</h2>
                         <p class="card-subtitle">Entre para reservar ou gerenciar quadras</p>
 
+                        <?php
+                            // A sessão já foi iniciada no navbar.php
+                            if(isset($_SESSION['msg_login'])){
+                                echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['msg_login'] . "</div>";
+                                unset($_SESSION['msg_login']); // Limpa a mensagem após exibir
+                            }
+                        ?>
                         <form action="processa_login.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label"><i class="far fa-envelope"></i> Email</label>

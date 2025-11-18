@@ -51,7 +51,7 @@
 
                     <!-- Botões -->
                     <div class="btns-header">
-                        <a class="btn-primary2" href="#">Cadastre-se já!</a>
+                        <a href="registro.php" class="btn-primary2" href="#">Cadastre-se já!</a>
                     </div>
                 </div>
 
