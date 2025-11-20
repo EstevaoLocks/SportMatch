@@ -25,7 +25,8 @@
 <body>
     <?php
         session_start();
-        include 'navbar.php'
+        $is_profilePg = false;
+        include 'navbar.php';
     ?>
 
     <!-- Conteúdo Principal ----------- -->

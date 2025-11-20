@@ -55,10 +55,12 @@ h2 {
     align-items: center;
 
     color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .menu .links {
     height: 100%;
+    width: 173px;
 
     display: flex;
     align-items: center;
@@ -1242,13 +1244,14 @@ footer {
     width: 100%;
     margin-top: 72px;
 
-    background-color: #0D1926;
+    /* background-color: #0D1926; */
+    background-color: #081018;
     position: absolute;
     top: 0;
     z-index: 9;
 
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid #041b33;
 }
 
 .rowCima-navPgProfile {
@@ -1261,7 +1264,7 @@ footer {
     justify-content: space-between;
 
     background-color: #081018;
-    border-bottom: 1px solid #15293F;
+    /* border-bottom: 1px solid #15293F; */
 }
 
 .leftContentRowCima-navPgProfile {
@@ -1344,8 +1347,12 @@ footer {
     transition: 0.3s ease;
 }
 
+.liLink-pgProfileNav.active {
+    border-bottom: 1px solid #75DDDD;
+}
+
 .link-pgProfileNav:hover {
-    background-color: #101f30;
+    background-color: #0b1825;
     color: #45DDDD;
 }
 
@@ -1358,12 +1365,19 @@ footer {
 }
 
 /* CSS página Profile.php */
+.body-pgProfile {
+    background-color: #081018;
+}
+
 .main-pgProfile {
-    position: relative;
-    padding-top: 216px;
-    
     height: 2000px;
-    background-color:aquamarine;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
 }
 
 /*   CSS Celular e Tablet   */

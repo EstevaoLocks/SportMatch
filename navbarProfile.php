@@ -24,12 +24,9 @@
     <!-- parte inferior -->
     <div class="rowBaixo-navPgProfile">
         <ul class="links-pgProfileNav">
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="index.php">Home</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="anuncioQuadra.php">Registrar</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Categorias</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Perto de você</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Por que escolher?</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Contato</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="profile.php">Perfil</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="anuncioQuadra.php">Reservas</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Favoritos</a></li>
         </ul>
     </div>
 
