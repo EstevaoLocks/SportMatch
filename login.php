@@ -30,7 +30,7 @@
                                 unset($_SESSION['msg_login']); // Limpa a mensagem após exibir
                             }
                         ?>
-                        <form action="processa_login.php" method="POST">
+                        <form action="sistema/processa_login.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label"><i class="far fa-envelope"></i> Email</label>
                                 <input type="email" name="email" class="form-control" required>

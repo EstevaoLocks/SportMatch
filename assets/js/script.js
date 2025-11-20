@@ -13,6 +13,7 @@ navbarLinks.forEach(link => {
 function imgToSVGElement(elementId) {
 
     let img = document.getElementById(elementId);
+    if (!img) return; // Se o elemento não existir, sai da função
     let src = img.getAttribute("src");
     
     fetch(src)
@@ -47,3 +48,7 @@ imgToSVGElement("iconeTelefone-Footer");
 imgToSVGElement("iconeEmail-Footer");
 imgToSVGElement("iconeWhatsapp-Footer");
 imgToSVGElement("iconeLocal-Footer");
+
+// Ícone Perfil Navbar Profile Page
+imgToSVGElement("iconeProfile-navPgProfile");
+imgToSVGElement("iconeConfig-navPgProfile");

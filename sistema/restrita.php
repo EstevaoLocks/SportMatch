@@ -8,7 +8,7 @@
             $_SESSION['email']
 
         );
-        header('location: index.php');
+        header('location: ../index.php');
     }
 
 

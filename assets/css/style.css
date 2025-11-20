@@ -55,10 +55,12 @@ h2 {
     align-items: center;
 
     color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .menu .links {
     height: 100%;
+    min-width: 173px;
 
     display: flex;
     align-items: center;
@@ -179,9 +181,32 @@ h2 {
     background-color: #36acac;
 }
 
-.btn-secondary1.union {
-    border-radius: 0 5px 5px 0;
-    margin-left: 0;
+.iconePerson-BtnMenuLogado {
+    width: auto;
+    height: 30px;
+    margin-left: 0px;
+}
+
+.btnLogadoPerfil-menu {
+    background-color: #45DDDD;
+    color: #0F2F51;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin: 16px;
+    border: none;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.btnLogadoPerfil-menu:hover {
+    background-color: #33b6b6;
 }
 
 .btn-primary1 {
@@ -1106,6 +1131,355 @@ footer {
     margin: 0 8px;
 }
 
+.mainEstreita {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+
+    background-color: aquamarine;
+}
+
+/* --Section 1-- */
+.conteudoAnuncio {
+    width: 75%;
+    height: auto;
+    margin-top: 32px;
+
+    background-color: antiquewhite;
+}
+
+.conteudoPrincipal-pgAnuncio {
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+}
+
+.containerImagensAnuncio {
+    width: 65%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: blue;
+}
+
+.containerInfo {
+    width: 35%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: coral;
+}
+
+.titleAnuncio-pgAnuncio {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 32px;
+
+    background-color: red;
+}
+
+.caracteristicasAnuncio-pgAnuncio {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 32px;
+
+    background-color: cadetblue;
+}
+
+/* --Section 2-- */
+.containerCalendario-pgAnuncio {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: darkmagenta;
+}
+
+.containerHorasSemana-pgAnuncio {
+    width: 100%;
+    height: 200px;
+
+    background-color: crimson;
+}
+
+/* --Section 3-- */
+.opcoesAnuncio {
+    width: 25%;
+    height: auto;
+    margin-top: 32px;
+    padding: 16px;
+
+    background-color: #f6ae2d;
+}
+
+.containerPrecoReserva {
+    width: 100%;
+    height: 300px;
+    margin-top: 32px;
+
+    background-color: blueviolet;
+}
+
+.containerBtnReserva {
+    width: 100%;
+    height: 300px;
+
+    background-color: chocolate;
+}
+
+.containerPerfilInstituicao {
+    width: 100%;
+    height: 300px;
+
+    background-color: darkcyan;
+}
+
+
+/* CSS página navbarProfile.php */
+.menu-pgProfile {
+    height: auto;
+    width: 100%;
+    margin-top: 72px;
+
+    /* background-color: #0D1926; */
+    background-color: #081018;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+
+    color: #ffffff;
+    border-bottom: 1px solid #041b33;
+}
+
+.rowCima-navPgProfile {
+    height: 52px;
+    width: 100%;
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #081018;
+    /* border-bottom: 1px solid #15293F; */
+}
+
+.leftContentRowCima-navPgProfile {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+}
+
+.imgProfile-navPgProfile {
+    width: 50px;
+    height: 50px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+
+    background-color: #15293F;
+    border-radius: 100px;
+}
+
+.iconeProfile-navPgProfile {
+    width: auto;
+    height: 70%;
+}
+
+.iconeProfile-navPgProfile path {
+    fill: #214772;
+}
+
+.nomeUser-navPgProfile {
+    margin-left: 16px;
+    font-size: 14px;
+    line-height: 1.2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nomeUser-navPgProfile .azul {
+    font-weight: bold;
+    font-size: 16px;
+    color: #45DDDD;
+}
+
+.iconeConfig-navPgProfile {
+    width: auto;
+    height: 18px;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.rowBaixo-navPgProfile {
+    height: auto;
+    width: calc(100% - 32px);
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.links-pgProfileNav {
+    height: 100%;
+
+    display: flex;
+    align-items: end;
+    margin-right: 32px;
+}
+
+.links-pgProfileNav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.link-pgProfileNav {
+    padding: 10px 15px;
+    height: auto;
+    
+    font-size: 14px;
+    color: #b0b8c1;
+    border-radius: 5px 5px 0 0;
+    
+    transition: 0.3s ease;
+}
+
+.liLink-pgProfileNav.active {
+    border-bottom: 1px solid #75DDDD;
+}
+
+.link-pgProfileNav:hover {
+    background-color: #0b1825;
+    color: #45DDDD;
+}
+
+.liLink-pgProfileNav {
+    height: 36px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS página Profile.php */
+.body-pgProfile {
+    background-color: #081018;
+}
+
+.main-pgProfile {
+    height: 2000px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+
+    display: flex;
+    
+    background-color: #0b1a2c;
+}
+
+.sectionAgenda-pgProfile {
+    width: 75%;
+    height: 800px;
+    margin-top: 32px;
+
+    background-color: #596645;
+}
+
+.sectionDireita-pgProfile {
+    width: 25%;
+    height: calc(100% - 32px);
+    margin-top: 32px;
+
+    background-color: #554133;
+}
+
+.containerLocal-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #3a5a40;
+}
+
+.containerOutrasQuadras-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #4b6b52;
+}
+
+/* CSS página quadrasReservadas.php */
+.body-pgQuadrasReservadas {
+    background-color: #081018;
+}
+
+.main-pgQuadrasReservadas {
+    height: 2000px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
+}
+
+.sectionCalendario-pgQuadrasReservadas {
+    width: 100%;
+    height: 300px;
+    margin-top: 32px;
+
+    background-color: #596645;
+}
+
+.sectionReservas-pgQuadrasReservadas {
+    width: 100%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: #554133;
+}
+
+.main-pgProfile {
+    height: 2000px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
+}
+
+.sectionDadosCadastrais-pgConfigProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #3a5a40;
+}
+
+.sectionLocal-pgConfigProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #5a3a55;
+}
+
 /*   CSS Celular e Tablet   */
 @media (max-width: 768px) {
     .menu ul {
@@ -1133,81 +1507,4 @@ footer {
         margin-right: auto;
         margin-left: auto;
     }
-}
-
-/* --- CSS DA NAVBAR LOGADO --- */
-.menu-pgProfile {
-    width: 100%;
-    background-color: #0D1926; /* Mesma cor do menu original */
-    color: #ffffff;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.rowCima-navPgProfile {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 32px;
-    background-color: #081018; /* Um tom mais escuro para separar */
-    border-bottom: 1px solid #15293F;
-}
-
-.imgProfile-navPgProfile {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #15293F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    overflow: hidden;
-}
-
-.iconeProfile-navPgProfile {
-    width: 20px;
-    height: auto;
-}
-
-.nomeUser-navPgProfile {
-    font-size: 14px;
-    line-height: 1.2;
-}
-
-.nomeUser-navPgProfile .azul {
-    font-weight: bold;
-    font-size: 16px;
-    color: #45DDDD;
-}
-
-.rowBaixo-navPgProfile {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-}
-
-/* Reaproveitando o estilo de links do menu original, mas adaptando */
-.links-pgProfileNav ul {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.links-pgProfileNav ul li {
-    margin: 0 15px;
-}
-
-.link-pgProfileNav {
-    font-size: 14px;
-    color: #b0b8c1;
-    transition: color 0.3s;
-}
-
-.link-pgProfileNav:hover {
-    color: #45DDDD;
 }
