@@ -1242,22 +1242,26 @@ footer {
     width: 100%;
     margin-top: 72px;
 
-    background-color: #e2e2e2;
+    background-color: #0D1926;
     position: absolute;
+    top: 0;
     z-index: 9;
 
-    color: #000000;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .rowCima-navPgProfile {
     height: 52px;
     width: 100%;
     padding: 10px 0;
-    border-top: 1px solid #cecece;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background-color: #081018;
+    border-bottom: 1px solid #15293F;
 }
 
 .leftContentRowCima-navPgProfile {
@@ -1277,7 +1281,7 @@ footer {
     align-items: center;
     object-fit: cover;
 
-    background-color: #74DDDD;
+    background-color: #15293F;
     border-radius: 100px;
 }
 
@@ -1287,11 +1291,13 @@ footer {
 }
 
 .iconeProfile-navPgProfile path {
-    fill: #0F2F51;
+    fill: #214772;
 }
 
 .nomeUser-navPgProfile {
     margin-left: 16px;
+    font-size: 14px;
+    line-height: 1.2;
 
     display: flex;
     flex-direction: column;
@@ -1299,8 +1305,9 @@ footer {
 }
 
 .nomeUser-navPgProfile .azul {
-    color: #0F2F51;
     font-weight: bold;
+    font-size: 16px;
+    color: #45DDDD;
 }
 
 .rowBaixo-navPgProfile {
@@ -1310,8 +1317,6 @@ footer {
 
     display: flex;
     flex-direction: column;
-
-    border-bottom: 1px solid #cecece;
 }
 
 .links-pgProfileNav {
@@ -1322,23 +1327,31 @@ footer {
     margin-right: 32px;
 }
 
+.links-pgProfileNav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .link-pgProfileNav {
     padding: 10px 15px;
     height: auto;
-
-    border-radius: 5px 5px 0 0;    
-    transition: background-color 0.3s ease;
-    color: #353535;
+    
+    font-size: 14px;
+    color: #b0b8c1;
+    border-radius: 5px 5px 0 0;
+    
+    transition: 0.3s ease;
 }
 
 .link-pgProfileNav:hover {
-    transition: background-color 0.3s ease;
-    background-color: #c4c4c4;
+    background-color: #101f30;
+    color: #45DDDD;
 }
 
 .liLink-pgProfileNav {
     height: 36px;
-
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1348,7 +1361,7 @@ footer {
 .main-pgProfile {
     position: relative;
     padding-top: 216px;
-
+    
     height: 2000px;
     background-color:aquamarine;
 }
@@ -1380,81 +1393,4 @@ footer {
         margin-right: auto;
         margin-left: auto;
     }
-}
-
-/* --- CSS DA NAVBAR LOGADO --- */
-.menu-pgProfile {
-    width: 100%;
-    background-color: #0D1926; /* Mesma cor do menu original */
-    color: #ffffff;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.rowCima-navPgProfile {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 32px;
-    background-color: #081018; /* Um tom mais escuro para separar */
-    border-bottom: 1px solid #15293F;
-}
-
-.imgProfile-navPgProfile {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #15293F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    overflow: hidden;
-}
-
-.iconeProfile-navPgProfile {
-    width: 20px;
-    height: auto;
-}
-
-.nomeUser-navPgProfile {
-    font-size: 14px;
-    line-height: 1.2;
-}
-
-.nomeUser-navPgProfile .azul {
-    font-weight: bold;
-    font-size: 16px;
-    color: #45DDDD;
-}
-
-.rowBaixo-navPgProfile {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-}
-
-/* Reaproveitando o estilo de links do menu original, mas adaptando */
-.links-pgProfileNav ul {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.links-pgProfileNav ul li {
-    margin: 0 15px;
-}
-
-.link-pgProfileNav {
-    font-size: 14px;
-    color: #b0b8c1;
-    transition: color 0.3s;
-}
-
-.link-pgProfileNav:hover {
-    color: #45DDDD;
 }

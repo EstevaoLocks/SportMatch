@@ -25,7 +25,7 @@
         echo '
             <div class="links">
                 <div>
-                    <a class="btnLogadoPerfil-menu" href="login.php"><img id="iconePersonBtnMenu" class="iconePerson-BtnMenuLogado" src="assets/img/icons/iconePerson.svg" alt=""></a>
+                    <a class="btnLogadoPerfil-menu" href="profile.php"><img id="iconePersonBtnMenu" class="iconePerson-BtnMenuLogado" src="assets/img/icons/iconePerson.svg" alt=""></a>
                 </div>
             </div>
         ';

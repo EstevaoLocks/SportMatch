@@ -20,8 +20,11 @@
     <title>Seu perfil</title>
 </head>
 <body>
-    <?php include 'navbar.php'?>
-    <?php include 'navbarProfile.php'?>
+    <?php
+        session_start();
+        include 'navbar.php';
+        include 'navbarProfile.php';
+    ?>
 
     <main class="main-pgProfile">
     </main>
