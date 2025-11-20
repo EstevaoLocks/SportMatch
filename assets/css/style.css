@@ -1376,8 +1376,42 @@ footer {
     margin-right: auto;
     padding-top: 216px;
     position: relative;
+
+    display: flex;
     
     background-color: #0b1a2c;
+}
+
+.sectionAgenda-pgProfile {
+    width: 75%;
+    height: 800px;
+    margin-top: 32px;
+
+    background-color: #596645;
+}
+
+.sectionDireita-pgProfile {
+    width: 25%;
+    height: calc(100% - 32px);
+    margin-top: 32px;
+
+    background-color: #554133;
+}
+
+.containerLocal-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #3a5a40;
+}
+
+.containerOutrasQuadras-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #4b6b52;
 }
 
 /*   CSS Celular e Tablet   */

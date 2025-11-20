@@ -29,6 +29,19 @@
     ?>
 
     <main class="main-pgProfile">
+        <section class="sectionAgenda-pgProfile">
+            <p>Agenda de reservas</p>
+        </section>
+
+        <section class="sectionDireita-pgProfile">
+            <div class="containerLocal-pgProfile">
+                <p>Só para mostrar em que cidade a pessoa tá</p>
+
+            </div>
+            <div class="containerOutrasQuadras-pgProfile">
+                <p>Sujestões de outras quadras</p>
+            </div>
+        </section>
     </main>
 
     <?php include 'footer.php'?>
