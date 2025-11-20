@@ -25,7 +25,7 @@
     <div class="rowBaixo-navPgProfile">
         <ul class="links-pgProfileNav">
             <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="profile.php">Perfil</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="anuncioQuadra.php">Reservas</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="quadrasReservadas.php">Reservas</a></li>
             <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Favoritos</a></li>
         </ul>
     </div>
