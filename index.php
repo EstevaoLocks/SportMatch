@@ -24,11 +24,8 @@
 
 <body>
     <?php
-    if ((isset($_SESSION['id'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))) {
-        include 'navbar_logado.php';
-    }else {
-        include 'navbar.php';
-    }
+        session_start();
+        include 'navbar.php'
     ?>
 
     <!-- Conteúdo Principal ----------- -->

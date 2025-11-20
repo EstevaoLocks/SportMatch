@@ -20,12 +20,24 @@
         </ul>
     </div>
 
-    <div class="links">
-        <div>
-            <a class="btn-secondary1-menu" href="login.php">Login<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePerson.svg" alt=""></a>
-        </div>
-        <div>
-            <a class="btn-primary2-menu" href="registro.php">Cadastro<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePersonCad.png" alt=""></a>
-        </div>
-    </div>
+    <?php
+    if ((isset($_SESSION['id'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))) {
+        echo '
+            <div class="links">
+                <div>
+                    <a class="btnLogadoPerfil-menu" href="login.php"><img id="iconePersonBtnMenu" class="iconePerson-BtnMenuLogado" src="assets/img/icons/iconePerson.svg" alt=""></a>
+                </div>
+            </div>
+        ';
+    } else {
+        echo '
+            <div class="links">
+                <div>
+                    <a class="btn-secondary1-menu" href="login.php">Login<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePerson.svg" alt=""></a>
+                </div>
+            </div>
+        ';
+    }
+    ?>
+
 </nav>

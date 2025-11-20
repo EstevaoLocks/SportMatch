@@ -5,6 +5,6 @@
         $_SESSION['nome'],
         $_SESSION['email']
     );
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit;
 ?>

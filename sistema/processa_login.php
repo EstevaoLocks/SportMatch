@@ -30,7 +30,7 @@
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
         $_SESSION['tipo_usuario'] = 'usuario'; 
-        header('Location: minhas_reservas.php'); // Manda para o painel do usuário
+        header('Location: ../minhas_reservas.php'); // Manda para o painel do usuário
         exit();
     }
 
@@ -53,5 +53,5 @@
 
     // SE NENHUM DEU CERTO
     $_SESSION['msg_login'] = "Email ou senha incorretos!";
-    header('Location: login.php');
+    header('Location: ../login.php');
 ?>

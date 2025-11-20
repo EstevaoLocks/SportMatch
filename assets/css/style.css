@@ -179,9 +179,32 @@ h2 {
     background-color: #36acac;
 }
 
-.btn-secondary1.union {
-    border-radius: 0 5px 5px 0;
-    margin-left: 0;
+.iconePerson-BtnMenuLogado {
+    width: auto;
+    height: 30px;
+    margin-left: 0px;
+}
+
+.btnLogadoPerfil-menu {
+    background-color: #45DDDD;
+    color: #0F2F51;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin: 16px;
+    border: none;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.btnLogadoPerfil-menu:hover {
+    background-color: #33b6b6;
 }
 
 .btn-primary1 {
