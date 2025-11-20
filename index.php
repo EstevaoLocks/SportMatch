@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,9 +23,12 @@
 </head>
 
 <body>
-    
-    <?php 
+    <?php
+    if ((isset($_SESSION['id'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))) {
+        include 'navbar_logado.php';
+    }else {
         include 'navbar.php';
+    }
     ?>
 
     <!-- Conteúdo Principal ----------- -->
@@ -37,13 +42,13 @@
                     <!-- Textos -->
                     <h1>Quem <code>espera</code> a bola vir no pé, <code>perde</code> o <code>chute</code></h1>
                     <p>Reserve ou cadastre sua quadra já!</p>
-    
+
                     <!-- Botões -->
                     <div class="btns-header">
-                        <a class="btn-primary2" href="#">Cadastre-se já!</a>
+                        <a href="registro.php" class="btn-primary2" href="#">Cadastre-se já!</a>
                     </div>
                 </div>
-    
+
                 <!-- Figura -->
                 <div class="figura">
                     <img src="assets/img/figuraMouse.png" alt="Icone de mouse">
@@ -67,7 +72,7 @@
                         <p class="title">Quadra de Quintal</p>
                     </div>
                 </div>
-                
+
                 <div class="cardPropaganda">
                     <img src="assets/img/Quadra-de-Futsal-profissional 1.png" alt="">
                     <div class="bodyCard">
@@ -233,7 +238,7 @@
                         <p class="titleCard-pertoVoce">Ribeirão Pires</p>
                     </div>
                 </div>
-                
+
                 <!-- Card 2 -->
                 <div class="card-pertoVoce">
                     <div class="gradienteCard-pertoVoce"></div>
@@ -244,7 +249,7 @@
                         <p class="titleCard-pertoVoce">Mauá</p>
                     </div>
                 </div>
-                
+
                 <!-- Card 3 -->
                 <div class="card-pertoVoce">
                     <div class="gradienteCard-pertoVoce"></div>
@@ -255,7 +260,7 @@
                         <p class="titleCard-pertoVoce">Santo André</p>
                     </div>
                 </div>
-                
+
                 <!-- Card 4 -->
                 <div class="card-pertoVoce">
                     <div class="gradienteCard-pertoVoce"></div>
@@ -358,9 +363,7 @@
     </main>
 
     <!-- Footer -->
-    <?php 
-        include 'footer.php';
-    ?>
+    <?php include 'footer.php'?>
 
     <script src="assets/js/script.js"></script>
 </body>

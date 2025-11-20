@@ -1,4 +1,3 @@
-<!-- Menu -->
 <nav class="menu">
     <div class="logo">
         <div class="logo-img">
@@ -13,17 +12,20 @@
     <div class="links">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="anuncioQuadra.php">Registrar</a></li>
-            <li><a href="profile.php">Categorias</a></li>
-            <li><a href="#">Perto de você</a></li>
-            <li><a href="#">Por que escolher?</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="registro.php">Registrar</a></li>
+            <li><a href="categorias.php">Categorias</a></li>
+            <li><a href="pertodevoce.php">Perto de você</a></li>
+            <li><a href="sobre.php">Por que escolher?</a></li>
+            <li><a href="contato.php">Contato</a></li>
         </ul>
     </div>
 
     <div class="links">
         <div>
-            <a class="btn-secondary1-menu" href="#">Login<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePerson.svg" alt=""></a>
+            <a class="btn-secondary1-menu" href="login.php">Login<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePerson.svg" alt=""></a>
+        </div>
+        <div>
+            <a class="btn-primary2-menu" href="registro.php">Cadastro<img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="assets/img/icons/iconePersonCad.png" alt=""></a>
         </div>
     </div>
-</nav><!-- Fim Menu -->
+</nav>
