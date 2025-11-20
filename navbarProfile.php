@@ -16,7 +16,9 @@
         <!-- conteudo da parte superior direita -->
         <div class="rightContentRowCima-navPgProfile">
             <div class="containerIconeConfig-navPgProfile">
-            <img id="iconeConfig-navPgProfile" class="iconeConfig-navPgProfile" src="assets/img/icons/iconePerfil.svg" alt="Ícone de localização">
+                <a href="configuracaoProfile.php">
+                    <img id="iconeConfig-navPgProfile" class="iconeConfig-navPgProfile" src="assets/img/icons/iconeConfiguracao.svg" alt="Ícone de Configuração">
+                </a>
             </div>
         </div>
     </div>
