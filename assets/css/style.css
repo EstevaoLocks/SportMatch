@@ -1313,10 +1313,27 @@ footer {
     color: #45DDDD;
 }
 
-.iconeConfig-navPgProfile {
-    width: auto;
+.containerIconeConfig-navPgProfile {
+    display: flex;
+    align-items: center;
+}
+
+.linkIconeConfig-navPgProfile{
     height: 18px;
-    margin-right: 32px;
+    padding: 8px;
+    margin-right: 24px;
+
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.linkIconeConfig-navPgProfile:hover{
+    background-color: #ffffff0f;
+}
+
+.iconeConfig-navPgProfile {
+    height: 100%;
+    width: auto;
     cursor: pointer;
 }
 
@@ -1373,6 +1390,7 @@ footer {
 
 /* CSS página Profile.php */
 .body-pgProfile {
+
     background-color: #081018;
 }
 
@@ -1462,6 +1480,26 @@ footer {
     position: relative;
     
     background-color: #0b1a2c;
+}
+
+.main-pgConfigProfile {
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
+}
+
+.iconeSeta-navPgProfile {
+    height: 100%;
+    cursor: pointer;
+}
+
+.iconeSeta-navPgProfile path {
+    fill: #b3b3b3;
 }
 
 .sectionDadosCadastrais-pgConfigProfile {

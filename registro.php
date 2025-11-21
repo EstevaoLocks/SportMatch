@@ -11,7 +11,10 @@
 </head>
 
 <body class="cadastro">
-    <?php include 'navbar.php'; ?>
+    <?php
+        $is_profilePg = false;
+        include 'navbar.php';
+    ?>
 
     <div class="main-content">
         <div class="container">
