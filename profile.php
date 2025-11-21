@@ -20,8 +20,6 @@
 </head>
 <body class="body-pgProfile">
     <?php
-        $is_profilePg = true;
-
         session_start();
         include 'navbar.php';
         include 'navbarProfile.php';
