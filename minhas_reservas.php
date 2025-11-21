@@ -1,4 +1,5 @@
 <?php
+    $is_profilePg = false;
     session_start();
     include 'sistema/conexao.php';
 
