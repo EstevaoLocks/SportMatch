@@ -16,7 +16,6 @@
 
     <!-- Ícone Navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/ico/logo-azul-32.ico">
-
     <title>Seu perfil</title>
 </head>
 <body class="body-pgProfile">
