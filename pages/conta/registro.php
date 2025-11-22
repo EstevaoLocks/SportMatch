@@ -1,3 +1,8 @@
+<?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../../config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - SportMatch</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="cadastro">
     <?php
-        $is_profilePg = false;
-        include 'navbar.php';
+        include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 
     <div class="main-content">
@@ -23,7 +28,7 @@
                     <div class="card-custom">
                         <h2 class="card-title">Criar Conta</h2>
                         
-                        <form action="processa_registro.php" method="POST">
+                        <form action="<?php echo BASE_URL; ?>/processa_registro.php" method="POST">
                             <div class="row">
                                 <div class="col-12 mb-4">
                                     <label class="form-label fw-bold">Eu quero:</label>

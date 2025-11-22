@@ -1,4 +1,7 @@
 <?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../config.php';
+
     // Arquivo: processa_login.php
     session_start();    
     include_once 'conexao.php';

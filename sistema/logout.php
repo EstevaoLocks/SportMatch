@@ -1,4 +1,7 @@
 <?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../config.php';
+
     session_start();
     unset(
         $_SESSION['id'],

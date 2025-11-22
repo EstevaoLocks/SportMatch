@@ -1,3 +1,8 @@
+<?php 
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 
     <!-- Ícone Navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/ico/logo-azul-32.ico">
@@ -25,8 +30,8 @@
 <body>
     <?php
         session_start();
-        $is_profilePg = false;
-        include 'navbar.php';
+
+        include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 
     <!-- Conteúdo Principal ----------- -->
@@ -361,8 +366,10 @@
     </main>
 
     <!-- Footer -->
-    <?php include 'footer.php'?>
+    <?php
+        include BASE_PATH . '/pages/includes/footer.php'
+    ?>
 
-    <script src="assets/js/script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,7 @@
 <?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../config.php';
+
     session_start();
 
     if( (!isset($_SESSION['id'])) and (!isset($_SESSION['nome'])) and (!isset($_SESSION['email'])) ){

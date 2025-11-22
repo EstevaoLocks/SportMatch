@@ -1,5 +1,8 @@
 <?php
     session_start();
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../../config.php';
+    
     include 'conexao.php';
 
     // Segurança
@@ -54,11 +57,15 @@
     <meta charset="UTF-8">
     <title>Painel Instituição</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
     <style> a { text-decoration: none; } </style>
 </head>
 <body style="background-color: #F0F2F5;">
-    <?php include 'navbar.php'; ?>
+    <?php
+        include BASE_PATH . '/pages/includes/navbar.php';
+    ?>
 
     <div class="container mt-5 pt-5">
         <h2 class="text-dark mb-4">Painel de Controle - Instituição</h2>
@@ -153,6 +160,10 @@
             </div>
         </div>
     </div>
+
+    <?php
+        include BASE_PATH . '/pages/includes/footer.php';
+    ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
