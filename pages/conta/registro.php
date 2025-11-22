@@ -28,7 +28,7 @@
                     <div class="card-custom">
                         <h2 class="card-title">Criar Conta</h2>
                         
-                        <form action="processa_registro.php" method="POST">
+                        <form action="<?php echo BASE_URL; ?>/processa_registro.php" method="POST">
                             <div class="row">
                                 <div class="col-12 mb-4">
                                     <label class="form-label fw-bold">Eu quero:</label>

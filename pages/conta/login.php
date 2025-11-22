@@ -26,7 +26,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="card-custom">
                         <div class="top-right-icon text-center">
-                            <img src="assets/img/Logo Azul.png" alt="Logo" style="width: 50px;">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/Logo Azul.png" alt="Logo" style="width: 50px;">
                         </div>
 
                         <h2 class="card-title">Login</h2>
@@ -39,7 +39,7 @@
                                 unset($_SESSION['msg_login']); // Limpa a mensagem após exibir
                             }
                         ?>
-                        <form action="sistema/processa_login.php" method="POST">
+                        <form action="<?php echo BASE_URL; ?>/sistema/processa_login.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label"><i class="far fa-envelope"></i> Email</label>
                                 <input type="email" name="email" class="form-control" required>

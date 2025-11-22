@@ -10,7 +10,7 @@
         <!-- conteudo da parte superior esquerda -->
         <div class="leftContentRowCima-navPgProfile">
             <div class="imgProfile-navPgProfile">
-                <img id="iconeProfile-navPgProfile" class="iconeProfile-navPgProfile" src="assets/img/icons/iconePerfil.svg" alt="Ícone de localização">
+                <img id="iconeProfile-navPgProfile" class="iconeProfile-navPgProfile" src="<?php echo BASE_URL; ?>/assets/img/icons/iconePerfil.svg" alt="Ícone de localização">
             </div>
             <div class="nomeUser-navPgProfile">
                 <p>Bem vindo,</p>
@@ -23,7 +23,7 @@
             <!-- Se pagina de Config -> icone seta -->
             <?php if (basename($_SERVER['PHP_SELF']) == 'configuracaoProfile.php'): ?>
                 <div class="containerIconeConfig-navPgProfile">
-                    <a class="linkIconeConfig-navPgProfile" href="profile.php">
+                    <a class="linkIconeConfig-navPgProfile" href="<?php echo BASE_URL; ?>/pages/profile/profile.php">
                         <svg class="iconeSeta-navPgProfile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                             <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                             <path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/>
@@ -34,8 +34,8 @@
             <!-- Se não, icone de engrenagem -->
             <?php else: ?>
                 <div class="containerIconeConfig-navPgProfile">
-                    <a class="linkIconeConfig-navPgProfile" href="configuracaoProfile.php">
-                        <img id="iconeConfig-navPgProfile" class="iconeConfig-navPgProfile" src="assets/img/icons/iconeConfiguracao.svg" alt="Ícone de Configuração">
+                    <a class="linkIconeConfig-navPgProfile" href="<?php echo BASE_URL; ?>/pages/profile/configuracaoProfile.php">
+                        <img id="iconeConfig-navPgProfile" class="iconeConfig-navPgProfile" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeConfiguracao.svg" alt="Ícone de Configuração">
                     </a>
                 </div>
             <?php endif; ?>
@@ -45,8 +45,8 @@
     <!-- parte inferior -->
     <div class="rowBaixo-navPgProfile">
         <ul class="links-pgProfileNav">
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="profile.php">Perfil</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="quadrasReservadas.php">Reservas</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/profile/profile.php">Perfil</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/profile/quadrasReservadas.php">Reservas</a></li>
             <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Favoritos</a></li>
         </ul>
     </div>
