@@ -121,19 +121,18 @@ class Usuario
     // login
     public static function fazerLogin($email, $senha)
     {
-        include_once 'conexao.php';
+        include_once BASE_PATH . '/sistema/conexao.php';
         // Se a sessão não está iniciada -> inicia
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        $consulta = "SELECT * FROM usuarios WHERE email = :email";
+        $consulta = "SELECT * FROM usuario WHERE email = :email";
 
         $stmt = $pdo->prepare($consulta);
 
         // Vincula os parâmetros
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
 
         // Executa a consulta
         $stmt->execute();
@@ -146,16 +145,16 @@ class Usuario
         //var_dump($resultado);
 
         if ($registros == 0) {
-            //echo "VOCÊ NÃO TEM PERMISSÃO";
-            return 'nao-encontrado';
+            echo "nao-encontrado";
         } else {
-            if (password_verify($senhaDigitada, $resultado['senha'])) {
+            // if (password_verify($senha, $resultado['senha'])) {
+            if ($senha == $resultado['senha']) {
                 $_SESSION['cod_usuario'] = $resultado['cod_usuario'];
                 $_SESSION['nome'] = $resultado['nome'];
                 $_SESSION['email'] = $resultado['email'];
-                header('Location: ../profile.php');
+                header('Location:' . BASE_URL . '/pages/profile/profile.php');
             } else {
-                return "senha-incorreta";
+                echo "senha-incorreta";
             }
         }
     } // end fazerLogin

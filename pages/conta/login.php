@@ -1,10 +1,12 @@
 <?php
-    //chama arquivo que define raíz do projeto
-    require_once __DIR__ . '/../../config.php';
+//chama arquivo que define raíz do projeto
+require_once __DIR__ . '/../../config.php';
+require_once BASE_PATH . '/sistema/classes/Usuario.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +14,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="cadastro">
     <?php
-        include BASE_PATH . '/pages/includes/navbar.php';
+    include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 
     <div class="main-content">
@@ -32,14 +35,7 @@
                         <h2 class="card-title">Login</h2>
                         <p class="card-subtitle">Entre para reservar ou gerenciar quadras</p>
 
-                        <?php
-                            // A sessão já foi iniciada no navbar.php
-                            if(isset($_SESSION['msg_login'])){
-                                echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['msg_login'] . "</div>";
-                                unset($_SESSION['msg_login']); // Limpa a mensagem após exibir
-                            }
-                        ?>
-                        <form action="<?php echo BASE_URL; ?>/sistema/processa_login.php" method="POST">
+                        <form method="POST">
                             <div class="mb-3">
                                 <label class="form-label"><i class="far fa-envelope"></i> Email</label>
                                 <input type="email" name="email" class="form-control" required>
@@ -58,12 +54,19 @@
                                 <span style="font-size: 0.9rem; color: #555;">Não tem conta? <a href="registro.php" style="color: var(--btn-dark-blue);">Cadastre-se</a></span>
                             </div>
                         </form>
+
+                        <?php
+                        if (isset($_POST['email']) && isset($_POST['senha'])) {
+                            Usuario::fazerLogin($_POST['email'], $_POST['senha']);
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
-    </body>
+
+</body>
+
 </html>
