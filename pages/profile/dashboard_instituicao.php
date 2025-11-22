@@ -63,7 +63,9 @@
     <style> a { text-decoration: none; } </style>
 </head>
 <body style="background-color: #F0F2F5;">
-    <?php include 'navbar.php'; ?>
+    <?php
+        include BASE_PATH . '/pages/includes/navbar.php';
+    ?>
 
     <div class="container mt-5 pt-5">
         <h2 class="text-dark mb-4">Painel de Controle - Instituição</h2>

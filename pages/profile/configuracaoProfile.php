@@ -28,8 +28,8 @@
     <?php
 
         session_start();
-        include 'navbar.php';
-        include 'navbarProfile.php';
+        include BASE_PATH . '/pages/includes/navbar.php';
+        include BASE_PATH . '/pages/includes/navbarProfile.php';
     ?>
 
     <main class="main-pgConfigProfile">
