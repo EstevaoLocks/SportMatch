@@ -1,3 +1,8 @@
+<?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../../config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,9 +17,6 @@
 
 <body class="cadastro">
     <?php
-        //chama arquivo que define raíz do projeto
-        require_once __DIR__ . '/../../config.php';
-        
         include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 

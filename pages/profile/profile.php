@@ -1,3 +1,8 @@
+<?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../../config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,8 +26,6 @@
 <body class="body-pgProfile">
     <?php
         session_start();
-        //chama arquivo que define raíz do projeto
-        require_once __DIR__ . '/../../config.php';
 
         include 'navbar.php';
         include 'navbarProfile.php';
