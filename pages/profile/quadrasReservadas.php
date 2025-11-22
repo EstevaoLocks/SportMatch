@@ -46,6 +46,6 @@
         include BASE_PATH . '/pages/includes/footer.php';
     ?>
 
-    <script src="assets/js/script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
 </body>
 </html>
