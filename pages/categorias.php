@@ -27,7 +27,9 @@
 </head>
 <body style="background-color: #F9FAFB;">
 
-    <?php include 'navbar.php'; ?>
+    <?php
+        include BASE_PATH . '/pages/includes/navbar.php';
+    ?>
 
     <div class="container py-5 mt-5">
         <h2 class="text-start mb-4" style="border-left: 5px solid #F4743B; padding-left: 15px; color: #0F2F51;">Encontre sua Quadra</h2>
@@ -67,4 +69,8 @@
     </div>
     
     </body>
+
+    <?php
+        include BASE_PATH . '/pages/includes/footer.php';
+    ?>
 </html>

@@ -29,7 +29,7 @@
         //chama arquivo que define raíz do projeto
         require_once __DIR__ . '/config.php';
 
-        include 'navbar.php';
+        include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 
     <!-- Conteúdo Principal ----------- -->
@@ -364,7 +364,9 @@
     </main>
 
     <!-- Footer -->
-    <?php include 'footer.php'?>
+    <?php
+        include BASE_PATH . '/pages/includes/footer.php'
+    ?>
 
     <script src="assets/js/script.js"></script>
 </body>

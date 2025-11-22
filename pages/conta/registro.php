@@ -15,7 +15,7 @@
         //chama arquivo que define raíz do projeto
         require_once __DIR__ . '/../../config.php';
         
-        include 'navbar.php';
+        include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 
     <div class="main-content">

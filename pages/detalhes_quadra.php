@@ -56,7 +56,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style> a { text-decoration: none; } </style>
 </head>
-<body style="background-color: #02050A; color: white;"> <?php include 'navbar.php'; ?>
+<body style="background-color: #02050A; color: white;">
+    <?php
+        include BASE_PATH . '/pages/includes/navbar.php';
+    ?>
 
     <div class="container py-5 mt-5">
         <div class="row">
