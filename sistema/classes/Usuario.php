@@ -140,7 +140,7 @@
                 return 'nao-encontrado';
             } else {
                 if (password_verify($senhaDigitada, $resultado['senha'])) {
-                    $_SESSION['id'] = $resultado['id'];
+                    $_SESSION['cod_usuario'] = $resultado['cod_usuario'];
                     $_SESSION['nome'] = $resultado['nome'];
                     $_SESSION['email'] = $resultado['email'];
                     header('Location: ../profile.php');
