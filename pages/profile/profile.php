@@ -20,13 +20,11 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 
     <!-- Ícone Navegador -->
-    <link rel="icon" type="image/x-icon" href="assets/img/ico/logo-azul-32.ico">
+    <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/assets/img/ico/logo-azul-32.ico">
     <title>Seu perfil</title>
 </head>
 <body class="body-pgProfile">
     <?php
-        session_start();
-
         include BASE_PATH . '/pages/includes/navbar.php';
         include BASE_PATH . '/pages/includes/navbarProfile.php';
     ?>

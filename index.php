@@ -29,8 +29,6 @@
 
 <body>
     <?php
-        session_start();
-
         include BASE_PATH . '/pages/includes/navbar.php';
     ?>
 

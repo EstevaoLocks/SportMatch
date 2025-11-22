@@ -1,4 +1,8 @@
-<?php 
+<?php
+    // iniciando sessão e buffer
+    ob_start();
+    session_start();
+
     // Descobre caminho das pastas
     define('BASE_PATH', __DIR__);
 

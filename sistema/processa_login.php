@@ -3,7 +3,9 @@
     require_once __DIR__ . '/../config.php';
 
     // Arquivo: processa_login.php
-    session_start();    
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     include_once 'conexao.php';
     
     // Recebe dados do formulário
@@ -33,7 +35,7 @@
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
         $_SESSION['tipo_usuario'] = 'usuario'; 
-        header('Location: ../minhas_reservas.php'); // Manda para o painel do usuário
+        header('Location:' . BASE_URL . '/pages/profile/profile.php'); // Manda para o painel do usuário
         exit();
     }
 
@@ -50,7 +52,7 @@
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
         $_SESSION['tipo_usuario'] = 'instituicao';
-        header('Location: dashboard_instituicao.php'); // Manda para o painel da instituição
+        header('Location:' . BASE_URL . '/pages/profile/dashboard_instituicao.php'); // Manda para o painel da instituição
         exit();
     }
 
