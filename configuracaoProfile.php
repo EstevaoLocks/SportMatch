@@ -36,6 +36,31 @@
         <section class="sectionLocal-pgConfigProfile">
             <p>mosta dados do endereço cadastrado e da a opção de alterar</p>
         </section>
+
+        <section class="sectionMaisOpcoes-pgConfigProfile">
+            <h2>Ações da Conta</h2>
+            <form method="POST">
+                <button type="submit" name="btnLogOut" value="fazerLogout">Fazer Logout</button>
+            </form>
+
+            <?php 
+                if (isset($_POST['btnLogOut']) && $_POST['btnLogOut'] == 'fazerLogout') {
+                    Usuario::fazerLogout();
+                    echo "até aqui funciona";
+                    exit;
+                }
+
+                // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                //     if (isset($_POST['btnLogOut']) && $_POST['btnLogOut'] === 'fazerLogout') {
+                //         // ação
+                //         session_start();
+                //         session_destroy();
+                //         header("Location: login.php");
+                //         exit;
+                //     }
+                // }
+            ?>
+        </section>
     </main>
 
     <?php include 'footer.php'?>

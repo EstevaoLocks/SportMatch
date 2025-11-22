@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'conexao.php';
+    include 'sistema/conexao.php';
 
     if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 'usuario'){
         header('Location: login.php'); exit;

@@ -1,18 +1,10 @@
 <?php
 class Usuario
 {
-    // Atributos
-    private $pdo;
     // Métodos
 
-    // Construtor
-    public function __construct($pdo)
-    {
-        $this->pdo = $pdo;
-    }
-
     // criar conta
-    public function criarContaUsuario(
+    public static function criarContaUsuario(
         // Coleta dados comuns
         $nome,
         $username,
@@ -32,12 +24,16 @@ class Usuario
         $bairro,
         $rua,
         $numero) {
+
+        session_start();
+        include_once 'conexao.php';
+
         try {
 
             $sql = "INSERT INTO usuario (nome, username, email, senha, telefone, cpf, rg, datanasc, cep, estado, cidade, bairro, rua, numero) 
                     VALUES (:nome, :username, :email, :senha, :telefone, :cpf, :rg, :datanasc, :cep, :estado, :cidade, :bairro, :rua, :numero)";
 
-            $stmt = $this->pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':cpf', $cpf);
             $stmt->bindParam(':rg', $rg);
             $stmt->bindParam(':datanasc', $datanasc);
@@ -65,7 +61,7 @@ class Usuario
     } // end method criarContaUsuario
 
     // criar conta
-    public function criarContaInstituicao(
+    public static function criarContaInstituicao(
         // Coleta dados comuns
         $nome,
         $username,
@@ -80,12 +76,16 @@ class Usuario
         $bairro,
         $rua,
         $numero) {
+        
+        session_start();
+        include_once 'conexao.php';
+
         try {
             // Instituição não tem CPF/RG/DataNasc na tabela SQL fornecida
             $sql = "INSERT INTO instituicao (nome, username, email, senha, telefone, cep, estado, cidade, bairro, rua, numero) 
                         VALUES (:nome, :username, :email, :senha, :telefone, :cep, :estado, :cidade, :bairro, :rua, :numero)";
     
-            $stmt = $this->pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
     
             // Bind dos parâmetros comuns
             $stmt->bindParam(':nome', $nome);
@@ -110,11 +110,9 @@ class Usuario
     }// end method criarContaAdm
 
     // login
-    public function fazerLogin($email, $senha) {
+    public static function fazerLogin($email, $senha) {
         session_start();
         include_once 'conexao.php';
-
-        password_verify($senha, $senhaBD);
 
         $consulta = "SELECT * FROM usuarios WHERE email = :email";
 
@@ -151,8 +149,10 @@ class Usuario
     } // end fazerLogin
 
     // logout
-    public function fazerLogout() {
+    public static function fazerLogout() {
         session_start();
         session_destroy();
+
+        header('Location: index.php');
     }
 }
