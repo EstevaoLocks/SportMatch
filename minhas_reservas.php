@@ -1,7 +1,6 @@
 <?php
-    $is_profilePg = false;
     session_start();
-    include 'sistema/conexao.php';
+    include 'conexao.php';
 
     if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 'usuario'){
         header('Location: login.php'); exit;

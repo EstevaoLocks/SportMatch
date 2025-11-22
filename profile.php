@@ -27,7 +27,9 @@
 
     <main class="main-pgProfile">
         <section class="sectionAgenda-pgProfile">
-            <p>Agenda de reservas</p>
+            <h2>Últimas Reservas</h2>
+            <hr>
+            
         </section>
 
         <section class="sectionDireita-pgProfile">
