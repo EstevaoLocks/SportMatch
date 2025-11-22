@@ -1,10 +1,12 @@
 <?php
     //chama arquivo que define raíz do projeto
     require_once __DIR__ . '/../../config.php';
+    require_once BASE_PATH . '/sistema/classes/Usuario.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +26,11 @@
 
     <title>Seu perfil - Configurações</title>
 </head>
+
 <body class="body-pgProfile">
     <?php
-
-        session_start();
-        include BASE_PATH . '/pages/includes/navbar.php';
-        include BASE_PATH . '/pages/includes/navbarProfile.php';
+    include BASE_PATH . '/pages/includes/navbar.php';
+    include BASE_PATH . '/pages/includes/navbarProfile.php';
     ?>
 
     <main class="main-pgConfigProfile">
@@ -47,30 +48,19 @@
                 <button type="submit" name="btnLogOut" value="fazerLogout">Fazer Logout</button>
             </form>
 
-            <?php 
-                if (isset($_POST['btnLogOut']) && $_POST['btnLogOut'] == 'fazerLogout') {
-                    Usuario::fazerLogout();
-                    echo "até aqui funciona";
-                    exit;
-                }
-
-                // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                //     if (isset($_POST['btnLogOut']) && $_POST['btnLogOut'] === 'fazerLogout') {
-                //         // ação
-                //         session_start();
-                //         session_destroy();
-                //         header("Location: login.php");
-                //         exit;
-                //     }
-                // }
+            <?php
+            if (isset($_POST['btnLogOut']) && $_POST['btnLogOut'] == 'fazerLogout') {
+                Usuario::fazerLogout();
+            }
             ?>
         </section>
     </main>
 
     <?php
-        include BASE_PATH . '/pages/includes/footer.php';
+    include BASE_PATH . '/pages/includes/footer.php';
     ?>
 
     <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
 </body>
+
 </html>

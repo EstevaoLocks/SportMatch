@@ -25,8 +25,6 @@
 </head>
 <body class="body-pgProfile">
     <?php
-        session_start();
-
         include BASE_PATH . '/pages/includes/navbar.php';
         include BASE_PATH . '/pages/includes/navbarProfile.php';
     ?>

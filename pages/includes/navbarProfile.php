@@ -16,15 +16,15 @@ require_once __DIR__ . '/../../config.php';
                 <p>Bem vindo,</p>
                 <p class="azul">
                     <?php
-                        // Pega nome do usuário
-                        require BASE_PATH . '/sistema/conexao.php';
-                        $sql = "SELECT nome FROM usuario WHERE email = :email";
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->bindParam(':email', $_SESSION['email']);
-                        $stmt->execute();
-                        while ($usuario = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo $usuario['nome'];
-                        }
+                    // Pega nome do usuário
+                    require BASE_PATH . '/sistema/conexao.php';
+                    $sql = "SELECT nome FROM usuario WHERE email = :email";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':email', $_SESSION['email']);
+                    $stmt->execute();
+                    while ($usuario = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo $usuario['nome'];
+                    }
                     ?>
                 </p>
             </div>

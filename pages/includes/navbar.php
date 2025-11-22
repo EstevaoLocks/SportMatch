@@ -1,6 +1,6 @@
-<?php 
-    //chama arquivo que define raíz do projeto
-    require_once __DIR__ . '/../../config.php';
+<?php
+//chama arquivo que define raíz do projeto
+require_once __DIR__ . '/../../config.php';
 ?>
 
 <nav class="menu">
