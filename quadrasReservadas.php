@@ -21,9 +21,10 @@
 </head>
 <body class="body-pgQuadrasReservadas">
     <?php
-        $is_profilePg = true;
-
         session_start();
+        //chama arquivo que define raíz do projeto
+        require_once __DIR__ . '/../config.php';
+
         include 'navbar.php';
         include 'navbarProfile.php';
     ?>

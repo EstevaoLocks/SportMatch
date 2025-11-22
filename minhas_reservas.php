@@ -1,5 +1,8 @@
 <?php
     session_start();
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../config.php';
+
     include 'sistema/conexao.php';
 
     if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 'usuario'){

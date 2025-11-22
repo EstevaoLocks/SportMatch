@@ -25,7 +25,10 @@
 <body>
     <?php
         session_start();
-        $is_profilePg = false;
+        
+        //chama arquivo que define raíz do projeto
+        require_once __DIR__ . '/../config.php';
+
         include 'navbar.php';
     ?>
 

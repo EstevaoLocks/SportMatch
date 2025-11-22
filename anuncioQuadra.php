@@ -20,7 +20,12 @@
     <title>Anúncio de Quadra</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php 
+        //chama arquivo que define raíz do projeto
+        require_once __DIR__ . '/../config.php';
+
+        include 'navbar.php'; 
+    ?>
 
     <!-- Conteúdo página anúncio quadra -->
     <main class="mainEstreita">
