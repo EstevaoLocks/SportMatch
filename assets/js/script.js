@@ -51,3 +51,4 @@ imgToSVGElement("iconeLocal-Footer");
 
 // Ícone Perfil Navbar Profile Page
 imgToSVGElement("iconeProfile-navPgProfile");
+imgToSVGElement("iconeConfig-navPgProfile");

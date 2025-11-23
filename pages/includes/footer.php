@@ -1,3 +1,8 @@
+<?php
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../../config.php';
+?>
+
 <!-- Footer -->
 <footer>
     <div class="containerFooter">
@@ -5,7 +10,7 @@
             <div class="colLinksFooter">
                 <div class="containerLogoFooter">
                     <div class="logo-imgFooter">
-                        <img src="assets/img/Logo Branco.png" alt="">
+                        <img src="<?php echo BASE_URL; ?>/assets/img/Logo Branco.png" alt="">
                     </div>
                     <div class="nome-siteFooter">
                         <p>SportMatch</p>
@@ -38,25 +43,25 @@
                 <ul>
                     <li class="linkFooter">
                         <a class="linkContato-Footer" href="#">
-                            <img id="iconeTelefone-Footer" class="iconeContato-Footer" src="assets/img/icons/iconeTelefone.svg" alt="Icone de telefone">
+                            <img id="iconeTelefone-Footer" class="iconeContato-Footer" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeTelefone.svg" alt="Icone de telefone">
                             0800-SUPORTE-SPORT-MATCH
                         </a>
                     </li>
                     <li class="linkFooter">
                         <a class="linkContato-Footer" href="#">
-                            <img id="iconeEmail-Footer" class="iconeContato-Footer" src="assets/img/icons/iconeEmail.svg" alt="Ícone de email">
+                            <img id="iconeEmail-Footer" class="iconeContato-Footer" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeEmail.svg" alt="Ícone de email">
                             suporte@sportmatch.com
                         </a>
                     </li>
                     <li class="linkFooter">
                         <a class="linkContato-Footer" href="#">
-                            <img id="iconeWhatsapp-Footer" class="iconeWhatsapp-Footer" src="assets/img/icons/iconeWhatsapp.svg" alt="Ícone do WhatsApp">
+                            <img id="iconeWhatsapp-Footer" class="iconeWhatsapp-Footer" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeWhatsapp.svg" alt="Ícone do WhatsApp">
                             (42)12345-6789
                         </a>
                     </li>
                     <li class="linkFooter">
                         <a class="linkContato-Footer" href="#">
-                            <img id="iconeLocal-Footer" class="iconeLocal-Footer" src="assets/img/icons/iconeLocal.svg" alt="Ícone de localização">
+                            <img id="iconeLocal-Footer" class="iconeLocal-Footer" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeLocal.svg" alt="Ícone de localização">
                             Em todos os estados do Brasil!
                         </a>
                     </li>
