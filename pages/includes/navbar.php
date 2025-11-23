@@ -22,7 +22,6 @@ require_once __DIR__ . '/../../config.php';
             <li><a href="<?php echo BASE_URL; ?>/pages/pertodevoce.php">Perto de você</a></li>
             <li><a href="<?php echo BASE_URL; ?>/pages/sobre.php">Por que escolher?</a></li>
             <li><a href="<?php echo BASE_URL; ?>/pages/contato.php">Contato</a></li>
-            <li><a href="<?php echo BASE_URL; ?>/pages/contato.php">Sobre nós</a></li>
         </ul>
     </div>
 
