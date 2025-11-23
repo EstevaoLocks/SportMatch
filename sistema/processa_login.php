@@ -1,38 +1,62 @@
 <?php
-    session_start();    
+    //chama arquivo que define raíz do projeto
+    require_once __DIR__ . '/../config.php';
+
+    // Arquivo: processa_login.php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     include_once 'conexao.php';
     
-    $email = $_POST['email'];
+    // Recebe dados do formulário
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $senha = $_POST['senha'];
     
-    $consulta = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
-    
-    $stmt = $pdo->prepare($consulta);
-    
-    // Vincula os parâmetros
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':senha', $senha);
-    
-    // Executa a consulta
-    $stmt->execute();
+    // 1. VERIFICAÇÃO DE ADMINISTRADOR (Fixo para testes)
+    if($email == 'admin@sportmatch.com' && $senha == 'admin123'){
+        $_SESSION['id'] = 0;
+        $_SESSION['nome'] = 'Administrador';
+        $_SESSION['email'] = $email;
+        $_SESSION['tipo_usuario'] = 'admin';
+        header('Location: dashboard_admin.php'); // Ou index.php se não tiver dash de admin
+        exit();
+    }
 
-    // Obtém o número de registros encontrados
-    $registros = $stmt->rowCount();
-    
-    // Obtém o resultado
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    // 2. VERIFICAÇÃO DE USUÁRIO COMUM
+    $queryUser = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
+    $stmtUser = $pdo->prepare($queryUser);
+    $stmtUser->bindParam(':email', $email);
+    $stmtUser->bindParam(':senha', $senha);
+    $stmtUser->execute();
 
-    //var_dump($resultado);
-    
-    
-    if($registros == 1){
-        $_SESSION['id'] = $resultado['id'];
+    if($stmtUser->rowCount() == 1){
+        $resultado = $stmtUser->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['id'] = $resultado['cod_usuario'];
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
-        header('Location: restrita.php');
-        //echo "ACESSO PERMITIDO PARA A RESTRITA.PHP";
-    }else{        
-        //echo "VOCÊ NÃO TEM PERMISSÃO";
-        header('Location: index.php');
+        $_SESSION['tipo_usuario'] = 'usuario'; 
+        header('Location:' . BASE_URL . '/pages/profile/profile.php'); // Manda para o painel do usuário
+        exit();
     }
+
+    // 3. VERIFICAÇÃO DE INSTITUIÇÃO
+    $queryInst = "SELECT * FROM instituicao WHERE email = :email AND senha = :senha";
+    $stmtInst = $pdo->prepare($queryInst);
+    $stmtInst->bindParam(':email', $email);
+    $stmtInst->bindParam(':senha', $senha);
+    $stmtInst->execute();
+
+    if($stmtInst->rowCount() == 1){
+        $resultado = $stmtInst->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['id'] = $resultado['cod_instituicao'];
+        $_SESSION['nome'] = $resultado['nome'];
+        $_SESSION['email'] = $resultado['email'];
+        $_SESSION['tipo_usuario'] = 'instituicao';
+        header('Location:' . BASE_URL . '/pages/profile/dashboard_instituicao.php'); // Manda para o painel da instituição
+        exit();
+    }
+
+    // SE NENHUM DEU CERTO
+    $_SESSION['msg_login'] = "Email ou senha incorretos!";
+    header('Location: ../login.php');
 ?>

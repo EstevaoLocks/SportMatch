@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-body: #02050A;
+    --bg-footer: #0E2439;
+    --btn-dark-blue: #102841;
+    --btn-teal: #70D4D6;
+    --text-muted: #6c757d;
+    --input-bg: #F0F2F5;
+}
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
 
+.menu .links ul,
+.containerStars,
+.linksBottomFooter {
     display: flex;
 }
 
@@ -40,10 +55,12 @@ h2 {
     align-items: center;
 
     color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .menu .links {
     height: 100%;
+    min-width: 173px;
 
     display: flex;
     align-items: center;
@@ -131,6 +148,23 @@ h2 {
 
     transition: background-color 0.3s ease;
 }
+.btn-primary2-menu {
+    background-color: #ca5d2d;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
 
 .iconePerson-BtnMenu path {
     fill: #0F2F51;
@@ -147,9 +181,32 @@ h2 {
     background-color: #36acac;
 }
 
-.btn-secondary1.union {
-    border-radius: 0 5px 5px 0;
-    margin-left: 0;
+.iconePerson-BtnMenuLogado {
+    width: auto;
+    height: 30px;
+    margin-left: 0px;
+}
+
+.btnLogadoPerfil-menu {
+    background-color: #45DDDD;
+    color: #0F2F51;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin: 16px;
+    border: none;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.btnLogadoPerfil-menu:hover {
+    background-color: #33b6b6;
 }
 
 .btn-primary1 {
@@ -743,6 +800,194 @@ header.home .figura img {
     font-size: 16px;
 }
 
+/* --- Layout Central (Wrappers) --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* --- Cards Brancos (Formulários) --- */
+.card-custom {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    width: 100%;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.card-subtitle {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Ícone Flutuante (Mapa/Logo) --- */
+.top-right-icon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 60px;
+    opacity: 0.9;
+}
+
+/* --- Inputs --- */
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 5px;
+}
+.form-label i {
+    margin-right: 5px;
+    color: #333;
+}
+
+.form-control, .form-select {
+    background-color: var(--input-bg);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: #ddd;
+    box-shadow: none;
+}
+
+/* --- Botões --- */
+.btn-custom-dark {
+    background-color: #102841;
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-custom-dark:hover {
+    background-color: #1b3d5f;
+    color: #fff;
+}
+
+.btn-custom-teal {
+    background-color: var(--btn-teal);
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-custom-teal:hover {
+    background-color: #5bc2c4;
+    color: #fff;
+}
+
+.btn-google {
+    background-color: #f8f9fa;
+    color: #333;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-google:hover {
+    background-color: #eee;
+}
+
+/* --- Elementos Específicos de Cadastro --- */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-check-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* --- Elementos Específicos de Perfil --- */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    background-color: var(--btn-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #102841;
+    border: 5px solid #fff; /* Borda branca interna se necessário, ou sombra */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profile-welcome h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+.profile-welcome p {
+    color: #888;
+    margin: 0;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.profile-link {
+    color: var(--btn-teal);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.exit-link {
+    color: var(--btn-dark-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cadastro{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-body);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 footer {
     background-color: #0F2F51;
     width: 100%;
@@ -993,26 +1238,40 @@ footer {
 }
 
 
-/* CSS página Profile.php */
+/* CSS página navbarProfile.php */
 .menu-pgProfile {
-    height: 144px;
+    height: auto;
     width: 100%;
     margin-top: 72px;
 
-    background-color: #e2e2e2;
+    /* background-color: #0D1926; */
+    background-color: #081018;
     position: absolute;
+    top: 0;
     z-index: 9;
 
-    color: #000000;
+    color: #ffffff;
+    border-bottom: 1px solid #041b33;
 }
 
 .rowCima-navPgProfile {
+    height: 52px;
     width: 100%;
     padding: 10px 0;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
+    background-color: #081018;
+    /* border-bottom: 1px solid #15293F; */
+}
+
+.leftContentRowCima-navPgProfile {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
 }
 
 .imgProfile-navPgProfile {
@@ -1025,7 +1284,7 @@ footer {
     align-items: center;
     object-fit: cover;
 
-    background-color: #74DDDD;
+    background-color: #15293F;
     border-radius: 100px;
 }
 
@@ -1035,11 +1294,13 @@ footer {
 }
 
 .iconeProfile-navPgProfile path {
-    fill: #0F2F51;
+    fill: #214772;
 }
 
 .nomeUser-navPgProfile {
     margin-left: 16px;
+    font-size: 14px;
+    line-height: 1.2;
 
     display: flex;
     flex-direction: column;
@@ -1047,14 +1308,42 @@ footer {
 }
 
 .nomeUser-navPgProfile .azul {
-    color: #0F2F51;
     font-weight: bold;
+    font-size: 16px;
+    color: #45DDDD;
+}
+
+.containerIconeConfig-navPgProfile {
+    display: flex;
+    align-items: center;
+}
+
+.linkIconeConfig-navPgProfile{
+    height: 18px;
+    padding: 8px;
+    margin-right: 24px;
+
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.linkIconeConfig-navPgProfile:hover{
+    background-color: #ffffff0f;
+}
+
+.iconeConfig-navPgProfile {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
 }
 
 .rowBaixo-navPgProfile {
-    width: 100%;
+    height: auto;
+    width: calc(100% - 32px);
+    padding: 0 16px;
 
     display: flex;
+    flex-direction: column;
 }
 
 .links-pgProfileNav {
@@ -1065,17 +1354,157 @@ footer {
     margin-right: 32px;
 }
 
+.links-pgProfileNav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .link-pgProfileNav {
     padding: 10px 15px;
-    height: 100%;
+    height: auto;
     
-    transition: background-color 0.3s ease;
-    color: #353535;
+    font-size: 14px;
+    color: #b0b8c1;
+    border-radius: 5px 5px 0 0;
+    
+    transition: 0.3s ease;
+}
+
+.liLink-pgProfileNav.active {
+    border-bottom: 1px solid #75DDDD;
+}
+
+.link-pgProfileNav:hover {
+    background-color: #0b1825;
+    color: #45DDDD;
+}
+
+.liLink-pgProfileNav {
+    height: 36px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS página Profile.php */
+.body-pgProfile {
+
+    background-color: #081018;
 }
 
 .main-pgProfile {
-    position: relative;
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 216px;
+    position: relative;
+
+    display: flex;
+    
+    background-color: #0b1a2c;
+}
+
+.sectionAgenda-pgProfile {
+    width: 75%;
+    height: 800px;
+    margin-top: 32px;
+
+    background-color: #596645;
+}
+
+.sectionDireita-pgProfile {
+    width: 25%;
+    height: auto;
+    margin-top: 32px;
+
+    background-color: #554133;
+}
+
+.containerLocal-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #3a5a40;
+}
+
+.containerOutrasQuadras-pgProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #4b6b52;
+}
+
+/* CSS página quadrasReservadas.php */
+.body-pgQuadrasReservadas {
+    background-color: #081018;
+}
+
+.main-pgQuadrasReservadas {
+    height: 2000px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
+}
+
+.sectionCalendario-pgQuadrasReservadas {
+    width: 100%;
+    height: 300px;
+    margin-top: 32px;
+
+    background-color: #596645;
+}
+
+.sectionReservas-pgQuadrasReservadas {
+    width: 100%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: #554133;
+}
+
+.main-pgConfigProfile {
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 216px;
+    position: relative;
+    
+    background-color: #0b1a2c;
+}
+
+.iconeSeta-navPgProfile {
+    height: 100%;
+    cursor: pointer;
+}
+
+.iconeSeta-navPgProfile path {
+    fill: #b3b3b3;
+}
+
+.sectionDadosCadastrais-pgConfigProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #3a5a40;
+}
+
+.sectionLocal-pgConfigProfile {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: #5a3a55;
 }
 
 /*   CSS Celular e Tablet   */
