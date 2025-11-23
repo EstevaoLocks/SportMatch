@@ -112,7 +112,7 @@ $quadras = $stmt->fetchAll();
                     <?php endforeach; ?>
                 <?php else: ?>
                     <div class="mensagemSemQuadra">
-                        <p>Você ainda não tem nenhuma reserva</p>
+                        <p>Você ainda não tem nenhuma nenhuma quadra favoritada</p>
                     </div>
                 <?php endif; ?>
 
