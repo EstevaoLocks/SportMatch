@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,40 +13,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Ícone Navegador -->
+    <link rel="icon" type="image/x-icon" href="assets/img/ico/logo-azul-32.ico">
+
     <title>Home</title>
 </head>
 
 <body>
-    <!-- Menu -->
-    <nav class="menu">
-        <div class="logo">
-            <div class="logo-img">
-                <img src="assets/img/Logo Azul.png" alt="">
-            </div>
-            <div class="nome-site">
-                <p>SportMatch</p>
-                <p class="azul">Brasil</p>
-            </div>
-        </div>
-
-        <div class="links">
-            <ul>
-                <li class="ativo"><a href="#">Home</a></li>
-                <li><a href="#">Registrar</a></li>
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Perto de você</a></li>
-                <li><a href="#">Por que escolher?</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </div>
- 
-        <div class="links">
-            <div>
-                <a class="btn-primary1 union" href="#">Cadastre-se</a>
-                <a class="btn-secondary1 union" href="#">Login</a>
-            </div>
-        </div>
-    </nav><!-- Fim Menu -->
+    <?php 
+        include 'navbar.php';
+    ?>
 
     <!-- Conteúdo Principal ----------- -->
     <main>
@@ -63,8 +39,7 @@
     
                     <!-- Botões -->
                     <div class="btns-header">
-                        <a class="btn-primary2" href="#">Cadastre-se</a>
-                        <a class="btn-primary1" href="#">Login</a>
+                        <a class="btn-primary2" href="#">Cadastre-se já!</a>
                     </div>
                 </div>
     
@@ -241,27 +216,151 @@
             </div>
         </section><!-- Fim Section 2 - Nossas Categorias -->
 
-        <!-- Section 3 - Porque escolher-nos -->
+        <!-- Section 3 - Perto de Você -->
+        <section class="sectionPertoVoce">
+            <h2 class="titleContratante">Quadras perto de você</h2>
+            <p class="subTitleContratante">Explore as melhores opções ao seu lado!</p>
+
+            <div class="row-pertoVoce">
+                <!-- Card 1 -->
+                <div class="card-pertoVoce">
+                    <div class="gradienteCard-pertoVoce"></div>
+                    <img class="cardImg-pertoVoce" src="assets/img/Lugares/bairros-de-ribeirao-pires 1.png" alt="Ícone de relógio">
+                    <div class="containerLocal-pertoVoce">
+                        <!-- Img que será convertida em SVG -->
+                        <img id="iconeLocalCard1" class="icone-pertoVoce" src="assets/img/icons/iconeLocal.svg" alt="">
+                        <p class="titleCard-pertoVoce">Ribeirão Pires</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card-pertoVoce">
+                    <div class="gradienteCard-pertoVoce"></div>
+                    <img class="cardImg-pertoVoce" src="assets/img/Lugares/Maua-SP-740x415-1 1.png" alt="Ícone de relógio">
+                    <div class="containerLocal-pertoVoce">
+                        <!-- Img que será convertida em SVG -->
+                        <img id="iconeLocalCard2" class="icone-pertoVoce" src="assets/img/icons/iconeLocal.svg" alt="">
+                        <p class="titleCard-pertoVoce">Mauá</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card-pertoVoce">
+                    <div class="gradienteCard-pertoVoce"></div>
+                    <img class="cardImg-pertoVoce" src="assets/img/Lugares/prefeitura-de-santo-andre-860x570 1.png" alt="Ícone de relógio">
+                    <div class="containerLocal-pertoVoce">
+                        <!-- Img que será convertida em SVG -->
+                        <img id="iconeLocalCard3" class="icone-pertoVoce" src="assets/img/icons/iconeLocal.svg" alt="">
+                        <p class="titleCard-pertoVoce">Santo André</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="card-pertoVoce">
+                    <div class="gradienteCard-pertoVoce"></div>
+                    <img class="cardImg-pertoVoce" src="assets/img/Lugares/imagem Suzano.png" alt="Ícone de relógio">
+                    <div class="containerLocal-pertoVoce">
+                        <!-- Img que será convertida em SVG -->
+                        <img id="iconeLocalCard4" class="icone-pertoVoce" src="assets/img/icons/iconeLocal.svg" alt="">
+                        <p class="titleCard-pertoVoce">Suzano</p>
+                    </div>
+                </div>
+            </div><!-- Fim Row -->
+        </section>
+
+        <!-- Section 4 - Porque escolher-nos -->
         <section class="sectionPorqueEscolher">
             <div class="porqueContratar">
                 <h2 class="title-porqueEscolher">Por que reservar através do SportMatch?</h2>
                 <p class="subtitle-porqueEscolher">Veja o quão mais fácil seu lazer e cuidados físicos se tornam:</p>
                 <div class="row-porqueEscolher">
+                    <!-- Card 1 -->
                     <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueReservar">
+                            <img src="assets/img/icons/iconeRelogio.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Sistema de Agendamento</p>
+                        <p class="descricaoCard-porqueEscolher">Saiba exatamente quando as quadras estiverem livres</p>
+                    </div>
 
+                    <!-- Card 2 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueReservar">
+                            <img src="assets/img/icons/iconeCartao.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Pesquisa de Preço</p>
+                        <p class="descricaoCard-porqueEscolher">Aqui você consegue ver todos os preços e ver qual se encaixa em seu bolso</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueReservar">
+                            <img src="assets/img/icons/iconeLocal.png " alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Locais</p>
+                        <p class="descricaoCard-porqueEscolher">Saiba todas as quadras perto de você</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueReservar">
+                            <img src="assets/img/icons/IconeGlobo.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Reserva fácil</p>
+                        <p class="descricaoCard-porqueEscolher">Reserve um horário em qualquer quadra em alguns cliques</p>
                     </div>
                 </div>
             </div>
+
             <div class="porqueCadastrar">
                 <h2 class="title-porqueEscolher">Por que cadastrar sua quadra no SportMatch?</h2>
                 <p class="subtitle-porqueEscolher">Dê vida à quadra do seu quintal ou mais visibilidade à sua quadra profissional</p>
                 <div class="row-porqueEscolher">
+                    <!-- Card 1 -->
                     <div class="card-porqueEscolher">
-                        
+                        <div class="iconeCard-porqueCadastrar">
+                            <img src="assets/img/icons/iconeRelogio.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Sistema de Agendamento</p>
+                        <p class="descricaoCard-porqueEscolher">Sua quadra durante o tempo que puder</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueCadastrar">
+                            <img src="assets/img/icons/iconeCartao.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Monetize sua quadra</p>
+                        <p class="descricaoCard-porqueEscolher">Cadastre sua quadra sem muito uso e transforme ela em uma renda extra!</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueCadastrar">
+                            <img src="assets/img/icons/iconeOlho.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Mais visibilidade</p>
+                        <p class="descricaoCard-porqueEscolher">Sua quadra ficará visível a todos os usuários da plataforma!</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card-porqueEscolher">
+                        <div class="iconeCard-porqueCadastrar">
+                            <img src="assets/img/icons/IconeGlobo.png" alt="Ícone de relógio">
+                        </div>
+                        <p class="titleCard-porqueEscolher">Reserva fácil</p>
+                        <p class="descricaoCard-porqueEscolher">Sem complicações com agendamento e preço, tudo é informado e resolvido aqui!</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </section><!-- Fim Porque escolher-nos  -->
     </main>
+
+    <!-- Footer -->
+    <?php 
+        include 'footer.php';
+    ?>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

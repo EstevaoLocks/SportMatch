@@ -1,3 +1,11 @@
+/*paleta de cores:
+    color: #0F25F1;
+    color: #75DDDD;
+    color: #FFFAFF;
+    color: #F6AE2D;
+    color: #F4743B;
+*/
+
 ul {
     list-style: none;
     margin: 0;
@@ -73,7 +81,7 @@ h2 {
     cursor: pointer;
 }
 
-.menu .links ul li.ativo {
+.menu .links ul li.active {
     height: calc(100% - 3px);
 
     background-color: #15293F;
@@ -114,9 +122,37 @@ h2 {
     color: #45dddd;
 }
 
-.btn-primary1.union {
-    border-radius: 5px 0 0 5px;
-    margin-right: 0;
+.btn-secondary1-menu {
+    background-color: #45DDDD;
+    color: #0F2F51;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.iconePerson-BtnMenu path {
+    fill: #0F2F51;
+    stroke-width: 0.5px;
+}
+
+.iconePerson-BtnMenu {
+    width: auto;
+    height: 20px;
+    margin-left: 8px;
+}
+
+.btn-secondary1-menu:hover {
+    background-color: #36acac;
 }
 
 .btn-secondary1.union {
@@ -431,7 +467,7 @@ header.home .figura img {
 }
 
 .sectionNossasCategorias {
-    height: 1178px;
+    height: auto;
     padding: 48px 0;
 
     display: flex;
@@ -451,6 +487,7 @@ header.home .figura img {
 .sectionNossasCategorias .row {
     width: 100%;
     margin: 16px 0;
+    padding: 16px 0;
 
     display: flex;
     justify-content: space-around;
@@ -460,7 +497,6 @@ header.home .figura img {
 
 .sectionNossasCategorias .card {
     width: 30%;
-    margin: 16px;
 
     background-color: #ffffff;
     border-radius: 12px 12px 12px 12px;
@@ -538,8 +574,87 @@ header.home .figura img {
     transition: background-color 0.3s ease;
 }
 
+.sectionPertoVoce {
+    padding-top: 48px;
+    padding-bottom: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #F9FAFB;
+}
+
+.row-pertoVoce {
+    width: 100%;
+    margin: 16px 0;
+    padding: 16px 0;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card-pertoVoce {
+    width: 23%;
+    min-width: 350px;
+    height: 200px;
+    margin-top: 32px;
+    position: relative;
+
+    color: #ffffff;
+}
+
+.gradienteCard-pertoVoce {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 2;
+    border-radius: 14px;
+    background: linear-gradient(to top, #000000c7, #00000000);
+}
+
+.cardImg-pertoVoce {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: 1;
+
+    border-radius: 14px;
+}
+
+.containerLocal-pertoVoce {
+    width: 100%;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 16px;
+    left: 16px;
+}
+
+.titleCard-pertoVoce {
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.icone-pertoVoce {
+    width: auto;
+    height: 100%;
+}
+
+.icone-pertoVoce path {
+    stroke: #ffffff;
+    stroke-width: 3.5px;
+}
+
 .porqueContratar {
-    padding: 32px 0;
+    padding-top: 64px;
 
     display: flex;
     flex-direction: column;
@@ -560,13 +675,415 @@ header.home .figura img {
 }
 
 .porqueCadastrar {
-    padding: 32px 0;
+    padding-top: 64px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    background: linear-gradient(to bottom, #000000, #45dddd);
+    background: linear-gradient(to bottom, #000000, #0F2F51);
+}
+
+.row-porqueEscolher {
+    width: 100%;
+    margin: 16px 0;
+    padding: 16px 0;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card-porqueEscolher {
+    width: 350px;
+    height: auto;
+    padding: 32px;
+    margin-top: 32px;
+
+    background-color: #ffffff10;
+    color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #ffffff18;
+}
+
+.iconeCard-porqueReservar {
+    width: 10%;
+    padding: 5%;
+    margin-bottom: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F6AE2D;
+    border-radius: 100px;
+}
+
+.iconeCard-porqueReservar img {
+    width: 100%;
+}
+
+.iconeCard-porqueCadastrar {
+    width: 10%;
+    padding: 5%;
+    margin-bottom: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #75DDDD;
+    border-radius: 100px;
+}
+
+.iconeCard-porqueCadastrar img {
+    width: 100%;
+}
+
+.titleCard-porqueEscolher {
+    margin-bottom: 32px;
+    font-weight: 300;
+}
+
+.descricaoCard-porqueEscolher {
+    color: #99A1AF;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+footer {
+    background-color: #0F2F51;
+    width: 100%;
+    padding: 72px 0;
+
+    color: #99A1AF;
+}
+
+.containerFooter {
+    width: 98%;
+    margin: auto;
+}
+
+.rowFooter {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.colLinksFooter {
+    width: 25%;
+    height: auto;
+}
+
+.tituloLinksFooter {
+    margin-bottom: 32px;
+
+    color: #FFFFFF;
+}
+
+.colLinksFooter ul {
+    flex-direction: column;
+}
+
+.containerLogoFooter {
+    height: auto;
+    width: 100%;
+    margin-bottom: 32px;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo-imgFooter {
+    height: auto;
+    width: 35px;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo-imgFooter img {
+    height: auto;
+    width: 100%;
+}
+
+.nome-siteFooter {
+    margin-left: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+}
+
+.nome-siteFooter .azul {
+    color: #45dddd;
+}
+
+.linkFooter {
+    margin-bottom: 16px;
+    width: max-content;
+
+    cursor: pointer;
+    color: #99A1AF;
+}
+
+.linkFooter:hover {
+    color: #747983;
+    transition: color 0.3s ease;
+}
+
+.linkContato-Footer {
+    display: flex;
+    align-items: center;
+}
+
+.iconeWhatsapp-Footer {
+    height: 20px;
+    width: auto;
+    margin-right: 8px;
+
+    /* fill: #75DDDD; */
+}
+
+.iconeLocal-Footer path {
+    stroke: #75DDDD;
+    stroke-width: 2.5px;
+}
+
+.iconeLocal-Footer {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+
+    /* fill: #75DDDD; */
+}
+
+.iconeWhatsapp-Footer path {
+
+    fill: #75DDDD;
+}
+
+.iconeContato-Footer {
+    height: 16px;
+    width: auto;
+    margin-right: 8px;
+}
+
+.iconeContato-Footer path {
+    stroke: #75DDDD;
+    stroke-width: 1.5px;
+}
+
+.linhaFooter {
+    border-color: #99A1AF;
+    margin: 64px 0;
+}
+
+.colBottomFooter {
+    width: 50%;
+}
+
+.colBottomRightFooter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.linksBottomFooter li {
+    margin: 0 8px;
+}
+
+.mainEstreita {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+
+    background-color: aquamarine;
+}
+
+/* --Section 1-- */
+.conteudoAnuncio {
+    width: 75%;
+    height: auto;
+    margin-top: 32px;
+
+    background-color: antiquewhite;
+}
+
+.conteudoPrincipal-pgAnuncio {
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+}
+
+.containerImagensAnuncio {
+    width: 65%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: blue;
+}
+
+.containerInfo {
+    width: 35%;
+    height: 600px;
+    margin-top: 32px;
+
+    background-color: coral;
+}
+
+.titleAnuncio-pgAnuncio {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 32px;
+
+    background-color: red;
+}
+
+.caracteristicasAnuncio-pgAnuncio {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 32px;
+
+    background-color: cadetblue;
+}
+
+/* --Section 2-- */
+.containerCalendario-pgAnuncio {
+    width: 100%;
+    height: 400px;
+    margin-top: 32px;
+
+    background-color: darkmagenta;
+}
+
+.containerHorasSemana-pgAnuncio {
+    width: 100%;
+    height: 200px;
+
+    background-color: crimson;
+}
+
+/* --Section 3-- */
+.opcoesAnuncio {
+    width: 25%;
+    height: auto;
+    margin-top: 32px;
+    padding: 16px;
+
+    background-color: #f6ae2d;
+}
+
+.containerPrecoReserva {
+    width: 100%;
+    height: 300px;
+    margin-top: 32px;
+
+    background-color: blueviolet;
+}
+
+.containerBtnReserva {
+    width: 100%;
+    height: 300px;
+
+    background-color: chocolate;
+}
+
+.containerPerfilInstituicao {
+    width: 100%;
+    height: 300px;
+
+    background-color: darkcyan;
+}
+
+
+/* CSS página Profile.php */
+.menu-pgProfile {
+    height: 144px;
+    width: 100%;
+    margin-top: 72px;
+
+    background-color: #e2e2e2;
+    position: absolute;
+    z-index: 9;
+
+    color: #000000;
+}
+
+.rowCima-navPgProfile {
+    width: 100%;
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.imgProfile-navPgProfile {
+    width: 50px;
+    height: 50px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+
+    background-color: #74DDDD;
+    border-radius: 100px;
+}
+
+.iconeProfile-navPgProfile {
+    width: auto;
+    height: 70%;
+}
+
+.iconeProfile-navPgProfile path {
+    fill: #0F2F51;
+}
+
+.nomeUser-navPgProfile {
+    margin-left: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nomeUser-navPgProfile .azul {
+    color: #0F2F51;
+    font-weight: bold;
+}
+
+.rowBaixo-navPgProfile {
+    width: 100%;
+
+    display: flex;
+}
+
+.links-pgProfileNav {
+    height: 100%;
+
+    display: flex;
+    align-items: end;
+    margin-right: 32px;
+}
+
+.link-pgProfileNav {
+    padding: 10px 15px;
+    height: 100%;
+    
+    transition: background-color 0.3s ease;
+    color: #353535;
+}
+
+.main-pgProfile {
+    position: relative;
+    padding-top: 216px;
 }
 
 /*   CSS Celular e Tablet   */
