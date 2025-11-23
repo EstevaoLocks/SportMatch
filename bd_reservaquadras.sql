@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/11/2025 às 12:29
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 23/11/2025 às 01:37
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,10 +26,20 @@ USE `bd_reservaquadras`;
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `cod_quadra` int(11) DEFAULT NULL,
+  `cod_usuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `instituicao`
 --
 
-DROP TABLE IF EXISTS `instituicao`;
 CREATE TABLE `instituicao` (
   `cod_instituicao` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -67,7 +77,6 @@ INSERT INTO `instituicao` (`cod_instituicao`, `username`, `senha`, `nome`, `emai
 -- Estrutura para tabela `modalidade`
 --
 
-DROP TABLE IF EXISTS `modalidade`;
 CREATE TABLE `modalidade` (
   `cod_modalidade` int(11) NOT NULL,
   `nome_mod` varchar(50) NOT NULL,
@@ -96,7 +105,6 @@ INSERT INTO `modalidade` (`cod_modalidade`, `nome_mod`, `descricao_mod`) VALUES
 -- Estrutura para tabela `quadra`
 --
 
-DROP TABLE IF EXISTS `quadra`;
 CREATE TABLE `quadra` (
   `cod_quadra` int(11) NOT NULL,
   `nome_quadra` varchar(100) NOT NULL,
@@ -136,7 +144,6 @@ INSERT INTO `quadra` (`cod_quadra`, `nome_quadra`, `arquibancada`, `cobertura`, 
 -- Estrutura para tabela `quadra_mod`
 --
 
-DROP TABLE IF EXISTS `quadra_mod`;
 CREATE TABLE `quadra_mod` (
   `cod_quadra` int(11) NOT NULL,
   `cod_modalidade` int(11) NOT NULL
@@ -165,7 +172,6 @@ INSERT INTO `quadra_mod` (`cod_quadra`, `cod_modalidade`) VALUES
 -- Estrutura para tabela `reserva`
 --
 
-DROP TABLE IF EXISTS `reserva`;
 CREATE TABLE `reserva` (
   `cod_reserva` int(11) NOT NULL,
   `duracao` decimal(8,2) NOT NULL,
@@ -198,7 +204,6 @@ INSERT INTO `reserva` (`cod_reserva`, `duracao`, `valor`, `data_reserva`, `horar
 -- Estrutura para tabela `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `cod_usuario` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -236,6 +241,13 @@ INSERT INTO `usuario` (`cod_usuario`, `username`, `senha`, `nome`, `rg`, `cpf`, 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD KEY `cod_quadra` (`cod_quadra`),
+  ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
 -- Índices de tabela `instituicao`
@@ -314,6 +326,13 @@ ALTER TABLE `usuario`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
+  ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
 -- Restrições para tabelas `quadra`
