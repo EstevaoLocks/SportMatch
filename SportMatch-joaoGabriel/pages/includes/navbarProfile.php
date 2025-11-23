@@ -57,9 +57,9 @@ require_once __DIR__ . '/../../config.php';
     <!-- parte inferior -->
     <div class="rowBaixo-navPgProfile">
         <ul class="links-pgProfileNav">
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/pages/profile/profile.php">Perfil</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/pages/profile/quadrasReservadas.php">Reservas</a></li>
-            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/pages/profile/quadras_favoritadas.php">Favoritos</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/profile/profile.php">Perfil</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="<?php echo BASE_URL; ?>/profile/quadrasReservadas.php">Reservas</a></li>
+            <li class="liLink-pgProfileNav"><a class="link-pgProfileNav" href="#">Favoritos</a></li>
         </ul>
     </div>
 
