@@ -36,8 +36,7 @@ function getRouteDistance($origin, $destination, $apiKey) {
     return false;
 }
 
-// Primary Key da API do Microsoft Azure Maps
-$apiKey = "2SYa7kSFzobsWruraSw2t8ukHXQUqvQ9yMTAU94LFshgcffEy971JQQJ99BKACYeBjF308ZQAAAgAZMP1MpJ";
+$apiKey = "SUA_API_KEY_AQUI";
 
 $endereco1 = "Avenida Paulista 1000, São Paulo";
 $endereco2 = "Praça da Sé, São Paulo";
