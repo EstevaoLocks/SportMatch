@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-body: #02050A;
+    --bg-footer: #0E2439;
+    --btn-dark-blue: #102841;
+    --btn-teal: #70D4D6;
+    --text-muted: #6c757d;
+    --input-bg: #F0F2F5;
+}
 
 ul {
     list-style: none;
