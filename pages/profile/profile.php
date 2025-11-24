@@ -2,9 +2,6 @@
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
 
-if ($_GET['tipo_user'] == 'instituicao') {
-    header('Location:' . BASE_URL .'/cadastra_quadra.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -80,8 +77,8 @@ if ($_GET['tipo_user'] == 'instituicao') {
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
-                <h4>Total de quadras reservadas: </h4>
-                <p><?php echo $reserva['quantidade_reservas']; ?></p>
+                <h4 class="titleQntReservas">Total de reservas: </h4>
+                <p class="qntTotalReservas"><?php echo $reserva['quantidade_reservas']; ?></p>
 
                 <?php
                 // quantidade de reservas já executadas
@@ -93,8 +90,8 @@ if ($_GET['tipo_user'] == 'instituicao') {
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
-                <p>Total de reservas efetuadas: </p>
-                <p><?php echo $reserva['reservas_realizadas']; ?></p>
+                <p class="titleQntReservas">Reservas efetuadas: </p>
+                <p class="qntReservasEfetuadas"><?php echo $reserva['reservas_realizadas']; ?></p>
 
                 <?php
                 // quantidade de reservas agendadas
@@ -106,8 +103,8 @@ if ($_GET['tipo_user'] == 'instituicao') {
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
-                <p>Total de reservas agendadas: </p>
-                <p><?php echo $reserva['reservas_agendadas']; ?></p>
+                <p class="titleQntReservas">Reservas agendadas: </p>
+                <p class="qntReservasAgendadas"><?php echo $reserva['reservas_agendadas']; ?></p>
             </div>
             <div class="containerOutrasQuadras-pgProfile">
                 <p>Sujestões de outras quadras</p>
