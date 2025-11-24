@@ -1521,7 +1521,7 @@ footer {
 }
 
 .sectionDadosCadastrais-pgConfigProfile {
-    width: 100%;
+    width: 43%;
     padding: 32px;
 }
 
@@ -1539,6 +1539,7 @@ footer {
     margin-bottom: 16px;
 
     width: 75%;
+    min-width: 180px
 }
 
 .sectionDadosCadastrais-pgConfigProfile label {
@@ -1546,7 +1547,7 @@ footer {
 }
 
 .sectionLocal-pgConfigProfile {
-    width: 100%;
+    width: 43%;
     padding: 32px;
 }
 
@@ -1564,6 +1565,7 @@ footer {
     margin-bottom: 16px;
 
     width: 75%;
+    min-width: 180px;
 }
 
 .sectionLocal-pgConfigProfile label {
