@@ -358,3 +358,22 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE quadra ADD COLUMN imagem VARCHAR(255) DEFAULT NULL;
+
+-- Atualiza as quadras existentes com nomes de imagens que você já tem na pasta assets/img/
+-- Certifique-se de que esses arquivos existem em 'assets/img/quadras/' ou ajuste o caminho no PHP
+
+-- Quadra 1 e 3 (Futebol/Futsal)
+UPDATE quadra SET imagem = 'Quadra-de-Futsal-profissional 1.png' WHERE cod_quadra IN (1, 3, 6, 8);
+
+-- Quadra 2 e 4 (Tênis/Outros)
+UPDATE quadra SET imagem = 'quadraTenis.png' WHERE cod_quadra IN (2, 9);
+
+-- Quadra 5 (Basquete)
+UPDATE quadra SET imagem = 'quadraBaquete 1.png' WHERE cod_quadra = 5;
+
+-- Quadra 4 e 10 (Vôlei)
+UPDATE quadra SET imagem = 'quadra-de-volei4 1.png' WHERE cod_quadra IN (4, 10);
+
+-- Quadra 7 (Badminton ou Genérica)
+UPDATE quadra SET imagem = 'quadraBadminton.png' WHERE cod_quadra = 7;

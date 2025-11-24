@@ -170,4 +170,5 @@ class Usuario
 
         header('Location:' . BASE_URL . '/index.php');
     } // end method fazerLogout
+
 } // end Class
