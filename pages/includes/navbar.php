@@ -25,8 +25,8 @@ require_once __DIR__ . '/../../config.php';
     </div>
 
     <!-- Container dos Links (Colapsável no Mobile) -->
-    <div class="nav-menu" id="navMenu">
-        <div class="links">
+    <!-- <div class="" > -->
+        <div class="links nav-menu" id="navMenu">
             <ul>
                 <li><a href="<?php echo BASE_URL; ?>/index.php">Home</a></li>
                 <li><a href="<?php echo BASE_URL; ?>/pages/Conta/registro.php">Registrar</a></li>
@@ -70,7 +70,7 @@ require_once __DIR__ . '/../../config.php';
             <?php endif; ?>
 
         </div>
-    </div>
+    <!-- </div> -->
 </nav>
 
 <!-- Script para abrir/fechar o menu mobile -->

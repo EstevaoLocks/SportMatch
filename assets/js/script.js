@@ -3,7 +3,8 @@ const navbarLinks = document.querySelectorAll('nav li a');
 const urlAtual = window.location.pathname.split('/').pop();
 
 navbarLinks.forEach(link => {
-  let href = link.getAttribute('href');
+  let href = link.getAttribute('href').split('/').pop(); // pega só "categorias.php"
+  
   if (href === urlAtual) {
     link.parentElement.classList.add('active');
   }
