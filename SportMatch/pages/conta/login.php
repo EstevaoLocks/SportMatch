@@ -1,15 +1,7 @@
 <?php
-    // Voltar 2 níveis para achar o config na raiz
-    require_once __DIR__ . '/../../config.php';
-    
-    // Conexão está na pasta anterior 'pages'
-    require_once __DIR__ . '/../conexao.php';
-
-    // Verifica sessão
-    $userId = $_SESSION['id'] ?? null;
-    $userType = $_SESSION['tipo_usuario'] ?? null;
-
-    // SEU CÓDIGO DA PÁGINA COMEÇA AQUI...
+//chama arquivo que define raíz do projeto
+require_once __DIR__ . '/../../config.php';
+require_once BASE_PATH . '/sistema/classes/Usuario.php';
 ?>
 
 <!DOCTYPE html>

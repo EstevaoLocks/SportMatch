@@ -32,9 +32,9 @@ require_once __DIR__ . '/../../config.php';
     ?>
 
     <main class="main-pgProfile">
-        <section class="sectionAgenda-pgProfile">
-            <h2>Últimas Reservas</h2>
-            <hr>
+        <section class="sectionReservas-pgProfile">
+            <h2 class="titleReservas-pgProfile">Últimas Reservas</h2>
+            <hr class="linha-pgProfile">
             <?php
             // últimas três reservas
             require BASE_PATH . '/sistema/conexao.php';
@@ -49,13 +49,17 @@ require_once __DIR__ . '/../../config.php';
             $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
             $stmt->execute();
             while ($reserva = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <h3><?php echo $reserva['nome_quadra']; ?></h3>
-                <p>Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
-                <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
-                <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
-                <p>Data: <?php echo $reserva['data_reserva']; ?></p>
-                <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
-                <hr>
+                <div class="containerCima-Reservas">
+                    <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
+                    <h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3>
+                </div>
+                <div class="containerDetalhes-reserva">
+                    <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
+                    <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
+                    <p>Data: <?php echo $reserva['data_reserva']; ?></p>
+                    <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
+                </div>
+                <hr class="linha-pgProfile">
             <?php endwhile ?>
         </section>
 
@@ -72,12 +76,41 @@ require_once __DIR__ . '/../../config.php';
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
-                <h4>Total de quadras reservadas:</h4>
+                <h4>Total de quadras reservadas: </h4>
                 <p><?php echo $reserva['quantidade_reservas']; ?></p>
 
+                <?php
+                // quantidade de reservas já executadas
+                $sql = "SELECT COUNT(*) AS reservas_realizadas
+                FROM reserva
+                WHERE cod_usuario = :cod_usuario AND data_reserva < CURDATE()";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+                $stmt->execute();
+                $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
+                ?>
+                <p>Total de reservas efetuadas: </p>
+                <p><?php echo $reserva['reservas_realizadas']; ?></p>
+
+                <?php
+                // quantidade de reservas agendadas
+                $sql = "SELECT COUNT(*) AS reservas_agendadas
+                FROM reserva
+                WHERE cod_usuario = :cod_usuario AND data_reserva > CURDATE()";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+                $stmt->execute();
+                $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
+                ?>
+                <p>Total de reservas agendadas: </p>
+                <p><?php echo $reserva['reservas_agendadas']; ?></p>
             </div>
             <div class="containerOutrasQuadras-pgProfile">
                 <p>Sujestões de outras quadras</p>
+                <?php
+                require_once BASE_PATH . '/sistema/classes/Endereco.php';
+                // (new Endereco)->calcularDistancia();
+                ?>
             </div>
         </section>
     </main>
