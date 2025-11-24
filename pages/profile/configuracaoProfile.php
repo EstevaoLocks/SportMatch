@@ -72,19 +72,19 @@ $numero = $usuario['numero'] ?? '';
                     </div>
                     <div>
                         <label>Username:</label>
-                        <input type="text" name="nome" value="<?php echo $username ?>" required>
+                        <input type="text" name="username" value="<?php echo $username ?>" required>
                     </div>
                     <div>
                         <label>RG:</label>
-                        <input type="text" name="telefone" value="<?php echo $rg ?>" required>
+                        <input type="text" name="rg" value="<?php echo $rg ?>" required>
                     </div>
                     <div>
                         <label>CPF:</label>
-                        <input type="text" name="telefone" value="<?php echo $cpf ?>" required>
+                        <input type="text" name="cpf" value="<?php echo $cpf ?>" required>
                     </div>
                     <div>
                         <label>email:</label>
-                        <input type="text" name="telefone" value="<?php echo $email ?>" required>
+                        <input type="email" name="email" value="<?php echo $email ?>" required>
                     </div>
                     <div>
                         <label>Telefone:</label>
@@ -92,15 +92,15 @@ $numero = $usuario['numero'] ?? '';
                     </div>
                     <div>
                         <label>Data de nascimento:</label>
-                        <input type="date" name="telefone" value="<?php echo $datanasc ?>" required>
+                        <input type="date" name="datanasc" value="<?php echo $datanasc ?>" required>
                     </div>
                     <div>
                         <label>Senha Atual:</label>
-                        <input type="email" name="email" placeholder="Digite sua senha" required>
+                        <input type="password" name="senha" placeholder="Digite sua senha" required>
                     </div>
                     <div>
                         <label>Nova Senha:</label>
-                        <input type="email" name="email" placeholder="Digite uma nova senha" required>
+                        <input type="password" name="nova_senha" placeholder="Digite uma nova senha" required>
                     </div>
                     <button class="btn-primary1" type="submit">Atualizar</button>
                 </form>
@@ -112,31 +112,31 @@ $numero = $usuario['numero'] ?? '';
                     <!-- necessário para identificar qual registro atualizar -->
                     <div>
                         <label>CEP:</label>
-                        <input type="text" name="nome" value="<?php echo $cep ?>" required>
+                        <input type="text" name="cep" value="<?php echo $cep ?>" required>
                     </div>
                     <div>
                         <label>Estado (UF):</label>
-                        <input type="text" name="nome" value="<?php echo $estado ?>" required>
+                        <input type="text" name="estado" value="<?php echo $estado ?>" required>
                     </div>
                     <div>
                         <label>Cidade:</label>
-                        <input type="email" name="email" value="<?php echo $cidade ?>" required>
+                        <input type="text" name="cidade" value="<?php echo $cidade ?>" required>
                     </div>
                     <div>
                         <label>Bairro:</label>
-                        <input type="email" name="email" value="<?php echo $bairro ?>" required>
+                        <input type="text" name="bairro" value="<?php echo $bairro ?>" required>
                     </div>
                     <div>
                         <label>Rua:</label>
-                        <input type="text" name="telefone" value="<?php echo $rua ?>" required>
+                        <input type="text" name="rua" value="<?php echo $rua ?>" required>
                     </div>
                     <div>
                         <label>Número:</label>
-                        <input type="text" name="telefone" value="<?php echo $numero ?>" required>
+                        <input type="text" name="numero" value="<?php echo $numero ?>" required>
                     </div>
                     <div>
                         <label>Senha:</label>
-                        <input type="text" name="telefone" placeholder="Digite sua senha" required>
+                        <input type="password" name="senha" placeholder="Digite sua senha" required>
                     </div>
                     <button class="btn-primary1" type="submit">Atualizar</button>
                 </form>
