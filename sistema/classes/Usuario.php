@@ -171,32 +171,4 @@ class Usuario
         header('Location:' . BASE_URL . '/index.php');
     } // end method fazerLogout
 
-    public static function atualizarUsuario(
-        $cod_usuario,
-        $nome,
-        $email,
-        $telefone,
-        $cidade
-    ) {
-        include_once BASE_PATH . '/sistema/conexao.php';
-
-        try {
-            $sql = "UPDATE usuario 
-                    SET nome = :nome, email = :email, telefone = :telefone, cidade = :cidade
-                    WHERE cod_usuario = :cod_usuario";
-
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':telefone', $telefone);
-            $stmt->bindParam(':cidade', $cidade);
-            $stmt->bindParam(':cod_usuario', $cod_usuario);
-
-            $stmt->execute();
-
-            header('Location: ' . BASE_URL . '/pages/profile/configuracaoProfile.php');
-        } catch (PDOException $e) {
-            echo "Erro ao atualizar: " . $e->getMessage();
-        }
-    } // end method atualizarUsuario
 } // end Class

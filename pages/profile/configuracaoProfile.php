@@ -131,7 +131,7 @@
             <form method="POST">
                 <button type="submit" name="btnLogOut" value="fazerLogout">Fazer Logout</button>
             </form>
-            <form method="POST">
+            <form method="POST" action=" <?php echo BASE_PATH; ?> /sistema/exlcui_conta.php">
                 <button type="submit" name="btnExcluirConta" value="excluirConta">Excluir conta</button>
             </form>
 
