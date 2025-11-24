@@ -1,154 +1,192 @@
 <?php
-require_once __DIR__ . '/../conezao.php';
+require_once __DIR__ . '/../../config.php';
+require BASE_PATH . '/sistema/conexao.php';
 
 class Endereco
 {
-    // Atributos
-    // Primary Key API Azure Maps
-    private $AZURE_KEY = "";
-    // --------------------------------------------
-    // CONFIGURAÇÃO
-    // --------------------------------------------
-    // $pdo = new PDO("mysql:host=localhost;dbname=sua_base;charset=utf8", "usuario", "senha");
-    // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    private $AZURE_KEY = "2SYa7kSFzobsWruraSw2t8ukHXQUqvQ9yMTAU94LFshgcffEy971JQQJ99BKACYeBjF308ZQAAAgAZMP1MpJ";
 
-    // Métodos
-    // Metodo para geocodificar endereco
+    // ------------------------------
+    // MÉTODO BASE PARA REQUESTS
+    // ------------------------------
+    private function request($url)
+    {
+        $json = @file_get_contents($url);
+
+        if ($json === false) {
+            return false;
+        }
+
+        return json_decode($json, true);
+    }
+
+    // ------------------------------
+    // GEOCODIFICAÇÃO COMPLETA
+    // ------------------------------
     public function geocodificarAzure($endereco, $azKey)
     {
         $url = "https://atlas.microsoft.com/search/address/json?"
             . "api-version=1.0"
-            . "&subscription-key=$azKey"
+            . "&subscription-key={$azKey}"
             . "&query=" . urlencode($endereco);
 
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
+        $data = $this->request($url);
 
-        if (!isset($data["results"][0])) {
+        if (!$data || !isset($data["results"][0])) {
             return false;
         }
 
         return [
-            "lat" => $data["results"][0]["position"]["lat"],
-            "lon" => $data["results"][0]["position"]["lon"]
+            'lat' => $data["results"][0]["position"]["lat"] ?? null,
+            'lon' => $data["results"][0]["position"]["lon"] ?? null
         ];
     }
 
-    // Metodo que calcula distancia via rotas (retorno em metros)
+    // ------------------------------
+    // SOMENTE LATITUDE
+    // ------------------------------
+    public function geocodificarLatAzure($endereco, $azKey)
+    {
+        $geo = $this->geocodificarAzure($endereco, $azKey);
+        return $geo ? $geo['lat'] : false;
+    }
+
+    // ------------------------------
+    // SOMENTE LONGITUDE
+    // ------------------------------
+    public function geocodificarLonAzure($endereco, $azKey)
+    {
+        $geo = $this->geocodificarAzure($endereco, $azKey);
+        return $geo ? $geo['lon'] : false;
+    }
+
+    // ------------------------------
+    // DISTÂNCIA POR ROTA (METROS)
+    // ------------------------------
     public function distanciaRotaAzure($latOrig, $lonOrig, $latDest, $lonDest, $azKey)
     {
-        // Azure Maps requer ORIGEM:DESTINO como lon,lat
+        // Evita chamadas inválidas
+        if (!$latOrig || !$lonOrig || !$latDest || !$lonDest) {
+            return false;
+        }
+
+        // Evita origem = destino (API retorna 400)
+        if ($latOrig == $latDest && $lonOrig == $lonDest) {
+            return 0;
+        }
+
+        // Formato correto + urlencode
+        $coord = urlencode("{$lonOrig},{$latOrig}:{$lonDest},{$latDest}");
+
         $url = "https://atlas.microsoft.com/route/directions/json?"
             . "api-version=1.0"
-            . "&subscription-key=$azKey"
-            . "&query={$lonOrig},{$latOrig}:{$lonDest},{$latDest}"
+            . "&subscription-key={$azKey}"
+            . "&query={$coord}"
             . "&travelMode=car";
 
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
+        $data = $this->request($url);
 
-        if (!isset($data["routes"][0]["summary"]["lengthInMeters"])) {
+        if (!$data || !isset($data["routes"][0]["summary"]["lengthInMeters"])) {
             return false;
         }
 
         return $data["routes"][0]["summary"]["lengthInMeters"];
     }
 
-    // Metodo para calcular a distancia com endereço (usa os anteriores)
-    public function calcularDistancia(
-        $uf_orig,
-        $cidade_orig,
-        $rua_orig,
-        $num_orig,
-        $uf_dest,
-        $cidade_dest,
-        $rua_dest,
-        $num_dest
-        // orig -> origem
-        // dest -> destino
-    ) {
-        // enderecos em uma só string
-        $endereco_orig = $cidade_orig . $rua_orig . $num_orig . $uf_orig;
-        $endereco_dest = $cidade_dest . $rua_dest . $num_dest . $uf_dest;
+    // ------------------------------
+    // CÁLCULO FINAL DE DISTÂNCIA
+    // ------------------------------
+    public function calcularDistancia()
+    {
+        require BASE_PATH . '/sistema/conexao.php';
 
+        // Buscar o usuário
+        $sql = "SELECT * FROM usuario WHERE cod_usuario = :cod_usuario";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$usuario) {
+            die("Erro: usuário não encontrado.");
+        }
+
+        // Montar endereço de origem
+        $endereco_orig =
+            ($usuario['rua'] ?? '') . ', ' .
+            ($usuario['bairro'] ?? '') . ', ' .
+            ($usuario['cidade'] ?? '') . ', Brasil';
+
+        // Geocodificar origem
         $coord_orig = $this->geocodificarAzure($endereco_orig, $this->AZURE_KEY);
-        $coord_dest = $this->geocodificarAzure($endereco_dest, $this->AZURE_KEY);
 
         if (!$coord_orig) {
             die("Não foi possível geocodificar o endereço do Usuário.");
-        }
-        if (!$coord_orig) {
-            die("Não foi possível geocodificar o endereço da Quadra.");
         }
 
         $lat_orig = $coord_orig["lat"];
         $lon_orig = $coord_orig["lon"];
 
-        $lat_dest = $coord_dest["lat"];
-        $lon_dest = $coord_dest["lon"];
+        // Buscar quadras
+        $stmt = $pdo->query("SELECT * FROM quadra");
+        $quadras = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $distancia = $this->distanciaRotaAzure($lat_orig, $lon_orig, $lat_dest, $lon_dest, $this->AZURE_KEY);
+        // Calcular distância para cada quadra
+        foreach ($quadras as &$q) {
 
-        return $distancia;
+            $endereco_q =
+                $q['rua'] . ', ' .
+                $q['bairro'] . ', ' .
+                $q['cidade'] . ', Brasil';
+
+            $geo_q = $this->geocodificarAzure($endereco_q, $this->AZURE_KEY);
+
+            if (!$geo_q) {
+                $q["distancia_m"] = false;
+                continue;
+            }
+
+            $lat_q = $geo_q["lat"];
+            $lon_q = $geo_q["lon"];
+
+
+            if (!$lat_q || !$lon_q) {
+                $q["distancia_m"] = false;
+                continue;
+            }
+
+            $dist = $this->distanciaRotaAzure(
+                $lat_orig,
+                $lon_orig,
+                $lat_q,
+                $lon_q,
+                $this->AZURE_KEY
+            );
+
+            $q["distancia_m"] = $dist;
+        }
+
+        // Remover quadras sem distância válida
+        $validas = array_filter($quadras, fn ($q) => $q["distancia_m"] !== false);
+
+        if (count($validas) < 3) {
+            // fallback: usar as mais próximas com geocoding falho
+            $validas = $quadras;
+        }
+
+        // Ordenar por distância
+        usort($quadras, fn ($a, $b) => $a["distancia_m"] <=> $b["distancia_m"]);
+
+        // Selecionar 3 mais próximas
+        $maisProximas = array_slice($quadras, 0, 3);
+
+        // Exibir
+        echo "<h2>As 3 quadras mais próximas:</h2>";
+        echo "<pre>";
+
+        foreach ($maisProximas as $q) {
+            echo "<p><strong>{$q['nome_quadra']}</strong><br>";
+            echo "Distância pelas ruas: " . round($q["distancia_m"] / 1000, 2) . " km</p>";
+        }
     }
-}
-
-// --------------------------------------------
-// PASSO 1: Endereço informado pelo usuário
-// --------------------------------------------
-$enderecoUsuario = "Rua Tal, Centro, Sua Cidade, Brasil"; // substitua
-$coordUsuario = geocodificarAzure($enderecoUsuario, $AZURE_KEY);
-
-if (!$coordUsuario) {
-    die("Não foi possível geocodificar o endereço.");
-}
-
-$latUsuario = $coordUsuario["lat"];
-$lonUsuario = $coordUsuario["lon"];
-
-// --------------------------------------------
-// PASSO 2: Obter quadras do banco
-// --------------------------------------------
-$stmt = $pdo->query("SELECT * FROM quadras");
-$quadras = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// --------------------------------------------
-// PASSO 3: Calcular distância real para cada quadra
-// --------------------------------------------
-foreach ($quadras as &$q) {
-    $q["distancia_m"] = distanciaRotaAzure(
-        $latUsuario,
-        $lonUsuario,
-        $q["latitude"],
-        $q["longitude"],
-        $AZURE_KEY
-    );
-}
-
-
-
-// --------------------------------------------
-// PASSO 4: Ordenar pelas mais próximas
-// --------------------------------------------
-usort($quadras, function ($a, $b) {
-    return $a["distancia_m"] <=> $b["distancia_m"];
-});
-
-
-
-// --------------------------------------------
-// PASSO 5: Selecionar as 3 mais próximas
-// --------------------------------------------
-$maisProximas = array_slice($quadras, 0, 3);
-
-
-
-// --------------------------------------------
-// SAÍDA — Exemplo de retorno
-// --------------------------------------------
-echo "<h2>As 3 quadras mais próximas:</h2>";
-
-foreach ($maisProximas as $q) {
-    echo "<p><strong>{$q['nome']}</strong><br>";
-    echo "Distância pelas ruas: " . round($q["distancia_m"] / 1000, 2) . " km</p>";
 }
