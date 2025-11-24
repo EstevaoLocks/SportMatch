@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/../conezao.php';
 
-class Endereco {
+class Endereco
+{
     // Atributos
     // Primary Key API Azure Maps
     private $AZURE_KEY = "";
@@ -13,19 +14,20 @@ class Endereco {
 
     // Métodos
     // Metodo para geocodificar endereco
-    public function geocodificarAzure($endereco, $azKey) {
+    public function geocodificarAzure($endereco, $azKey)
+    {
         $url = "https://atlas.microsoft.com/search/address/json?"
-             . "api-version=1.0"
-             . "&subscription-key=$azKey"
-             . "&query=" . urlencode($endereco);
-    
+            . "api-version=1.0"
+            . "&subscription-key=$azKey"
+            . "&query=" . urlencode($endereco);
+
         $json = file_get_contents($url);
         $data = json_decode($json, true);
-    
+
         if (!isset($data["results"][0])) {
             return false;
         }
-    
+
         return [
             "lat" => $data["results"][0]["position"]["lat"],
             "lon" => $data["results"][0]["position"]["lon"]
@@ -33,28 +35,35 @@ class Endereco {
     }
 
     // Metodo que calcula distancia via rotas (retorno em metros)
-    public function distanciaRotaAzure($latOrig, $lonOrig, $latDest, $lonDest, $azKey) {
+    public function distanciaRotaAzure($latOrig, $lonOrig, $latDest, $lonDest, $azKey)
+    {
         // Azure Maps requer ORIGEM:DESTINO como lon,lat
         $url = "https://atlas.microsoft.com/route/directions/json?"
-             . "api-version=1.0"
-             . "&subscription-key=$azKey"
-             . "&query={$lonOrig},{$latOrig}:{$lonDest},{$latDest}"
-             . "&travelMode=car";
-    
+            . "api-version=1.0"
+            . "&subscription-key=$azKey"
+            . "&query={$lonOrig},{$latOrig}:{$lonDest},{$latDest}"
+            . "&travelMode=car";
+
         $json = file_get_contents($url);
         $data = json_decode($json, true);
-    
+
         if (!isset($data["routes"][0]["summary"]["lengthInMeters"])) {
             return false;
         }
-    
+
         return $data["routes"][0]["summary"]["lengthInMeters"];
     }
 
     // Metodo para calcular a distancia com endereço (usa os anteriores)
-    public function calcularDistancia (
-        $uf_orig, $cidade_orig, $rua_orig, $num_orig,
-        $uf_dest, $cidade_dest, $rua_dest, $num_dest
+    public function calcularDistancia(
+        $uf_orig,
+        $cidade_orig,
+        $rua_orig,
+        $num_orig,
+        $uf_dest,
+        $cidade_dest,
+        $rua_dest,
+        $num_dest
         // orig -> origem
         // dest -> destino
     ) {
@@ -63,6 +72,24 @@ class Endereco {
         $endereco_dest = $cidade_dest . $rua_dest . $num_dest . $uf_dest;
 
         $coord_orig = $this->geocodificarAzure($endereco_orig, $this->AZURE_KEY);
+        $coord_dest = $this->geocodificarAzure($endereco_dest, $this->AZURE_KEY);
+
+        if (!$coord_orig) {
+            die("Não foi possível geocodificar o endereço do Usuário.");
+        }
+        if (!$coord_orig) {
+            die("Não foi possível geocodificar o endereço da Quadra.");
+        }
+
+        $lat_orig = $coord_orig["lat"];
+        $lon_orig = $coord_orig["lon"];
+
+        $lat_dest = $coord_dest["lat"];
+        $lon_dest = $coord_dest["lon"];
+
+        $distancia = $this->distanciaRotaAzure($lat_orig, $lon_orig, $lat_dest, $lon_dest, $this->AZURE_KEY);
+
+        return $distancia;
     }
 }
 
@@ -123,7 +150,5 @@ echo "<h2>As 3 quadras mais próximas:</h2>";
 
 foreach ($maisProximas as $q) {
     echo "<p><strong>{$q['nome']}</strong><br>";
-    echo "Distância pelas ruas: " . round($q["distancia_m"]/1000, 2) . " km</p>";
+    echo "Distância pelas ruas: " . round($q["distancia_m"] / 1000, 2) . " km</p>";
 }
-
-?>

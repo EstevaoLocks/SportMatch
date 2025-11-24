@@ -33,7 +33,7 @@ require_once __DIR__ . '/../../config.php';
 
     <main class="main-pgProfile">
         <section class="sectionAgenda-pgProfile">
-            <h2>Últimas Reservas</h2>
+            <h2 class="titleAgenda-pgProfile">Últimas Reservas</h2>
             <hr>
             <?php
             // últimas três reservas
