@@ -1006,10 +1006,12 @@ footer {
 
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .colLinksFooter {
     width: 25%;
+    min-width: 245px;
     height: auto;
 }
 
@@ -1120,6 +1122,8 @@ footer {
 
 .colBottomFooter {
     width: 50%;
+    min-width: 300px;
+    margin-bottom: 16px;
 }
 
 .colBottomRightFooter {
@@ -1403,22 +1407,81 @@ footer {
     position: relative;
 
     display: flex;
+    flex-wrap: wrap;
     
     background-color: #0b1a2c;
 }
 
 .sectionAgenda-pgProfile {
     width: 75%;
-    height: 800px;
+    height: 100%;
     margin-top: 32px;
+}
 
-    background-color: #596645;
+.titleReservas-pgProfile {
+    width: 100%;
+    height: auto;
+    padding: 42px 0;
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    color: #ffffff;
+    background-color: #0b1a2c;
+}
+
+.sectionReservas-pgProfile {
+    width: 75%;
+    height: 800px;
+
+    background-color: #0d1f35;
+}
+
+.linha-pgProfile {
+    margin: 0;
+    border: 1px solid #15293f;
+}
+
+.containerCima-Reservas {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerDetalhes-reserva {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+
+    color: #ffffff;
+}
+
+.nomeQuadra-Reservas {
+    font-size: 20px;
+    font-weight: 400;
+
+    color: #ffffff;
+}
+
+.codReserva {
+    font-size: 14px;
+
+    color: #99a1af;
 }
 
 .sectionDireita-pgProfile {
     width: 25%;
     height: auto;
-    margin-top: 32px;
 
     background-color: #554133;
 }
@@ -1477,6 +1540,8 @@ footer {
     margin-left: auto;
     margin-right: auto;
     padding-top: 216px;
+    padding-left: 32px;
+    padding-right: 32px;
     position: relative;
     
     background-color: #0b1a2c;
@@ -1491,20 +1556,79 @@ footer {
     fill: #b3b3b3;
 }
 
-.sectionDadosCadastrais-pgConfigProfile {
+.titleUpdate-pgConfig {
     width: 100%;
-    height: 400px;
+    height: auto;
     margin-top: 32px;
 
-    background-color: #3a5a40;
+    font-size: 32px;
+    font-weight: bold;
+
+    color: #ffffff;
+}
+
+.row-pgConfigProfile {
+    width: 100%;
+    height: auto;
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    color: #ffffff;
+}
+
+.sectionDadosCadastrais-pgConfigProfile {
+    width: 43%;
+    padding: 32px;
+}
+
+.sectionDadosCadastrais-pgConfigProfile div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionDadosCadastrais-pgConfigProfile input {
+    background-color: #ffffff10;
+    border: 1px solid #ffffff30;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-bottom: 16px;
+
+    width: 75%;
+    min-width: 180px
+}
+
+.sectionDadosCadastrais-pgConfigProfile label {
+    margin-bottom: 8px;
 }
 
 .sectionLocal-pgConfigProfile {
-    width: 100%;
-    height: 400px;
-    margin-top: 32px;
+    width: 43%;
+    padding: 32px;
+}
 
-    background-color: #5a3a55;
+.sectionLocal-pgConfigProfile div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionLocal-pgConfigProfile input {
+    background-color: #ffffff10;
+    border: 1px solid #ffffff30;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-bottom: 16px;
+
+    width: 75%;
+    min-width: 180px;
+}
+
+.sectionLocal-pgConfigProfile label {
+    margin-bottom: 8px;
 }
 
 /*   CSS Celular e Tablet   */
