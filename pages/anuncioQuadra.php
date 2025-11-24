@@ -35,7 +35,8 @@
         <div class="conteudoAnuncio">
             <section class="conteudoPrincipal-pgAnuncio">
                 <div class="containerImagensAnuncio">
-                    <p>Imagins do anúncio</p>
+                    <!--<p>Imagins do anúncio</p>-->
+                       <img src="<?php echo BASE_URL; ?>/assets\img\Quadra-de-Futsal-profissional 1.png" alt="Imagem da quadra">
                 </div>
                 <div class="containerInfo">
                     <div class="titleAnuncio-pgAnuncio">
@@ -62,12 +63,17 @@
         <!-- Section 3 - Opções anúncio -->
         <section class="opcoesAnuncio">
             <div class="containerPrecoReserva">
-                <p>Valor por hora e detalhes</p>
+                <!--<p>Valor por hora e detalhes</p>-->
+                <h3>Valor por Hora</h3>
+                <p>R$ 120,00 / hora</p>
             </div>
             <div class="containerBtnReserva">
-                <p>Botões reservar, salvar e etc</p>
+                <!--<p>Botões reservar, salvar e etc</p>-->
+                <button class="btn-reservar">Reservar Agora</button>
+                <button class="btn-salvar">Salvar Anúncio</button>
             </div>
             <div class="containerPerfilInstituicao">
+                <h3>Instituição Responsável</h3>
                 <p>Perfil da instituição que possui a quadra, quandtidades de quadras que eles tem e etc...</p>
             </div>
         </section>
