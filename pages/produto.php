@@ -9,7 +9,7 @@
     }
 
     $idQuadra = $_GET['id'];
-    $userId = $_SESSION['id'] ?? null;
+    $userId = $_SESSION['cod_usuario'] ?? null;
     $userType = $_SESSION['tipo_usuario'] ?? null;
 
     // --- PROCESSAMENTO DE RESERVA/CANCELAMENTO ---
