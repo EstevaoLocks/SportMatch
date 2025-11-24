@@ -1462,6 +1462,8 @@ footer {
     flex-direction: column;
     justify-content: end;
     align-items: end;
+
+    color: #ffffff;
 }
 
 .nomeQuadra-Reservas {
