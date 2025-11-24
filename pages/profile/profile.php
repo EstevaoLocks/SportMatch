@@ -32,9 +32,9 @@ require_once __DIR__ . '/../../config.php';
     ?>
 
     <main class="main-pgProfile">
-        <section class="sectionAgenda-pgProfile">
-            <h2 class="titleAgenda-pgProfile">Últimas Reservas</h2>
-            <hr>
+        <section class="sectionReservas-pgProfile">
+            <h2 class="titleReservas-pgProfile">Últimas Reservas</h2>
+            <hr class="linha-pgProfile">
             <?php
             // últimas três reservas
             require BASE_PATH . '/sistema/conexao.php';
@@ -49,13 +49,17 @@ require_once __DIR__ . '/../../config.php';
             $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
             $stmt->execute();
             while ($reserva = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <h3><?php echo $reserva['nome_quadra']; ?></h3>
-                <p>Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
-                <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
-                <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
-                <p>Data: <?php echo $reserva['data_reserva']; ?></p>
-                <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
-                <hr>
+                <div class="containerCima-Reservas">
+                    <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
+                    <h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3>
+                </div>
+                <div class="containerDetalhes-reserva">
+                    <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
+                    <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
+                    <p>Data: <?php echo $reserva['data_reserva']; ?></p>
+                    <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
+                </div>
+                <hr class="linha-pgProfile">
             <?php endwhile ?>
         </section>
 
@@ -105,7 +109,7 @@ require_once __DIR__ . '/../../config.php';
                 <p>Sujestões de outras quadras</p>
                 <?php
                 require_once BASE_PATH . '/sistema/classes/Endereco.php';
-                (new Endereco)->calcularDistancia();
+                // (new Endereco)->calcularDistancia();
                 ?>
             </div>
         </section>

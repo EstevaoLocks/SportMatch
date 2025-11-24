@@ -1407,22 +1407,79 @@ footer {
     position: relative;
 
     display: flex;
+    flex-wrap: wrap;
     
     background-color: #0b1a2c;
 }
 
 .sectionAgenda-pgProfile {
     width: 75%;
-    height: 800px;
+    height: 100%;
     margin-top: 32px;
+}
 
-    background-color: #596645;
+.titleReservas-pgProfile {
+    width: 100%;
+    height: auto;
+    padding: 42px 0;
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    color: #ffffff;
+    background-color: #0b1a2c;
+}
+
+.sectionReservas-pgProfile {
+    width: 75%;
+    height: 800px;
+
+    background-color: #0d1f35;
+}
+
+.linha-pgProfile {
+    margin: 0;
+    border: 1px solid #15293f;
+}
+
+.containerCima-Reservas {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerDetalhes-reserva {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+.nomeQuadra-Reservas {
+    font-size: 20px;
+    font-weight: 400;
+
+    color: #ffffff;
+}
+
+.codReserva {
+    font-size: 14px;
+
+    color: #99a1af;
 }
 
 .sectionDireita-pgProfile {
     width: 25%;
     height: auto;
-    margin-top: 32px;
 
     background-color: #554133;
 }
