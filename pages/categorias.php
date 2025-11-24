@@ -1,16 +1,40 @@
 <?php
-    //chama arquivo que define raíz do projeto
     require_once __DIR__ . '/../config.php';
-    include 'conexao.php';
-    
-    // Busca quadras e quem é o dono (instituição)
-    $sql = "SELECT q.*, i.cidade as cidade_inst, m.nome_mod 
-            FROM quadra q 
-            JOIN instituicao i ON q.cod_instituicao = i.cod_instituicao
+    require_once __DIR__ . '/conexao.php';
+
+    // Filtros
+    $filtroModalidade = isset($_GET['modalidade']) ? $_GET['modalidade'] : '';
+    $termoBusca = isset($_GET['busca']) ? $_GET['busca'] : '';
+
+    // Busca Modalidades
+    try {
+        $stmtModalidades = $pdo->query("SELECT * FROM modalidade ORDER BY nome_mod");
+        $modalidades = $stmtModalidades->fetchAll();
+    } catch (PDOException $e) { $modalidades = []; }
+
+    // Query Principal
+    $sql = "SELECT DISTINCT q.*, m.nome_mod 
+            FROM quadra q
             JOIN quadra_mod qm ON q.cod_quadra = qm.cod_quadra
-            JOIN modalidade m ON qm.cod_modalidade = m.cod_modalidade";
-    $stmt = $pdo->query($sql);
-    $quadras = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            JOIN modalidade m ON qm.cod_modalidade = m.cod_modalidade
+            WHERE 1=1";
+    $params = [];
+
+    if (!empty($filtroModalidade)) {
+        $sql .= " AND m.cod_modalidade = :cod_mod";
+        $params[':cod_mod'] = $filtroModalidade;
+    }
+    if (!empty($termoBusca)) {
+        $sql .= " AND (q.nome_quadra LIKE :busca OR q.cidade LIKE :busca)";
+        $params[':busca'] = "%$termoBusca%";
+    }
+    $sql .= " GROUP BY q.cod_quadra ORDER BY q.cod_quadra DESC";
+
+    try {
+        $stmtQuadras = $pdo->prepare($sql);
+        $stmtQuadras->execute($params);
+        $quadras = $stmtQuadras->fetchAll();
+    } catch (PDOException $e) { $quadras = []; }
 ?>
 
 <!DOCTYPE html>
@@ -18,60 +42,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias - SportMatch</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <title>Buscar Quadras - SportMatch</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
-    <style> a { text-decoration: none; } </style>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/categorias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="background-color: #F9FAFB;">
+<body class="body-pgQuadras">
 
-    <?php
-        include BASE_PATH . '/pages/includes/navbar.php';
-    ?>
+    <?php include BASE_PATH . '/pages/includes/navbar.php'; ?>
 
-    <div class="container py-5 mt-5">
-        <h2 class="text-start mb-4" style="border-left: 5px solid #F4743B; padding-left: 15px; color: #0F2F51;">Encontre sua Quadra</h2>
-        
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <form action="" method="GET" class="d-flex gap-2">
-                    <input type="text" class="form-control" placeholder="Buscar por nome, esporte ou cidade...">
-                    <button class="btn-primary2" style="margin:0; padding: 10px 30px;">Filtrar</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="row g-4">
-            <?php foreach($quadras as $q): ?>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100" style="border-radius: 12px; overflow: hidden;">
-                    <img src="assets/img/quadra-fut.png" class="card-img-top" alt="Quadra" style="height: 200px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-2">
-                            <span class="badge bg-info text-dark"><?php echo $q['nome_mod']; ?></span>
-                            <span class="badge bg-secondary"><?php echo $q['cidade_inst']; ?></span>
-                        </div>
-                        <h5 class="card-title fw-bold" style="color: #0F2F51;"><?php echo $q['nome_quadra']; ?></h5>
-                        <p class="card-text text-muted small">
-                            <?php echo $q['composicao']; ?> | <?php echo $q['tamanho']; ?>
-                        </p>
-                        <div class="mt-auto d-flex justify-content-between align-items-center">
-                            <span class="fw-bold text-success">R$ <?php echo number_format($q['valor_hora'], 2, ',', '.'); ?>/h</span>
-                            <a href="detalhes_quadra.php?id=<?php echo $q['cod_quadra']; ?>" class="btn-custom-dark btn-sm px-4">Ver Detalhes</a>
-                        </div>
-                    </div>
+    <main class="main-pgQuadras">
+        <section class="sectionBusca">
+            <h2>Encontre sua quadra ideal</h2>
+            <form method="GET" action="" class="formFiltro">
+                <div class="input-wrapper">
+                    <input type="text" name="busca" class="form-control-busca" placeholder="Nome da quadra ou cidade..." value="<?php echo htmlspecialchars($termoBusca); ?>">
                 </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    
-    <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
-    </body>
+                <div class="select-wrapper">
+                    <select name="modalidade" class="form-select-busca" onchange="this.form.submit()">
+                        <option value="">Todos os Esportes</option>
+                        <?php foreach ($modalidades as $mod): ?>
+                            <option value="<?php echo $mod['cod_modalidade']; ?>" <?php echo ($filtroModalidade == $mod['cod_modalidade']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($mod['nome_mod']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <?php if(!empty($filtroModalidade) || !empty($termoBusca)): ?>
+                    <a href="?" class="btn-limpar"><i class="fas fa-times"></i> Limpar Filtros</a>
+                <?php endif; ?>
+            </form>
+        </section>
 
-    <?php
-        include BASE_PATH . '/pages/includes/footer.php';
-    ?>
+        <section class="resultadosBusca">
+            <div class="quadrasContainer">
+                <?php if (count($quadras) > 0): ?>
+                    <?php foreach ($quadras as $quadra): ?>
+                        <?php 
+                            // Lógica de Imagem Multi-pasta
+                            $imgSrc = BASE_URL . '/assets/img/quadra-fut.png';
+                            if (!empty($quadra['imagem'])) {
+                                $nomeImg = $quadra['imagem'];
+                                $pathQuadras = BASE_PATH . '/assets/img/quadras/' . $nomeImg;
+                                $pathLugares = BASE_PATH . '/assets/img/' . $nomeImg;
+                                $pathGeral = BASE_PATH . '/assets/img/' . $nomeImg;
+
+                                if (file_exists($pathQuadras)) $imgSrc = BASE_URL . '/assets/img/quadras/' . $nomeImg;
+                                elseif (file_exists($pathLugares)) $imgSrc = BASE_URL . '/assets/img/' . $nomeImg;
+                                elseif (file_exists($pathGeral)) $imgSrc = BASE_URL . '/assets/img/' . $nomeImg;
+                            }
+                        ?>
+
+                        <div class="cardQuadra">
+                            <div class="cardImageContainer">
+                                <img src="<?php echo $imgSrc; ?>" alt="Foto da <?php echo $quadra['nome_quadra']; ?>" onerror="this.src='<?php echo BASE_URL; ?>/assets/img/quadra-fut.png'">
+                            </div>
+                            
+                            <div class="infoQuadra">
+                                <h3 class="tituloQuadra"><?php echo htmlspecialchars($quadra['nome_quadra']); ?></h3>
+                                <p class="localQuadra"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($quadra['bairro']); ?></p>
+                                <div class="detalhesQuadra">
+                                    <p><span>Esporte:</span> <?php echo htmlspecialchars($quadra['nome_mod']); ?></p>
+                                    <p><span>Tamanho:</span> <?php echo htmlspecialchars($quadra['tamanho']); ?></p>
+                                </div>
+                                <p class="precoQuadra">R$ <?php echo number_format($quadra['valor_hora'], 2, ',', '.'); ?>/h</p>
+                                <a href="produto.php?id=<?php echo $quadra['cod_quadra']; ?>" class="btnReservar">Veja mais</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="mensagemSemQuadra"><p>Nenhuma quadra encontrada com esses filtros.</p></div>
+                <?php endif; ?>
+            </div>
+        </section>
+    </main>
+    <?php include BASE_PATH . '/pages/includes/footer.php'; ?>
+</body>
 </html>

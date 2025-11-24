@@ -1,115 +1,261 @@
-/* PAGINA DO PRODUTO */
-
-.produto-container {
-    display: flex;
-    gap: 40px;
-    padding: 40px 0;
-    align-items: flex-start;
+body {
+    background-color: #02050A;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* IMAGEM */
+.main-produto {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+}
+
+/* Layout em Grid: Imagem à esquerda, Info à direita */
+.produto-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Coluna da Imagem */
 .produto-imagem {
-    flex: 1;
-    background: #fff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 70vh
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .produto-imagem img {
     width: 100%;
-    height: 70%;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-/* INFO */
+.produto-imagem:hover img {
+    transform: scale(1.05);
+}
+
+/* Coluna de Informações */
 .produto-info {
-    flex: 1.2;
-    background: #fff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
 }
 
 .produto-info h1 {
-    font-size: 28px;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #0b2c5d; 
     margin-bottom: 10px;
+    line-height: 1.2;
+    color: #fff;
 }
 
-.produto-avaliacao {
-    font-size: 18px;
-    color: #ffb400;
-    margin-bottom: 15px;
-}
-
-.produto-avaliacao span {
-    color: #777;
-    font-size: 14px;
-    margin-left: 8px;
+.produto-local {
+    color: #70D4D6;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .produto-descricao {
-    margin: 15px 0;
+    color: #B0B8C1;
+    font-size: 1rem;
     line-height: 1.6;
-    color: #333;
-}
-
-.produto-detalhes {
-    margin: 20px 0;
-    color: #444;
-    line-height: 1.6;
-    font-size: 15px;
-}
-
-/* PREÇO */
-.produto-preco {
-    font-size: 32px;
-    font-weight: bold;
-    color: #0066ff; 
-    margin: 20px 0;
-}
-
-.produto-preco span {
-    font-size: 18px;
-    color: #666;
-}
-
-/* BOTÃO */
-.btn-reservar {
-    padding: 16px 24px;
-    background: #0066ff;
-    color: #fff;
-    font-size: 18px;
-    border: none;
+    margin-bottom: 30px;
+    background-color: #0F253B;
+    padding: 20px;
     border-radius: 12px;
+    border-left: 4px solid #70D4D6;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.spec-item {
+    background-color: #15293F;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.spec-item i {
+    color: #F4743B;
+    font-size: 1.2rem;
+}
+
+.spec-item span {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Preço */
+.produto-preco {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #70D4D6;
+    margin-bottom: 10px;
+}
+
+.produto-preco small {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+}
+
+/* --- AGENDA / CALENDÁRIO --- */
+.agenda-section {
+    margin-top: 40px;
+    background-color: #0F253B;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.agenda-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.agenda-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.data-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-data {
+    background-color: #02050A;
+    border: 1px solid #70D4D6;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    width: 100%;
-    transition: 0.2s;
 }
 
-.btn-reservar:hover {
-    background: #004fcc;
+.btn-buscar-data {
+    background-color: #70D4D6;
+    color: #02050A;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* RESPONSIVO */
+.btn-buscar-data:hover {
+    background-color: #5bc2c4;
+}
+
+/* Grid de Horários (Tickets) */
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.ticket-hora {
+    background-color: #1E3A56;
+    border: 1px solid #2a4a6a;
+    border-radius: 8px;
+    padding: 15px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-hora span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.ticket-hora small {
+    font-size: 0.75rem;
+    color: #8D99AE;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Estados do Ticket */
+.ticket-hora.livre {
+    border-color: #28a745;
+    color: #fff;
+}
+.ticket-hora.livre:hover {
+    background-color: #28a745;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+.ticket-hora.livre::after {
+    content: 'LIVRE';
+    font-size: 0.6rem;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #28a745;
+}
+.ticket-hora.livre:hover::after { color: #fff; }
+
+.ticket-hora.reservado {
+    background-color: #343a40;
+    border-color: #495057;
+    color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Ticket do Usuário (Pode cancelar) */
+.ticket-hora.meu-ticket {
+    background-color: #F4743B;
+    border-color: #ca5d2d;
+    color: #fff;
+    cursor: pointer;
+    opacity: 1;
+}
+.ticket-hora.meu-ticket:hover {
+    background-color: #d6501e;
+}
+.ticket-hora.meu-ticket small { color: #ffecec; }
+.ticket-hora.meu-ticket::after {
+    content: 'MEU TICKET';
+    font-size: 0.6rem;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #fff;
+}
+
+/* Modalidades Responsivas */
 @media (max-width: 900px) {
     .produto-container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+    .produto-imagem {
+        height: 300px;
     }
 }
-
-@media (max-width: 600px) {
-    .produto-info h1 {
-        font-size: 22px;
-    }
-    .produto-preco {
-        font-size: 26px;
-    }
-}
- 
