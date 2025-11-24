@@ -1429,7 +1429,7 @@ footer {
 
 .sectionReservas-pgProfile {
     width: 75%;
-    height: 800px;
+    min-height: 100%;
 
     background-color: #0d1f35;
 }
@@ -1542,12 +1542,139 @@ h4.titleQntReservas {
 
 .main-pgQuadrasReservadas {
     width: 80%;
+    min-height: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 216px;
     position: relative;
     
     background-color: #0b1a2c;
+}
+
+.sectionReservas-pgReservas {
+    width: 100%;
+    min-height: 100%;
+
+    background-color: #0d1f35;
+}
+
+.linha-pgProfile {
+    margin: 0;
+    border: 1px solid #15293f;
+}
+
+.cardReserva {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+}
+
+.imgcardReserva {
+    width: 240px;
+    height: 196px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgcardReserva img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bodycardReserva {
+    width: calc(100% - 240px);
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.containerCima-Reservas {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerDetalhes-reserva {
+    width: calc(100%-64px);
+    height: auto;
+    padding: 16px 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+
+    color: #ffffff;
+}
+
+.labelCardReserva {
+    font-size: 14px;
+    color: #99a1af;
+}
+
+.dFlex-cardReserva {
+    display: flex;
+}
+
+.dFlex-cardReserva div {
+    text-align: right;
+    margin-left: 18px;
+}
+
+.contentData-CardReserva {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    color: #e0e0e0;
+}
+
+.contentHora-CardReserva {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    color: #e0e0e0;
+}
+
+.contentDuracao-CardReserva {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    color: #75DDDD;
+}
+
+.contentValor-CardReserva {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    color: #75dd75;
+}
+
+.nomeQuadra-Reservas {
+    font-size: 20px;
+    font-weight: 400;
+
+    color: #ffffff;
+}
+
+.codReserva {
+    font-size: 14px;
+
+    color: #99a1af;
 }
 
 .sectionCalendario-pgQuadrasReservadas {

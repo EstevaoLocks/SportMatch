@@ -34,14 +34,14 @@ require_once __DIR__ . '/../../config.php';
 
     <main class="main-pgQuadrasReservadas">
 
-    <section class="sectionReservas-pgProfile">
+    <section class="sectionReservas-pgReservas">
             <h2 class="titleReservas-pgProfile">Últimas Reservas</h2>
             <hr class="linha-pgProfile">
             <?php
             // últimas três reservas
             require BASE_PATH . '/sistema/conexao.php';
             $sql = "SELECT  reserva.cod_reserva, reserva.duracao, reserva.valor,
-            reserva.data_reserva, reserva.horario_reserva, quadra.nome_quadra
+            reserva.data_reserva, reserva.horario_reserva, quadra.nome_quadra, quadra.imagem, quadra.cod_quadra
             FROM reserva
             JOIN quadra
             ON reserva.cod_quadra = quadra.cod_quadra
@@ -51,15 +51,32 @@ require_once __DIR__ . '/../../config.php';
             $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
             $stmt->execute();
             while ($reserva = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <div class="containerCima-Reservas">
-                    <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
-                    <h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3>
-                </div>
-                <div class="containerDetalhes-reserva">
-                    <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
-                    <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
-                    <p>Data: <?php echo $reserva['data_reserva']; ?></p>
-                    <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
+                <div class="cardReserva">
+                    <div class="imgcardReserva">
+                        <img src="<?php echo BASE_URL; ?>/assets/img/<?php echo $reserva['imagem']; ?>" alt="Imagem da quadra <?php echo $reserva['nome_quadra']; ?>">
+                    </div>
+                    <div class="bodycardReserva">
+                        <div class="containerCima-Reservas">
+                            <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
+                            <a href="<?php echo BASE_URL; ?> /pages/produto.php?id=<?php echo $reserva['cod_quadra']; ?>"><h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3></a>
+                        </div>
+                        <div class="containerDetalhes-reserva">
+                            <div class="dFlex-cardReserva">
+                                <div>
+                                    <p class="labelCardReserva">Data: </p>
+                                    <p class="contentData-CardReserva"><?php echo $reserva['data_reserva']; ?></p>
+                                </div>
+                                <div>
+                                    <p class="labelCardReserva">Horário: </p>
+                                    <p class="contentHora-CardReserva"><?php echo $reserva['horario_reserva']; ?></p>
+                                </div>
+                            </div>
+                            <p class="labelCardReserva">Duração reservada: </p>
+                            <p class="contentDuracao-CardReserva"><?php echo $reserva['duracao']; ?>h</p>
+                            <p class="labelCardReserva">Valor total: </p>
+                            <p class="contentValor-CardReserva">R$ <?php echo $reserva['valor']; ?></p>
+                        </div>
+                    </div>
                 </div>
                 <hr class="linha-pgProfile">
             <?php endwhile ?>
