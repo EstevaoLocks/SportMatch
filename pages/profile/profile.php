@@ -1,6 +1,10 @@
 <?php
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
+
+if ($_GET['tipo_user'] == 'instituicao') {
+    header('Location:' . BASE_URL .'/cadastra_quadra.php');
+}
 ?>
 
 <!DOCTYPE html>

@@ -145,7 +145,35 @@ class Usuario
         //var_dump($resultado);
 
         if ($registros == 0) {
-            echo "nao-encontrado";
+            $consulta = "SELECT * FROM instituicao WHERE email = :email";
+
+            $stmt = $pdo->prepare($consulta);
+
+            // Vincula os parâmetros
+            $stmt->bindParam(':email', $email);
+
+            // Executa a consulta
+            $stmt->execute();
+
+            // Obtém o número de registros encontrados
+            $registros = $stmt->rowCount();
+
+            // Obtém o resultado
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($registros == 0) {
+                echo "não encontrado";
+            }else {
+                // if (password_verify($senha, $resultado['senha'])) {
+                if ($senha == $resultado['senha']) {
+                    $_SESSION['cod_usuario'] = $resultado['cod_usuario'];
+                    $_SESSION['nome'] = $resultado['nome'];
+                    $_SESSION['email'] = $resultado['email'];
+                    header('Location:' . BASE_URL . '/pages/profile/profile.php?tipo_user=instituicao');
+                } else {
+                    echo "senha-incorreta";
+                }
+            }
         } else {
             // if (password_verify($senha, $resultado['senha'])) {
             if ($senha == $resultado['senha']) {
