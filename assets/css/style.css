@@ -64,6 +64,7 @@ h2 {
 
     display: flex;
     align-items: center;
+    background-color: #0D1926;
 }
 
 .menu .links ul {
@@ -209,6 +210,89 @@ h2 {
     background-color: #33b6b6;
 }
 
+/* MENU MOBILE */
+
+.mobile-menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.mobile-menu-icon .bar {
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* Container do menu (desktop: normal / mobile: escondido até abrir) */
+.menu-links {
+    display: flex;
+    height: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 967px) {
+
+    .menu-links {
+        height: auto;
+    }
+    /* Mostra o botão hambúrguer */
+    .mobile-menu-icon {
+        display: flex;
+    }
+
+    /* Menu fica oculto */
+    .menu-links {
+        position: absolute;
+        top: 72px;
+        right: 0;
+        width: 220px;
+        background: #0D1926;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 10px;
+        box-shadow: -2px 4px 10px rgba(0,0,0,0.3);
+
+        transform: translateX(100%);
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+    /* Quando ativo (JS adiciona a classe) */
+    .menu-links.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* Ajustar cada bloco de links */
+    .menu-links .links {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+    }
+
+    .menu-links .links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-links .links ul li {
+        height: auto;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .menu-links .links ul li:hover {
+        height: auto;
+    }
+}
+
+/*-----------------------*/
 .btn-primary1 {
     background-color: #0f2f51;
     color: #ffffff;
@@ -1790,14 +1874,6 @@ h4.titleQntReservas {
 
 /*   CSS Celular e Tablet   */
 @media (max-width: 768px) {
-    .menu ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu ul li {
-        margin: 10px 0;
-    }
 
     .textAbsolute {
         left: auto;

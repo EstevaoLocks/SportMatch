@@ -10,6 +10,11 @@ navbarLinks.forEach(link => {
   }
 });
 
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+
 // Possbilita manipular SVGs diretamente no DOM (no CSS)
 function imgToSVGElement(elementId) {
 
