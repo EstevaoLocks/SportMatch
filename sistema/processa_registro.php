@@ -58,7 +58,7 @@
         $stmt->execute();
 
         $_SESSION['msg_login'] = "Cadastro realizado com sucesso! Faça login.";
-        header('Location: ../login.php');
+        header('Location:' . BASE_URL . '/pages/conta/login.php');
 
     } catch(PDOException $e) {
         echo "Erro ao cadastrar: " . $e->getMessage();

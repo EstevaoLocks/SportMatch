@@ -33,14 +33,10 @@ require_once __DIR__ . '/../../config.php';
     ?>
 
     <main class="main-pgQuadrasReservadas">
-        <section class="sectionCalendario-pgQuadrasReservadas">
-            <p>Caledario com os dias com reservas marcados</p>
-            <p>Priorizar outras coisas!</p>
-        </section>
 
-        <section class="sectionReservas-pgQuadrasReservadas">
-            <h1>Suas reservas</h1>
-            <hr>
+    <section class="sectionReservas-pgProfile">
+            <h2 class="titleReservas-pgProfile">Últimas Reservas</h2>
+            <hr class="linha-pgProfile">
             <?php
             // últimas três reservas
             require BASE_PATH . '/sistema/conexao.php';
@@ -50,18 +46,22 @@ require_once __DIR__ . '/../../config.php';
             JOIN quadra
             ON reserva.cod_quadra = quadra.cod_quadra
             WHERE reserva.cod_usuario = :cod_usuario
-            ORDER BY reserva.data_reserva DESC";
+            ORDER BY reserva.data_reserva DESC LIMIT 3";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
             $stmt->execute();
             while ($reserva = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <h3><?php echo $reserva['nome_quadra']; ?></h3>
-                <p>Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
-                <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
-                <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
-                <p>Data: <?php echo $reserva['data_reserva']; ?></p>
-                <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
-                <hr>
+                <div class="containerCima-Reservas">
+                    <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
+                    <h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3>
+                </div>
+                <div class="containerDetalhes-reserva">
+                    <p>Duração reservada: <?php echo $reserva['duracao']; ?>h</p>
+                    <p>Valor total: R$<?php echo $reserva['valor']; ?></p>
+                    <p>Data: <?php echo $reserva['data_reserva']; ?></p>
+                    <p>Horário: <?php echo $reserva['horario_reserva']; ?></p>
+                </div>
+                <hr class="linha-pgProfile">
             <?php endwhile ?>
         </section>
     </main>
