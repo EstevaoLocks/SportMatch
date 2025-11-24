@@ -1,0 +1,246 @@
+.body-pgQuadras {
+    background-color: #02050A;
+}
+
+.main-pgQuadras {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 120px;
+    padding-bottom: 64px;
+    min-height: 80vh;
+}
+
+/* --- Cabeçalho e Filtros --- */
+.sectionBusca h2 {
+    color: #ffffff;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Container flexível para alinhar tudo no centro */
+.formFiltro {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Wrappers dos inputs para garantir que não quebrem o flex */
+.input-wrapper, .select-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Input de Texto (Cinza claro conforme imagem) */
+.form-control-busca {
+    background-color: #F0F2F5;
+    border: none;
+    padding: 12px 25px;
+    height: 50px; /* Altura fixa para alinhar com o botão */
+    border-radius: 8px; /* Borda levemente arredondada ou 30px se preferir pílula */
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    min-width: 300px;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+}
+
+/* Select (Escuro conforme sua imagem) */
+.form-select-busca {
+    background-color: #102841; /* Azul escuro */
+    border: 1px solid #1F3A5A;
+    padding: 0 25px; /* Padding lateral */
+    height: 50px; /* Altura fixa igual ao input */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #ffffff; /* Texto branco */
+    outline: none;
+    cursor: pointer;
+    min-width: 200px;
+    box-sizing: border-box;
+    
+    /* Remove a seta padrão do navegador para estilizar (opcional) */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2370D4D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+/* Botão Limpar Filtros (Correção do Bug) */
+.btn-limpar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Mesma altura dos inputs */
+    padding: 0 25px;
+    
+    background-color: transparent;
+    border: 1px solid #70D4D6; /* Borda Teal */
+    border-radius: 8px;
+    color: #70D4D6;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Impede que o texto quebre */
+}
+
+.btn-limpar:hover {
+    background-color: #70D4D6;
+    color: #02050A; /* Texto escuro ao passar o mouse */
+    box-shadow: 0 0 10px rgba(112, 212, 214, 0.3);
+}
+
+/* --- Grid de Cards (Mantido igual) --- */
+.quadrasContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.cardQuadra {
+    background-color: #0F253B;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardQuadra:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cardImageContainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cardQuadra:hover .cardImageContainer img {
+    transform: scale(1.05);
+}
+
+.infoQuadra {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloQuadra {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.localQuadra {
+    color: #8D99AE;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.localQuadra i {
+    margin-top: 4px;
+}
+
+.localQuadraDetalhe {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.containerStars {
+    margin-bottom: 15px;
+    color: #FFC107;
+    font-size: 0.9rem;
+}
+
+.detalhesQuadra {
+    margin-bottom: 15px;
+}
+
+.detalhesQuadra p {
+    color: #8D99AE;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.detalhesQuadra span {
+    color: #5a6575;
+    font-weight: 500;
+}
+
+.precoQuadra {
+    color: #70D4D6;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.btnReservar {
+    background-color: #70D4D6;
+    color: #0F253B;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.btnReservar:hover {
+    background-color: #5BC2C4;
+}
+
+.mensagemSemQuadra {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    padding: 60px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .main-pgQuadras {
+        padding-top: 100px;
+        width: 95%;
+    }
+    .formFiltro {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-control-busca, .form-select-busca, .btn-limpar {
+        width: 100%;
+    }
+}
