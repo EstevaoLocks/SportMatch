@@ -1,8 +1,5 @@
 <?php
-// Garante que o config só seja chamado se ainda não foi definido para evitar erros
-if (!defined('BASE_URL')) {
     require_once __DIR__ . '/../../config.php';
-}
 ?>
 
 <!-- Importa o CSS Responsivo específico da Navbar -->

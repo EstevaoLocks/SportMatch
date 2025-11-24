@@ -1,5 +1,8 @@
 <?php
     require_once __DIR__ . '/config.php';
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     
     // A conexão está dentro da pasta pages
     require_once __DIR__ . '/pages/conexao.php';
