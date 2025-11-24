@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/../sitema/classes/config.php';
-    require_once __DIR__ . '/../sitema/classes/conexao.php';
+    require_once __DIR__ . '/../../conexao.php';
 
     if (session_status() === PHP_SESSION_NONE) session_start();
 
