@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../config.php';
 ?>
 
 <!-- Importa o CSS Responsivo específico da Navbar -->
@@ -39,33 +39,36 @@
 
         <!-- Área de Login / Perfil -->
         <div class="links login-area">
-            <?php 
-                // Verifica em qual página estamos para esconder o botão de login nas páginas de auth/perfil
-                $paginaAtual = basename($_SERVER['PHP_SELF']);
-                $paginasSemLogin = ['profile.php', 'quadrasReservadas.php', 'favoritos.php', 'configuracaoProfile.php', 'login.php', 'registro.php'];
+            <?php
+            // Verifica em qual página estamos para esconder o botão de login nas páginas de auth/perfil
+            $paginaAtual = basename($_SERVER['PHP_SELF']);
+            $paginasSemLogin = ['profile.php', 'quadrasReservadas.php', 'favoritos.php', 'configuracaoProfile.php'];
             ?>
 
-            <?php if (!in_array($paginaAtual, $paginasSemLogin)): ?>
-                
-                <?php if ((isset($_SESSION['id'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))): ?>
-                    <!-- Usuário Logado -->
+
+
+            <?php if ((isset($_SESSION['cod_usuario'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))): ?>
+                <!-- Usuário Logado -->
+                <?php if (!in_array($paginaAtual, $paginasSemLogin)): ?>
                     <div>
                         <a class="btnLogadoPerfil-menu" href="<?php echo BASE_URL; ?>/pages/profile/profile.php">
                             <span class="mobile-text">Meu Perfil</span>
                             <img id="iconePersonBtnMenu" class="iconePerson-BtnMenuLogado" src="<?php echo BASE_URL; ?>/assets/img/icons/iconePerson.svg" alt="Perfil">
                         </a>
                     </div>
-                <?php else: ?>
-                    <!-- Usuário Deslogado -->
-                    <div>
-                        <a class="btn-secondary1-menu" href="<?php echo BASE_URL; ?>/pages/Conta/login.php">
-                            Login
-                            <img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="<?php echo BASE_URL; ?>/assets/img/icons/iconePerson.svg" alt="">
-                        </a>
-                    </div>
                 <?php endif; ?>
+            <?php else: ?>
+                <!-- Usuário Deslogado -->
+
+                <div>
+                    <a class="btn-secondary1-menu" href="<?php echo BASE_URL; ?>/pages/Conta/login.php">
+                        Login
+                        <img id="iconePersonBtnMenu" class="iconePerson-BtnMenu" src="<?php echo BASE_URL; ?>/assets/img/icons/iconePerson.svg" alt="">
+                    </a>
+                </div>
 
             <?php endif; ?>
+
         </div>
     </div>
 </nav>
