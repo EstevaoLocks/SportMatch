@@ -1,4 +1,5 @@
 <?php
+    //chama arquivo que define raíz do projeto
     require_once __DIR__ . '/../../config.php';
 ?>
 
@@ -15,16 +16,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="body-form"> <!-- Classe Mestra -->
-    <?php include BASE_PATH . '/pages/includes/navbar.php'; ?>
+<body class="cadastro">
+    <?php
+        include BASE_PATH . '/pages/includes/navbar.php';
+    ?>
 
     <div class="main-content">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    
-                    <div class="form-box"> <!-- Card Escuro Padronizado -->
-                        <h2>Criar Conta</h2>
+                    <div class="card-custom">
+                        <h2 class="card-title">Criar Conta</h2>
                         
                         <form action="<?php echo BASE_URL; ?>/processa_registro.php" method="POST">
                             <div class="row">
@@ -33,11 +35,11 @@
                                     <div class="d-flex gap-4">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="tipo_cadastro" id="tipoUsuario" value="usuario" checked onclick="toggleForm('usuario')">
-                                            <label class="form-check-label" for="tipoUsuario" style="color: #fff;">Reservar Quadras (Atleta)</label>
+                                            <label class="form-check-label" for="tipoUsuario">Reservar Quadras (Atleta)</label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="tipo_cadastro" id="tipoInstituicao" value="instituicao" onclick="toggleForm('instituicao')">
-                                            <label class="form-check-label" for="tipoInstituicao" style="color: #fff;">Alugar Minhas Quadras (Instituição)</label>
+                                            <label class="form-check-label" for="tipoInstituicao">Alugar Minhas Quadras (Instituição)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +110,7 @@
                             </div>
                             
                             <div class="mt-4">
-                                <button type="submit" class="btn-submit-form">Finalizar Cadastro</button>
+                                <button type="submit" class="btn-custom-dark">Finalizar Cadastro</button>
                             </div>
                         </form>
                     </div>

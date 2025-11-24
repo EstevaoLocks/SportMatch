@@ -1,0 +1,190 @@
+/* CSS Exclusivo para Responsividade da Navbar */
+
+/* --- Estilos Padrão (Desktop) --- */
+.mobile-menu-icon {
+    display: none; /* Escondido no PC */
+    cursor: pointer;
+    z-index: 1001; /* Acima de tudo */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.mobile-text {
+    display: none; /* Esconde texto extra do perfil no desktop */
+}
+
+/* --- Estilos Mobile (Tablet e Celular) --- */
+@media (max-width: 900px) {
+    /* Ajuste da Barra Principal */
+    .menu {
+        padding: 0 20px;
+        justify-content: space-between;
+        position: fixed; /* Garante que fixa no topo */
+    }
+
+    .logo {
+        z-index: 1001; /* Mantém logo visível */
+    }
+
+    /* Ícone Sanduíche */
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .mobile-menu-icon div {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+        border-radius: 2px;
+    }
+
+    /* Animação do Ícone (Vira um X) */
+    .mobile-menu-icon.change .bar1 {
+        transform: translate(0, 9px) rotate(-45deg);
+        background-color: #F4743B; /* Laranja quando ativo */
+    }
+    .mobile-menu-icon.change .bar2 {
+        opacity: 0;
+    }
+    .mobile-menu-icon.change .bar3 {
+        transform: translate(0, -9px) rotate(45deg);
+        background-color: #F4743B;
+    }
+
+    /* O Menu (Escondido por padrão) */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Fora da tela */
+        height: 100vh;
+        width: 70%; /* Ocupa 70% da tela */
+        background-color: #081018; /* Fundo escuro */
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 100px; /* Espaço para não ficar em cima do logo */
+        transition: 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        z-index: 1000;
+        border-left: 1px solid #15293F;
+    }
+
+    /* O Menu (Quando Ativo/Aberto) */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Links Internos */
+    .nav-menu .links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin: 0;
+    }
+
+    .nav-menu .links ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .nav-menu .links ul li {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #15293F;
+        margin: 0;
+        display: block;
+        height: auto;
+    }
+    
+    .menu .links ul li:hover {
+        height: auto; /* Remove altura fixa do desktop */
+        background-color: #15293F;
+        border-bottom: 1px solid #F4743B; /* Mantém borda laranja */
+    }
+
+    .nav-menu .links ul li a {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+    }
+
+    /* Área de Login/Perfil no Mobile */
+    .login-area {
+        margin-top: 30px;
+        border-top: 1px solid #15293F;
+        padding-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-secondary1-menu {
+        width: 80%;
+        justify-content: center;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .btnLogadoPerfil-menu {
+        width: 80%;
+        justify-content: center;
+        border-radius: 8px; /* Quadrado no mobile */
+        padding: 15px;
+        margin: 0;
+    }
+
+    .mobile-text {
+        display: inline;
+        margin-right: 10px;
+        color: #0F2F51;
+    }
+}
+
+/* --- Ajustes Extras para Navbar de Perfil (Se existir na página) --- */
+@media (max-width: 768px) {
+    .menu-pgProfile {
+        position: relative; /* Deixa fluir com a página */
+        height: auto;
+        margin-top: 72px; /* Compensa a navbar fixa */
+    }
+
+    .rowCima-navPgProfile {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    .leftContentRowCima-navPgProfile {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .rightContentRowCima-navPgProfile {
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+
+    .links-pgProfileNav {
+        overflow-x: auto; /* Permite rolar horizontalmente se não couber */
+        width: 100%;
+        padding-bottom: 5px;
+        margin-right: 0;
+    }
+
+    .links-pgProfileNav ul {
+        width: max-content; /* Expande para caber os itens */
+    }
+}
