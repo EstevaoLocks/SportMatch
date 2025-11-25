@@ -3,7 +3,11 @@
 require_once __DIR__ . '/../../config.php';
 
 if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])) {
-    header('Location:' . BASE_URL . '/pages/conta/login.php');
+    if (isset($_SESSION['cod_instituicao'])) {
+        header('Location:' . BASE_URL . '/pages/profile/profile_instituicao.php');
+    }else{
+        header('Location:' . BASE_URL . '/pages/conta/login.php');
+    }
 }
 ?>
 

@@ -164,8 +164,8 @@ class Usuario
             if ($registros == 0) {
                 echo "não encontrado";
             }else {
-                // if (password_verify($senha, $resultado['senha'])) {
-                if ($senha == $resultado['senha']) {
+                if (password_verify($senha, $resultado['senha'])) {
+                // if ($senha == $resultado['senha']) {
                     $_SESSION['cod_instituicao'] = $resultado['cod_instituicao'];
                     $_SESSION['nome'] = $resultado['nome'];
                     $_SESSION['email'] = $resultado['email'];
@@ -175,8 +175,8 @@ class Usuario
                 }
             }
         } else {
-            // if (password_verify($senha, $resultado['senha'])) {
-            if ($senha == $resultado['senha']) {
+            if (password_verify($senha, $resultado['senha'])) {
+            // if ($senha == $resultado['senha']) {
                 $_SESSION['cod_usuario'] = $resultado['cod_usuario'];
                 $_SESSION['nome'] = $resultado['nome'];
                 $_SESSION['email'] = $resultado['email'];

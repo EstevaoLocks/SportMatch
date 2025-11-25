@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/11/2025 às 09:23
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Tempo de geração: 25-Nov-2025 às 12:08
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,18 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `favoritos`
+-- Estrutura da tabela `favoritos`
 --
 
 CREATE TABLE `favoritos` (
   `cod_quadra` int(11) DEFAULT NULL,
   `cod_usuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `instituicao`
+-- Estrutura da tabela `instituicao`
 --
 
 CREATE TABLE `instituicao` (
@@ -51,38 +51,38 @@ CREATE TABLE `instituicao` (
   `bairro` varchar(50) NOT NULL,
   `numero` int(11) NOT NULL,
   `rua` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `instituicao`
+-- Extraindo dados da tabela `instituicao`
 --
 
 INSERT INTO `instituicao` (`cod_instituicao`, `username`, `senha`, `nome`, `email`, `telefone`, `cep`, `estado`, `cidade`, `bairro`, `numero`, `rua`) VALUES
-(1, 'inst_central', 'senha123', 'Centro Esportivo SP', 'contato@cesp.com.br', '(11) 98765-4321', '01001-000', 'SP', 'São Paulo', 'Centro', 100, 'Rua da Consolação'),
-(2, 'esportes_sul', 'esp2024', 'Associação Esportiva', 'contato@asesul.com.b', '(11) 91234-5678', '04321-000', 'SP', 'São Paulo', 'Jardim Miriam', 254, 'Avenida dos Estados'),
-(3, 'clube_raposo', 'raposo22', 'Clube Raposo Tavares', 'contato@cluberpt.com', '(11) 99988-7766', '05556-000', 'SP', 'São Paulo', 'Raposo Tavares', 137, 'Rua Professor Artur Ramos'),
-(4, 'esporte_jund', 'jund10', 'Jundiaí Esportes', 'contato@jundiaiesp.b', '(11) 99887-1234', '13200-000', 'SP', 'Jundiaí', 'Centro', 55, 'Rua Barão de Jundiaí'),
-(5, 'clube_pinheiros', 'pinh432', 'Clube Pinheiros', 'contato@clubepinh.co', '(11) 94567-8910', '05422-000', 'SP', 'São Paulo', 'Pinheiros', 300, 'Rua Ferreira de Araújo'),
-(6, 'esportiva_sp', 'esp_sul22', 'Associação Esportiva', 'contato@esp_sul.com.', '(11) 97654-3210', '04776-000', 'SP', 'São Paulo', 'Campo Limpo', 78, 'Avenida Professor Luís Ignácio'),
-(7, 'clube_barueri', 'barueri10', 'Clube Barueri', 'contato@clubebarueri', '(11) 98877-5544', '06400-000', 'SP', 'Barueri', 'Jardim Belval', 99, 'Rua Guilherme Álvaro'),
-(8, 'esporte_maua', 'maua2023', 'Mauá Esportes', 'contato@mauaesp.com', '(11) 98765-1122', '09370-000', 'SP', 'Mauá', 'Centro', 140, 'Rua Nicolau Filizola'),
-(9, 'esportes_osas', 'osas22', 'Esportes Osasco', 'contato@esportesosas', '(11) 97612-3344', '06000-000', 'SP', 'Osasco', 'Centro', 400, 'Avenida dos Autonomistas'),
-(10, 'clube_santo', 'santo33', 'Clube Santo André', 'contato@clubesanto.c', '(11) 99345-6677', '09010-000', 'SP', 'Santo André', 'Centro', 88, 'Rua Senador Flaquer');
+(1, 'inst_central12', '$2y$10$yR/bRoJjdaf7vlYll.x1aeqiAjJcbRTiBn15nnmx0XFUii7FuBoR6', 'Centro Esportivo SP', 'contato@cesp.com.br', '(11) 98765-4321', '01001-000', 'SP', 'São Paulo', 'Centro', 100, 'Rua da Consolação'),
+(2, 'esportes_sul', '$2y$10$dk8a.108FZcU5GVy8CUB0.EGGN1Mx8dzJsgrJoVEEQlKSI2Z4i.v6', 'Associação Esportiva', 'contato@asesul.com.b', '(11) 91234-5678', '04321-000', 'SP', 'São Paulo', 'Jardim Miriam', 254, 'Avenida dos Estados'),
+(3, 'clube_raposo', '$2y$10$wCuGgl6N6m6VYvg8osPGkOip01rTLnu2IS719veVd/Zn2xnfCS4bG', 'Clube Raposo Tavares', 'contato@cluberpt.com', '(11) 99988-7766', '05556-000', 'SP', 'São Paulo', 'Raposo Tavares', 137, 'Rua Professor Artur Ramos'),
+(4, 'esporte_jund', '$2y$10$CFkZtG1wmZzeGjF4MQODweKm6Oo0D/mnQ0UrazyTam39kaN04DwRK', 'Jundiaí Esportes', 'contato@jundiaiesp.b', '(11) 99887-1234', '13200-000', 'SP', 'Jundiaí', 'Centro', 55, 'Rua Barão de Jundiaí'),
+(5, 'clube_pinheiros', '$2y$10$h7n230NoKhew2ZH/9h603.j//J2PvH40IXWjyXhhsTyikrr41HIqG', 'Clube Pinheiros', 'contato@clubepinh.co', '(11) 94567-8910', '05422-000', 'SP', 'São Paulo', 'Pinheiros', 300, 'Rua Ferreira de Araújo'),
+(6, 'esportiva_sp', '$2y$10$lVEG0c33K085myTbqFuFBewlNOaRinLEDwmgyCMrEj/VRFGR1/9rK', 'Associação Esportiva', 'contato@espsul.com.c', '(11) 97654-3210', '04776-000', 'SP', 'São Paulo', 'Campo Limpo', 78, 'Avenida Professor Luís Ignácio'),
+(7, 'clube_barueri', '$2y$10$6zIvmYnxJIS.6qVUQj.m3u8CKo4NLlWaWdnDDBdGqgmff3/UcjU3e', 'Clube Barueri', 'contato@clubebarueri', '(11) 98877-5544', '06400-000', 'SP', 'Barueri', 'Jardim Belval', 99, 'Rua Guilherme Álvaro'),
+(8, 'esporte_maua', '$2y$10$GMLiuhBglXBhmtV54lPfeOeTGeWETwOao7S/g7hVDqWjYTslt5646', 'Mauá Esportes', 'contato@mauaesp.com', '(11) 98765-1122', '09370-000', 'SP', 'Mauá', 'Centro', 140, 'Rua Nicolau Filizola'),
+(9, 'esportes_osas', '$2y$10$XKTbh0A20VZO8Kl6ZfHoHOewi6.3UEQCeJyLWtQLq7IGvMTr1JAO6', 'Esportes Osasco', 'contato@esportesosas', '(11) 97612-3344', '06000-000', 'SP', 'Osasco', 'Centro', 400, 'Avenida dos Autonomistas'),
+(10, 'clube_santo', '$2y$10$I3Qelvd19SWqhiHlF5Q91Ou8GgaLh1C1nGvTz.xIvN.ikax/exA4C', 'Clube Santo André', 'contato@clubesanto.c', '(11) 99345-6677', '09010-000', 'SP', 'Santo André', 'Centro', 88, 'Rua Senador Flaquer');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `modalidade`
+-- Estrutura da tabela `modalidade`
 --
 
 CREATE TABLE `modalidade` (
   `cod_modalidade` int(11) NOT NULL,
   `nome_mod` varchar(50) NOT NULL,
   `descricao_mod` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `modalidade`
+-- Extraindo dados da tabela `modalidade`
 --
 
 INSERT INTO `modalidade` (`cod_modalidade`, `nome_mod`, `descricao_mod`) VALUES
@@ -100,7 +100,7 @@ INSERT INTO `modalidade` (`cod_modalidade`, `nome_mod`, `descricao_mod`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `quadra`
+-- Estrutura da tabela `quadra`
 --
 
 CREATE TABLE `quadra` (
@@ -119,37 +119,37 @@ CREATE TABLE `quadra` (
   `valor_hora` decimal(8,2) NOT NULL,
   `cod_instituicao` int(11) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `quadra`
+-- Extraindo dados da tabela `quadra`
 --
 
 INSERT INTO `quadra` (`cod_quadra`, `nome_quadra`, `arquibancada`, `cobertura`, `tamanho`, `composicao`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `numero`, `valor_hora`, `cod_instituicao`, `imagem`) VALUES
-(1, 'Quadra Central 1', 1, 1, '20x40', 'Piso de madeira', '01001-000', 'SP', 'São Paulo', 'Centro', 'Rua da Consolação', 100, 120.00, 1, 'Quadra-de-Futsal-profissional 1.png'),
-(2, 'Quadra Sul 2', 0, 1, '18x36', 'Gramado', '04321-000', 'SP', 'São Paulo', 'Jardim Miriam', 'Avenida dos Estados', 254, 90.00, 2, 'quadraTenis.png'),
-(3, 'Quadra Raposo 3', 1, 0, '22x44', 'Piso sintético', '05556-000', 'SP', 'São Paulo', 'Raposo Tavares', 'Rua Professor Artur Ramos', 137, 110.00, 3, 'Quadra-de-Futsal-profissional 1.png'),
-(4, 'Quadra Jundiaí 1', 0, 1, '20x40', 'Piso polipropileno', '13200-000', 'SP', 'Jundiaí', 'Centro', 'Rua Barão de Jundiaí', 55, 100.00, 4, 'quadra-de-volei4 1.png'),
-(5, 'Quadra Pinheiros 2', 1, 1, '19x38', 'Piso laminado', '05422-000', 'SP', 'São Paulo', 'Pinheiros', 'Rua Ferreira de Araújo', 300, 130.00, 5, 'quadraBaquete 1.png'),
-(6, 'Quadra Campo Limpo', 0, 0, '18x36', 'Piso sintético', '04776-000', 'SP', 'São Paulo', 'Campo Limpo', 'Avenida Professor Luís Ignácio', 78, 80.00, 6, 'Quadra-de-Futsal-profissional 1.png'),
-(7, 'Quadra Barueri 1', 1, 1, '22x44', 'Piso de madeira', '06400-000', 'SP', 'Barueri', 'Jardim Belval', 'Rua Guilherme Álvaro', 99, 115.00, 7, 'quadraBadminton.png'),
-(8, 'Quadra Mauá 1', 0, 1, '20x40', 'Piso polipropileno', '09370-000', 'SP', 'Mauá', 'Centro', 'Rua Nicolau Filizola', 140, 95.00, 8, 'Quadra-de-Futsal-profissional 1.png'),
-(9, 'Quadra Osasco 2', 1, 0, '18x36', 'Piso sintético', '06000-000', 'SP', 'Osasco', 'Centro', 'Avenida dos Autonomistas', 400, 85.00, 9, 'quadraTenis.png'),
-(10, 'Quadra Santo André', 0, 1, '20x40', 'Piso laminado', '09010-000', 'SP', 'Santo André', 'Centro', 'Rua Senador Flaquer', 88, 100.00, 10, 'quadra-de-volei4 1.png');
+(1, 'Quadra Central 1', 1, 1, '20x40', 'Piso de madeira', '01001-000', 'SP', 'São Paulo', 'Centro', 'Rua da Consolação', 100, '120.00', 1, 'Quadra-de-Futsal-profissional 1.png'),
+(2, 'Quadra Sul 2', 0, 1, '18x36', 'Gramado', '04321-000', 'SP', 'São Paulo', 'Jardim Miriam', 'Avenida dos Estados', 254, '90.00', 2, 'quadraTenis.png'),
+(3, 'Quadra Raposo 3', 1, 0, '22x44', 'Piso sintético', '05556-000', 'SP', 'São Paulo', 'Raposo Tavares', 'Rua Professor Artur Ramos', 137, '110.00', 3, 'Quadra-de-Futsal-profissional 1.png'),
+(4, 'Quadra Jundiaí 1', 0, 1, '20x40', 'Piso polipropileno', '13200-000', 'SP', 'Jundiaí', 'Centro', 'Rua Barão de Jundiaí', 55, '100.00', 4, 'quadra-de-volei4 1.png'),
+(5, 'Quadra Pinheiros 2', 1, 1, '19x38', 'Piso laminado', '05422-000', 'SP', 'São Paulo', 'Pinheiros', 'Rua Ferreira de Araújo', 300, '130.00', 5, 'quadraBaquete 1.png'),
+(6, 'Quadra Campo Limpo', 0, 0, '18x36', 'Piso sintético', '04776-000', 'SP', 'São Paulo', 'Campo Limpo', 'Avenida Professor Luís Ignácio', 78, '80.00', 6, 'Quadra-de-Futsal-profissional 1.png'),
+(7, 'Quadra Barueri 1', 1, 1, '22x44', 'Piso de madeira', '06400-000', 'SP', 'Barueri', 'Jardim Belval', 'Rua Guilherme Álvaro', 99, '115.00', 7, 'quadraBadminton.png'),
+(8, 'Quadra Mauá 1', 0, 1, '20x40', 'Piso polipropileno', '09370-000', 'SP', 'Mauá', 'Centro', 'Rua Nicolau Filizola', 140, '95.00', 8, 'Quadra-de-Futsal-profissional 1.png'),
+(9, 'Quadra Osasco 2', 1, 0, '18x36', 'Piso sintético', '06000-000', 'SP', 'Osasco', 'Centro', 'Avenida dos Autonomistas', 400, '85.00', 9, 'quadraTenis.png'),
+(10, 'Quadra Santo André', 0, 1, '20x40', 'Piso laminado', '09010-000', 'SP', 'Santo André', 'Centro', 'Rua Senador Flaquer', 88, '100.00', 10, 'quadra-de-volei4 1.png');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `quadra_mod`
+-- Estrutura da tabela `quadra_mod`
 --
 
 CREATE TABLE `quadra_mod` (
   `cod_quadra` int(11) NOT NULL,
   `cod_modalidade` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `quadra_mod`
+-- Extraindo dados da tabela `quadra_mod`
 --
 
 INSERT INTO `quadra_mod` (`cod_quadra`, `cod_modalidade`) VALUES
@@ -168,7 +168,7 @@ INSERT INTO `quadra_mod` (`cod_quadra`, `cod_modalidade`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `reserva`
+-- Estrutura da tabela `reserva`
 --
 
 CREATE TABLE `reserva` (
@@ -179,28 +179,28 @@ CREATE TABLE `reserva` (
   `horario_reserva` datetime NOT NULL,
   `cod_quadra` int(11) DEFAULT NULL,
   `cod_usuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `reserva`
+-- Extraindo dados da tabela `reserva`
 --
 
 INSERT INTO `reserva` (`cod_reserva`, `duracao`, `valor`, `data_reserva`, `horario_reserva`, `cod_quadra`, `cod_usuario`) VALUES
-(1, 1.50, 180.00, '2025-11-10', '2025-11-10 14:00:00', 1, 1),
-(2, 2.00, 180.00, '2025-11-12', '2025-11-12 16:00:00', 2, 2),
-(3, 1.00, 110.00, '2025-11-15', '2025-11-15 10:00:00', 3, 3),
-(4, 2.00, 200.00, '2025-11-18', '2025-11-18 18:00:00', 4, 4),
-(5, 1.50, 195.00, '2025-11-20', '2025-11-20 20:00:00', 5, 5),
-(6, 1.00, 80.00, '2025-11-21', '2025-11-21 08:00:00', 6, 6),
-(7, 1.50, 172.50, '2025-11-22', '2025-11-22 14:00:00', 7, 7),
-(8, 2.00, 190.00, '2025-11-23', '2025-11-23 17:00:00', 8, 8),
-(9, 1.00, 85.00, '2025-11-24', '2025-11-24 09:00:00', 9, 9),
-(10, 1.50, 150.00, '2025-11-25', '2025-11-25 19:00:00', 10, 10);
+(1, '1.50', '180.00', '2025-11-10', '2025-11-10 14:00:00', 1, 1),
+(2, '2.00', '180.00', '2025-11-12', '2025-11-12 16:00:00', 2, 2),
+(3, '1.00', '110.00', '2025-11-15', '2025-11-15 10:00:00', 3, 3),
+(4, '2.00', '200.00', '2025-11-18', '2025-11-18 18:00:00', 4, 4),
+(5, '1.50', '195.00', '2025-11-20', '2025-11-20 20:00:00', 5, 5),
+(6, '1.00', '80.00', '2025-11-21', '2025-11-21 08:00:00', 6, 6),
+(7, '1.50', '172.50', '2025-11-22', '2025-11-22 14:00:00', 7, 7),
+(8, '2.00', '190.00', '2025-11-23', '2025-11-23 17:00:00', 8, 8),
+(9, '1.00', '85.00', '2025-11-24', '2025-11-24 09:00:00', 9, 9),
+(10, '1.50', '150.00', '2025-11-25', '2025-11-25 19:00:00', 10, 10);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario`
+-- Estrutura da tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -219,10 +219,10 @@ CREATE TABLE `usuario` (
   `bairro` varchar(50) NOT NULL,
   `rua` varchar(50) NOT NULL,
   `numero` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `username`, `senha`, `nome`, `rg`, `cpf`, `email`, `datanasc`, `telefone`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `numero`) VALUES
@@ -242,40 +242,40 @@ INSERT INTO `usuario` (`cod_usuario`, `username`, `senha`, `nome`, `rg`, `cpf`, 
 --
 
 --
--- Índices de tabela `favoritos`
+-- Índices para tabela `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD KEY `cod_quadra` (`cod_quadra`),
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices de tabela `instituicao`
+-- Índices para tabela `instituicao`
 --
 ALTER TABLE `instituicao`
   ADD PRIMARY KEY (`cod_instituicao`);
 
 --
--- Índices de tabela `modalidade`
+-- Índices para tabela `modalidade`
 --
 ALTER TABLE `modalidade`
   ADD PRIMARY KEY (`cod_modalidade`);
 
 --
--- Índices de tabela `quadra`
+-- Índices para tabela `quadra`
 --
 ALTER TABLE `quadra`
   ADD PRIMARY KEY (`cod_quadra`),
   ADD KEY `cod_instituicao` (`cod_instituicao`);
 
 --
--- Índices de tabela `quadra_mod`
+-- Índices para tabela `quadra_mod`
 --
 ALTER TABLE `quadra_mod`
   ADD PRIMARY KEY (`cod_quadra`,`cod_modalidade`),
   ADD KEY `cod_modalidade` (`cod_modalidade`);
 
 --
--- Índices de tabela `reserva`
+-- Índices para tabela `reserva`
 --
 ALTER TABLE `reserva`
   ADD PRIMARY KEY (`cod_reserva`),
@@ -283,13 +283,13 @@ ALTER TABLE `reserva`
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices de tabela `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`cod_usuario`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -323,31 +323,31 @@ ALTER TABLE `usuario`
   MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `favoritos`
+-- Limitadores para a tabela `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
   ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Restrições para tabelas `quadra`
+-- Limitadores para a tabela `quadra`
 --
 ALTER TABLE `quadra`
   ADD CONSTRAINT `quadra_ibfk_1` FOREIGN KEY (`cod_instituicao`) REFERENCES `instituicao` (`cod_instituicao`);
 
 --
--- Restrições para tabelas `quadra_mod`
+-- Limitadores para a tabela `quadra_mod`
 --
 ALTER TABLE `quadra_mod`
   ADD CONSTRAINT `quadra_mod_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
   ADD CONSTRAINT `quadra_mod_ibfk_2` FOREIGN KEY (`cod_modalidade`) REFERENCES `modalidade` (`cod_modalidade`);
 
 --
--- Restrições para tabelas `reserva`
+-- Limitadores para a tabela `reserva`
 --
 ALTER TABLE `reserva`
   ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
