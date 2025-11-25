@@ -2,7 +2,7 @@
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
 
-if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])) {
+if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])){
     header('Location:' . BASE_URL . '/pages/conta/login.php');
 }
 ?>
@@ -23,22 +23,22 @@ if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset(
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/categorias.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Ícone Navegador -->
     <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/assets/img/ico/logo-azul-32.ico">
-    <title>Seu perfil</title>
+
+    <title>Suas Reservas</title>
 </head>
 
-<body class="body-pgProfile">
+<body class="body-pgQuadrasReservadas">
     <?php
     include BASE_PATH . '/pages/includes/navbar.php';
     include BASE_PATH . '/pages/includes/navbarProfileInstituicao.php';
     ?>
 
-    <main class="main-pgProfile">
-        <section class="sectionReservas-pgProfile">
+    <main class="main-pgQuadrasReservadas">
+
+    <section class="sectionReservas-pgReservas">
             <h2 class="titleReservas-pgProfile">Suas Quadras Cadastradas</h2>
             <hr class="linha-pgProfile">
             <?php
@@ -87,53 +87,6 @@ if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset(
                 <hr class="linha-pgProfile">
             <?php endwhile ?>
         </section>
-
-        <section class="sectionDireita-pgProfile">
-            <div class="containerLocal-pgProfile">
-                <?php
-                // quantidade de reservas
-                require BASE_PATH . '/sistema/conexao.php';
-                $sql = "SELECT COUNT(*) AS quantidade_quadras
-                FROM quadra
-                WHERE cod_instituicao = :cod_instituicao";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
-                $stmt->execute();
-                $quadra = $stmt->fetch(PDO::FETCH_ASSOC)
-                ?>
-                <h4 class="titleQntReservas">Total de quadras: </h4>
-                <p class="qntTotalReservas"><?php echo $quadra['quantidade_quadras']; ?></p>
-
-                <?php
-                // quantidade de reservas já executadas
-                $sql = "SELECT COUNT(*) AS reservas_realizadas
-                FROM reserva
-                JOIN quadra
-                ON reserva.cod_quadra = quadra.cod_quadra
-                WHERE quadra.cod_instituicao = :cod_instituicao AND data_reserva < CURDATE()";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
-                $stmt->execute();
-                $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
-                ?>
-                <p class="titleQntReservas">Reservas efetuadas: </p>
-                <p class="qntReservasEfetuadas"><?php echo $reserva['reservas_realizadas']; ?></p>
-
-                <?php
-                // quantidade de reservas agendadas
-                $sql = "SELECT COUNT(*) AS reservas_agendadas
-                FROM reserva
-                JOIN quadra
-                ON reserva.cod_quadra = quadra.cod_quadra
-                WHERE quadra.cod_instituicao = :cod_instituicao AND data_reserva > CURDATE()";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
-                $stmt->execute();
-                $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
-                ?>
-                <p class="titleQntReservas">Reservas agendadas: </p>
-                <p class="qntReservasAgendadas"><?php echo $reserva['reservas_agendadas']; ?></p>
-            </div>
     </main>
 
     <?php
