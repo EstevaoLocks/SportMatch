@@ -14,9 +14,8 @@ $rua = $_POST['rua'];
 $numero = $_POST['numero'];
 $senha = $_POST['senha'];
 
-// --------------------------------------------------
-// 1. Buscar senha do usuário no banco
-// --------------------------------------------------
+
+
 $sql = $pdo->prepare("
     SELECT senha 
     FROM usuario 
@@ -28,21 +27,9 @@ $sql->execute();
 
 $senhaHash = $sql->fetch(PDO::FETCH_ASSOC);
 
-if (!$senhaHash) {
-    die("Erro: usuário não encontrado.");
-}
 
-// --------------------------------------------------
-// 2. Verificar senha atual digitada
-// --------------------------------------------------
 if (password_verify($senha, $senhaHash['senha'])) {
 
-    // Gerar hash da nova senha
-    $novaSenhaHash = password_hash($nova_senha, PASSWORD_DEFAULT);
-
-    // --------------------------------------------------
-    // 3. Atualizar dados do usuário
-    // --------------------------------------------------
     $sql = $pdo->prepare("
         UPDATE usuario 
         SET 

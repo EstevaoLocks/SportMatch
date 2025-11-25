@@ -18,12 +18,15 @@ $sql = $pdo->prepare("
     SELECT senha FROM usuario WHERE cod_usuario = :cod_usuario LIMIT 1
 "); 
 
+$sql->bindValue(':cod_usuario', $cod_usuario);
 $sql->execute();
 
 $senhaHash = $sql->fetch();
 
 if (password_verify($senha, $senhaHash[0])) {
     
+    $new_senhaHash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
     $sql = $pdo->prepare("
     UPDATE usuario 
     SET nome = :nome, email = :email, telefone = :telefone, cidade = :cidade, username = :username, senha = :senha, rg = :rg, cpf = :cpf, datanasc = :datanasc
@@ -36,7 +39,7 @@ if (password_verify($senha, $senhaHash[0])) {
     $sql->bindValue(':cidade', $cidade);
     $sql->bindValue(':cod_usuario', $cod_usuario);
     $sql->bindValue(':username', $username);
-    $sql->bindValue(':senha', $nova_senha);
+    $sql->bindValue(':senha', $new_senhaHash);
     $sql->bindValue(':rg', $rg);
     $sql->bindValue(':cpf', $cpf);
     $sql->bindValue(':datanasc', $datanasc);
