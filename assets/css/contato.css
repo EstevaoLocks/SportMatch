@@ -1,0 +1,185 @@
+/* --- PÁGINA DE CONTATO (contato.php) --- */
+
+/* Garante que o box-sizing funcione para não estourar larguras */
+* {
+    box-sizing: border-box;
+}
+
+.body-contato {
+    background-color: #081018;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-contato {
+    /* Ajuste fino para o menu fixo não cobrir o conteúdo */
+    padding-top: 140px; 
+    padding-bottom: 80px;
+    
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    
+    flex: 1; /* Faz o main empurrar o footer para baixo se a tela for grande */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-contato {
+    display: flex;
+    width: 100%;
+    background-color: #15293F;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* --- Coluna da Esquerda (Info) --- */
+.info-box {
+    width: 40%;
+    background: linear-gradient(135deg, #0F2F51 0%, #081018 100%);
+    padding: 50px 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-box h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #45DDDD; /* Teal */
+    font-weight: bold;
+}
+
+.desc-contato {
+    color: #99A1AF;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.icon-circle {
+    min-width: 50px; /* Garante que o icone não amasse */
+    height: 50px;
+    background-color: rgba(69, 221, 221, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 20px;
+    color: #45DDDD;
+}
+
+.info-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.info-item p {
+    color: #b0b8c1;
+    font-size: 14px;
+}
+
+/* --- Coluna da Direita (Formulário) --- */
+.form-contato-box {
+    width: 60%;
+    padding: 50px 40px;
+    background-color: #15293F;
+}
+
+.form-contato-box .form-group {
+    margin-bottom: 20px;
+}
+
+.form-contato-box label {
+    display: block;
+    color: #99A1AF;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-contato-box input,
+.form-contato-box select,
+.form-contato-box textarea {
+    width: 100%;
+    background-color: #0B1825;
+    border: 1px solid #2A3E52;
+    border-radius: 8px;
+    padding: 14px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif; /* Garante a fonte correta nos inputs */
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-contato-box input:focus,
+.form-contato-box select:focus,
+.form-contato-box textarea:focus {
+    border-color: #45DDDD;
+    background-color: #0f2336;
+}
+
+/* Botão */
+.btn-enviar {
+    width: 100%;
+    padding: 16px;
+    background-color: #F4743B;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.btn-enviar:hover {
+    background-color: #d15d2a;
+}
+
+/* Mensagem de Sucesso */
+.msg-success-contato {
+    background-color: #1b4d3e;
+    color: #75efbc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #2e7d63;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* --- Responsivo (Mobile) --- */
+@media (max-width: 900px) {
+    .main-contato {
+        padding-top: 100px; /* Menos espaço no mobile */
+        width: 95%;
+    }
+
+    .container-contato {
+        flex-direction: column;
+    }
+
+    .info-box, 
+    .form-contato-box {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    /* inverte a ordem para o form aparecer primeiro no celular */
+    .info-box { order: 2; } 
+}
