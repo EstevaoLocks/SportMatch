@@ -46,7 +46,7 @@ require_once __DIR__ . '/../../config.php';
                 <!-- Se não, icone de engrenagem -->
             <?php else: ?>
                 <div class="containerIconeConfig-navPgProfile">
-                    <a class="linkIconeConfig-navPgProfile" href="<?php echo BASE_URL; ?>/pages/profile/configuracaoProfileInstituicao.php">
+                    <a class="linkIconeConfig-navPgProfile" href="<?php echo BASE_URL; ?>/pages/profile/configuracaoProfileInst.php">
                         <img id="iconeConfig-navPgProfile" class="iconeConfig-navPgProfile" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeConfiguracao.svg" alt="Ícone de Configuração">
                     </a>
                 </div>
