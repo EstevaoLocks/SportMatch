@@ -2,7 +2,16 @@
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
 require_once BASE_PATH . '/sistema/classes/Usuario.php';
+
+if ($usuarioEhInstituicao) {
+    $_SESSION['cod_instituicao'] = $resultadoBanco['cod_instituicao'];
+    $_SESSION['nome_usuario'] = $resultadoBanco['nome'];
+    $_SESSION['tipo_usuario'] = 'instituicao'; // Opcional, ajuda na lógica
+    
+    // Importante: NÃO criar $_SESSION['cod_usuario'] se for instituição
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

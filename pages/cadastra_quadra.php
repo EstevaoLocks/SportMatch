@@ -2,6 +2,23 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/conexao.php';
 
+// Inicia sessão se não estiver iniciada
+if (session_status() === PHP_SESSION_NONE) session_start();
+
+// --- VERIFICAÇÃO DE SEGURANÇA ---
+// Se não existir o ID da instituição na sessão, bloqueia o acesso
+if (!isset($_SESSION['cod_instituicao'])) {
+    // Se for um usuário comum logado, manda para a home
+    if (isset($_SESSION['cod_usuario'])) {
+        header('Location: ' . BASE_URL . '/index.php');
+        exit;
+    }
+    // Se não estiver logado, manda para o login
+    header('Location: ' . BASE_URL . '/pages/login.php');
+    exit;
+}
+// --------------------------------
+
 // Busca modalidades para o select
 try {
     $stmtMods = $pdo->query("SELECT * FROM modalidade ORDER BY nome_mod");
@@ -17,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Dados básicos
     $nome = $_POST['nome_quadra'];
-    $valor = str_replace(',', '.', $_POST['valor_hora']);
+    $valor = str_replace(',', '.', $_POST['valor_hora']); // Troca vírgula por ponto
     $tamanho = $_POST['tamanho'];
     $composicao = $_POST['composicao'];
     $modalidadeID = $_POST['modalidade'];
@@ -33,9 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rua = $_POST['rua'];
     $numero = $_POST['numero'];
 
-    // ID da Instituição (Pegando da sessão ou fixo para teste)
-    if (session_status() === PHP_SESSION_NONE) session_start();
-    $codInstituicao = $_SESSION['id'] ?? 1; 
+    // ID DA INSTITUIÇÃO (Pega da sessão verificada acima)
+    $codInstituicao = $_SESSION['cod_instituicao']; 
 
     // --- LÓGICA DE UPLOAD ---
     $nomeImagem = null;
@@ -98,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Cadastrar Quadra - SportMatch</title>
     
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/form.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 <body class="body-form">
