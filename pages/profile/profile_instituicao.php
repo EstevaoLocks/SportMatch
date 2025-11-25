@@ -39,16 +39,16 @@ if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset(
 
     <main class="main-pgProfile">
         <section class="sectionReservas-pgProfile">
-            <h2 class="titleReservas-pgProfile">Últimas Reservas</h2>
+            <h2 class="titleReservas-pgProfile">Suas Quadras Cadastradas</h2>
             <hr class="linha-pgProfile">
             <?php
             // últimas três reservas
             require BASE_PATH . '/sistema/conexao.php';
-            $sql = "SELECT  quadra.cod_quadra, quadra.tamanho, quadra.composicao,
+            $sql = "SELECT  quadra.cod_quadra, quadra.tamanho, quadra.valor_hora,
             quadra.cidade, quadra.cep, quadra.nome_quadra, quadra.imagem
             FROM quadra
             JOIN instituicao
-            ON quadra.cod_quadra = instituicao.cod_quadra
+            ON quadra.cod_instituicao = instituicao.cod_instituicao
             WHERE instituicao.cod_instituicao = :cod_instituicao
             ORDER BY quadra.nome_quadra DESC LIMIT 3";
             $stmt = $pdo->prepare($sql);
@@ -93,24 +93,26 @@ if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset(
                 <?php
                 // quantidade de reservas
                 require BASE_PATH . '/sistema/conexao.php';
-                $sql = "SELECT COUNT(*) AS quantidade_reservas
-                FROM reserva
-                WHERE cod_usuario = :cod_usuario";
+                $sql = "SELECT COUNT(*) AS quantidade_quadras
+                FROM quadra
+                WHERE cod_instituicao = :cod_instituicao";
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
                 $stmt->execute();
-                $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
+                $quadra = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
-                <h4 class="titleQntReservas">Total de reservas: </h4>
-                <p class="qntTotalReservas"><?php echo $reserva['quantidade_reservas']; ?></p>
+                <h4 class="titleQntReservas">Total de quadras: </h4>
+                <p class="qntTotalReservas"><?php echo $quadra['quantidade_quadras']; ?></p>
 
                 <?php
                 // quantidade de reservas já executadas
                 $sql = "SELECT COUNT(*) AS reservas_realizadas
                 FROM reserva
-                WHERE cod_usuario = :cod_usuario AND data_reserva < CURDATE()";
+                JOIN quadra
+                ON reserva.cod_quadra = quadra.cod_quadra
+                WHERE quadra.cod_instituicao = :cod_instituicao AND data_reserva < CURDATE()";
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>
@@ -121,9 +123,11 @@ if (!isset($_SESSION['cod_instituicao']) || !isset($_SESSION['nome']) || !isset(
                 // quantidade de reservas agendadas
                 $sql = "SELECT COUNT(*) AS reservas_agendadas
                 FROM reserva
-                WHERE cod_usuario = :cod_usuario AND data_reserva > CURDATE()";
+                JOIN quadra
+                ON reserva.cod_quadra = quadra.cod_quadra
+                WHERE quadra.cod_instituicao = :cod_instituicao AND data_reserva > CURDATE()";
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':cod_usuario', $_SESSION['cod_usuario']);
+                $stmt->bindParam(':cod_instituicao', $_SESSION['cod_instituicao']);
                 $stmt->execute();
                 $reserva = $stmt->fetch(PDO::FETCH_ASSOC)
                 ?>

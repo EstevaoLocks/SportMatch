@@ -169,7 +169,7 @@ class Usuario
                     $_SESSION['cod_instituicao'] = $resultado['cod_instituicao'];
                     $_SESSION['nome'] = $resultado['nome'];
                     $_SESSION['email'] = $resultado['email'];
-                    header('Location:' . BASE_URL . '/pages/profile/profile_istituicao.php');
+                    header('Location:' . BASE_URL . '/pages/profile/profile_instituicao.php');
                 } else {
                     echo "senha-incorreta";
                 }
