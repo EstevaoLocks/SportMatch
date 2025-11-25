@@ -130,7 +130,7 @@ if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SE
                 <p>Sujestões de outras quadras</p>
                 <?php
                 require_once BASE_PATH . '/sistema/classes/Endereco.php';
-                // (new Endereco)->calcularDistancia();
+                // (new Endereco)->calcularQuadrasProximas(3);
                 ?>
             </div>
         </section>

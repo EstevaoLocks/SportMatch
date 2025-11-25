@@ -27,7 +27,9 @@ require_once __DIR__ . '/../../config.php';
         <div class="links">
             <ul>
                 <li><a href="<?php echo BASE_URL; ?>/index.php">Home</a></li>
-                <li><a href="<?php echo BASE_URL; ?>/pages/conta/registro.php">Registrar</a></li>
+                <?php if (!isset($_SESSION['cod_usuario']) && !isset($_SESSION['nome']) && !isset($_SESSION['email'])): ?>
+                    <li><a href="<?php echo BASE_URL; ?>/pages/conta/registro.php">Registrar</a></li>
+                <?php endif ?>
                 <li><a href="<?php echo BASE_URL; ?>/pages/categorias.php">Categorias</a></li>
                 <li><a href="<?php echo BASE_URL; ?>/pages/pertodevoce.php">Perto de você</a></li>
                 <li><a href="<?php echo BASE_URL; ?>/pages/sobre.php">Por que escolher?</a></li>

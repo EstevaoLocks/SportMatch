@@ -94,9 +94,9 @@ class Endereco
     }
 
     // ------------------------------
-    // CÁLCULO FINAL DE DISTÂNCIA
+    // CÁLCULO FINAL DE QUADRAS PRÓXIMAS
     // ------------------------------
-    public function calcularDistancia()
+    public function calcularQuadrasProximas($qnt_quadras)
     {
         require BASE_PATH . '/sistema/conexao.php';
 
@@ -178,7 +178,7 @@ class Endereco
         usort($quadras, fn ($a, $b) => $a["distancia_m"] <=> $b["distancia_m"]);
 
         // Selecionar 3 mais próximas
-        $maisProximas = array_slice($quadras, 0, 3);
+        $maisProximas = array_slice($quadras, 0, $qnt_quadras);
 
         // Exibir
         echo "<h2>As 3 quadras mais próximas:</h2>";
