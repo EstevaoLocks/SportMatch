@@ -39,7 +39,7 @@ require_once __DIR__ . '/../../config.php';
 
         <div class="links">
             <?php if (basename($_SERVER['PHP_SELF']) != 'profile.php' && basename($_SERVER['PHP_SELF']) != 'quadrasReservadas.php' && basename($_SERVER['PHP_SELF']) != 'favoritos.php' && basename($_SERVER['PHP_SELF']) != 'configuracaoProfile.php'): ?>
-                <?php if ((isset($_SESSION['cod_usuario'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))): ?>
+                <?php if ((isset($_SESSION['cod_usuario']) || isset($_SESSION['cod_instituicao'])) and (isset($_SESSION['nome'])) and (isset($_SESSION['email']))): ?>
                     <div>
                         <a class="btnLogadoPerfil-menu" href="<?php echo BASE_URL; ?>/pages/profile/profile.php"><img id="iconePersonBtnMenu" class="iconePerson-BtnMenuLogado" src="<?php echo BASE_URL; ?>/assets/img/icons/iconePerson.svg" alt=""></a>
                     </div>
