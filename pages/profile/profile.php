@@ -2,7 +2,7 @@
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
 
-if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])){
+if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])) {
     header('Location:' . BASE_URL . '/pages/conta/login.php');
 }
 ?>
@@ -23,6 +23,8 @@ if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SE
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/categorias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Ícone Navegador -->
     <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/assets/img/ico/logo-azul-32.ico">
@@ -60,7 +62,9 @@ if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SE
                     <div class="bodycardReserva">
                         <div class="containerCima-Reservas">
                             <p class="codReserva">Código da reserva: <?php echo $reserva['cod_reserva']; ?></p>
-                            <a href="<?php echo BASE_URL; ?> /pages/produto.php?id=<?php echo $reserva['cod_quadra']; ?>"><h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3></a>
+                            <a href="<?php echo BASE_URL; ?> /pages/produto.php?id=<?php echo $reserva['cod_quadra']; ?>">
+                                <h3 class="nomeQuadra-Reservas"><?php echo $reserva['nome_quadra']; ?></h3>
+                            </a>
                         </div>
                         <div class="containerDetalhes-reserva">
                             <div class="dFlex-cardReserva">
@@ -127,10 +131,11 @@ if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SE
                 <p class="qntReservasAgendadas"><?php echo $reserva['reservas_agendadas']; ?></p>
             </div>
             <div class="containerOutrasQuadras-pgProfile">
-                <p>Sujestões de outras quadras</p>
+                <h4 class="titleQntReservas">Você também pode gostar: </h4>
+
                 <?php
                 require_once BASE_PATH . '/sistema/classes/Endereco.php';
-                // (new Endereco)->calcularQuadrasProximas(3);
+                (new Endereco)->calcularQuadrasProximas(3);
                 ?>
             </div>
         </section>
