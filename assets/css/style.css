@@ -630,6 +630,7 @@ header.home .figura img {
 
 .sectionNossasCategorias .card {
     width: 30%;
+    min-width: 282px;
 
     background-color: #ffffff;
     border-radius: 12px 12px 12px 12px;
@@ -1075,7 +1076,7 @@ header.home .figura img {
 footer {
     background-color: #0F2F51;
     width: 100%;
-    padding: 72px 0;
+    padding: 72px 10px;
 
     color: #99A1AF;
 }
@@ -1086,15 +1087,18 @@ footer {
 }
 
 .rowFooter {
-    width: 100%;
+    width: calc(100% - 20px);
 
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .colLinksFooter {
     width: 25%;
+    min-width: 247px;
     height: auto;
+    margin-bottom: 24px;
 }
 
 .tituloLinksFooter {
@@ -1204,6 +1208,11 @@ footer {
 
 .colBottomFooter {
     width: 50%;
+    min-width: 315px;
+}
+
+.colBottomFooter p {
+    margin-bottom: 16px;
 }
 
 .colBottomRightFooter {
