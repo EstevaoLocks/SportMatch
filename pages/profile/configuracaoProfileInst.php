@@ -147,10 +147,12 @@ $numero = $inst['numero'] ?? '';
             </form>
 
             <form method="POST" action="<?php echo BASE_URL; ?>/sistema/excluir_conta_inst.php">
-                <input type="hidden" name="cod_instituicao" value="<?php echo $_SESSION['cod_instituicao']; ?>">
-                <button class="btn-secondary1" style="background-color: #cf2e2e; color: white;" type="submit" name="btnExcluirConta" 
+                 <button class="btn-secondary1" 
+                    style="background-color: #cf2e2e; color: white;" 
+                    type="submit" 
+                    name="btnExcluirConta" 
                     onclick="return confirm('ATENÇÃO: Você tem certeza que deseja excluir a conta da INSTITUIÇÃO? Todas as quadras e reservas vinculadas serão perdidas.');">
-                    Excluir conta da Instituição
+                    Excluir conta
                 </button>
             </form>
 

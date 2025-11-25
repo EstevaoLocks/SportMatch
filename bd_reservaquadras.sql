@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Nov-2025 às 04:22
+-- Tempo de geração: 25/11/2025 às 09:23
 -- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `favoritos`
+-- Estrutura para tabela `favoritos`
 --
 
 CREATE TABLE `favoritos` (
@@ -35,7 +35,7 @@ CREATE TABLE `favoritos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `instituicao`
+-- Estrutura para tabela `instituicao`
 --
 
 CREATE TABLE `instituicao` (
@@ -54,7 +54,7 @@ CREATE TABLE `instituicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `instituicao`
+-- Despejando dados para a tabela `instituicao`
 --
 
 INSERT INTO `instituicao` (`cod_instituicao`, `username`, `senha`, `nome`, `email`, `telefone`, `cep`, `estado`, `cidade`, `bairro`, `numero`, `rua`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `instituicao` (`cod_instituicao`, `username`, `senha`, `nome`, `emai
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `modalidade`
+-- Estrutura para tabela `modalidade`
 --
 
 CREATE TABLE `modalidade` (
@@ -82,7 +82,7 @@ CREATE TABLE `modalidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `modalidade`
+-- Despejando dados para a tabela `modalidade`
 --
 
 INSERT INTO `modalidade` (`cod_modalidade`, `nome_mod`, `descricao_mod`) VALUES
@@ -100,7 +100,7 @@ INSERT INTO `modalidade` (`cod_modalidade`, `nome_mod`, `descricao_mod`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `quadra`
+-- Estrutura para tabela `quadra`
 --
 
 CREATE TABLE `quadra` (
@@ -122,7 +122,7 @@ CREATE TABLE `quadra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `quadra`
+-- Despejando dados para a tabela `quadra`
 --
 
 INSERT INTO `quadra` (`cod_quadra`, `nome_quadra`, `arquibancada`, `cobertura`, `tamanho`, `composicao`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `numero`, `valor_hora`, `cod_instituicao`, `imagem`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `quadra` (`cod_quadra`, `nome_quadra`, `arquibancada`, `cobertura`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `quadra_mod`
+-- Estrutura para tabela `quadra_mod`
 --
 
 CREATE TABLE `quadra_mod` (
@@ -149,7 +149,7 @@ CREATE TABLE `quadra_mod` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `quadra_mod`
+-- Despejando dados para a tabela `quadra_mod`
 --
 
 INSERT INTO `quadra_mod` (`cod_quadra`, `cod_modalidade`) VALUES
@@ -168,7 +168,7 @@ INSERT INTO `quadra_mod` (`cod_quadra`, `cod_modalidade`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reserva`
+-- Estrutura para tabela `reserva`
 --
 
 CREATE TABLE `reserva` (
@@ -182,7 +182,7 @@ CREATE TABLE `reserva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `reserva`
+-- Despejando dados para a tabela `reserva`
 --
 
 INSERT INTO `reserva` (`cod_reserva`, `duracao`, `valor`, `data_reserva`, `horario_reserva`, `cod_quadra`, `cod_usuario`) VALUES
@@ -200,7 +200,7 @@ INSERT INTO `reserva` (`cod_reserva`, `duracao`, `valor`, `data_reserva`, `horar
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -222,7 +222,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Despejando dados para a tabela `usuario`
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `username`, `senha`, `nome`, `rg`, `cpf`, `email`, `datanasc`, `telefone`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `numero`) VALUES
@@ -242,40 +242,40 @@ INSERT INTO `usuario` (`cod_usuario`, `username`, `senha`, `nome`, `rg`, `cpf`, 
 --
 
 --
--- Índices para tabela `favoritos`
+-- Índices de tabela `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD KEY `cod_quadra` (`cod_quadra`),
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices para tabela `instituicao`
+-- Índices de tabela `instituicao`
 --
 ALTER TABLE `instituicao`
   ADD PRIMARY KEY (`cod_instituicao`);
 
 --
--- Índices para tabela `modalidade`
+-- Índices de tabela `modalidade`
 --
 ALTER TABLE `modalidade`
   ADD PRIMARY KEY (`cod_modalidade`);
 
 --
--- Índices para tabela `quadra`
+-- Índices de tabela `quadra`
 --
 ALTER TABLE `quadra`
   ADD PRIMARY KEY (`cod_quadra`),
   ADD KEY `cod_instituicao` (`cod_instituicao`);
 
 --
--- Índices para tabela `quadra_mod`
+-- Índices de tabela `quadra_mod`
 --
 ALTER TABLE `quadra_mod`
   ADD PRIMARY KEY (`cod_quadra`,`cod_modalidade`),
   ADD KEY `cod_modalidade` (`cod_modalidade`);
 
 --
--- Índices para tabela `reserva`
+-- Índices de tabela `reserva`
 --
 ALTER TABLE `reserva`
   ADD PRIMARY KEY (`cod_reserva`),
@@ -283,13 +283,13 @@ ALTER TABLE `reserva`
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices para tabela `usuario`
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`cod_usuario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -323,31 +323,31 @@ ALTER TABLE `usuario`
   MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `favoritos`
+-- Restrições para tabelas `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
   ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Limitadores para a tabela `quadra`
+-- Restrições para tabelas `quadra`
 --
 ALTER TABLE `quadra`
   ADD CONSTRAINT `quadra_ibfk_1` FOREIGN KEY (`cod_instituicao`) REFERENCES `instituicao` (`cod_instituicao`);
 
 --
--- Limitadores para a tabela `quadra_mod`
+-- Restrições para tabelas `quadra_mod`
 --
 ALTER TABLE `quadra_mod`
   ADD CONSTRAINT `quadra_mod_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
   ADD CONSTRAINT `quadra_mod_ibfk_2` FOREIGN KEY (`cod_modalidade`) REFERENCES `modalidade` (`cod_modalidade`);
 
 --
--- Limitadores para a tabela `reserva`
+-- Restrições para tabelas `reserva`
 --
 ALTER TABLE `reserva`
   ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`cod_quadra`) REFERENCES `quadra` (`cod_quadra`),
