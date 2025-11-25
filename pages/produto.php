@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/../config.php';
-    require_once BASE_PATH . '/conexao.php';
+    require_once BASE_PATH . '/sistema/conexao.php';
 
 
     if (!isset($_GET['id'])) {
