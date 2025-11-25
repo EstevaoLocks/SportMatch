@@ -153,8 +153,13 @@ $numero = $usuario['numero'] ?? '';
             <form method="POST">
                 <button class="btn-secondary1" type="submit" name="btnLogOut" value="fazerLogout">Fazer Logout</button>
             </form>
-            <form method="POST" action=" <?php echo BASE_PATH; ?> /sistema/exlcui_conta.php">
-                <button class="btn-secondary1" type="submit" name="btnExcluirConta" value="excluirConta">Excluir conta</button>
+            <form method="POST" action="<?php echo BASE_URL; ?>/sistema/excluir_conta.php">
+                <input type="hidden" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']; ?>">
+                <input type="hidden" name="email" value="<?php echo $email; ?>">
+                <button class="btn-secondary1 btn-excluir" type="submit" name="btnExcluirConta" value="excluirConta"
+                    onclick="return confirm('ATENÇÃO: Você tem certeza que deseja excluir sua conta? Esta ação é irreversível.');">
+                    Excluir conta
+                </button>
             </form>
 
             <?php

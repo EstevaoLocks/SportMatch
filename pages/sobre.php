@@ -34,7 +34,7 @@
                             Somos a ponte digital entre atletas que buscam o lugar perfeito para jogar e proprietários de quadras que querem ver seus espaços cheios de vida.
                         </p>
                         <div class="hero-buttons">
-                            <a href="<?php echo BASE_URL; ?>/pages/registro.php" class="btn-primary-sobre">Começar Agora</a>
+                            <a href="<?php echo BASE_URL; ?>/pages/conta/registro.php" class="btn-primary-sobre">Começar Agora</a>
                         </div>
                     </div>
                     
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo BASE_URL; ?>/pages/quadras.php" class="btn-link-func">Buscar Quadras <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?php echo BASE_URL; ?>/pages/categorias.php" class="btn-link-func">Buscar Quadras <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                     <!-- Divisor Visual (Linha vertical) -->
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo BASE_URL; ?>/pages/registro.php?tipo=instituicao" class="btn-link-func">Cadastrar Minha Quadra <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?php echo BASE_URL; ?>/pages/cadastra_quadra.php?tipo=instituicao" class="btn-link-func">Cadastrar Minha Quadra <i class="fas fa-arrow-right"></i></a>
                     </div>
 
                 </div>
@@ -175,28 +175,28 @@
                     </div>
                     <div class="team-card">
                         <div class="team-img-wrapper">
-                            <img src="https://ui-avatars.com/api/?name=Ana&background=F4743B&color=fff&size=200" alt="Ana">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/anabeatriz.jpeg" alt="Ana">
                         </div>
                         <h3>Ana</h3>
-                        <span class="team-role">Frontend / UI Design</span>
+                        <span class="team-role">BD / BackEnd</span>
                     </div>
                     <div class="team-card">
                         <div class="team-img-wrapper">
-                            <img src="https://ui-avatars.com/api/?name=Geovana&background=70D4D6&color=02050A&size=200" alt="Geovana">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/geovana.jpeg" alt="Geovana">
                         </div>
                         <h3>Geovana</h3>
-                        <span class="team-role">Banco de Dados</span>
+                        <span class="team-role">BD / BackEnd</span>
                     </div>
                     <div class="team-card">
                         <div class="team-img-wrapper">
-                            <img src="https://ui-avatars.com/api/?name=Joao+Gabriel&background=F4743B&color=fff&size=200" alt="João Gabriel">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/joaogab.jpg" alt="João Gabriel">
                         </div>
                         <h3>João Gabriel</h3>
-                        <span class="team-role">Backend Developer</span>
+                        <span class="team-role">Fullstack Developer</span>
                     </div>
                     <div class="team-card">
                         <div class="team-img-wrapper">
-                            <img src="https://ui-avatars.com/api/?name=Izan&background=70D4D6&color=02050A&size=200" alt="Izan">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/izan.jpeg" alt="Izan">
                         </div>
                         <h3>Izan</h3>
                         <span class="team-role">Gestão de Projeto / QA</span>
