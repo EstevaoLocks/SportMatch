@@ -4,6 +4,10 @@ require_once __DIR__ . '/../../config.php';
 require_once BASE_PATH . '/sistema/classes/Usuario.php';
 require_once BASE_PATH . '/sistema/conexao.php';
 
+if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])){
+    header('Location:' . BASE_URL . '/pages/conta/login.php');
+}
+
 $sql = $pdo->prepare("SELECT * FROM usuario WHERE cod_usuario = :id LIMIT 1");
 $sql->bindValue(":id", $_SESSION['cod_usuario']);
 $sql->execute();

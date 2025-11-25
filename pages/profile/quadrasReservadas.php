@@ -1,6 +1,10 @@
 <?php
 //chama arquivo que define raíz do projeto
 require_once __DIR__ . '/../../config.php';
+
+if (!isset($_SESSION['cod_usuario']) || !isset($_SESSION['nome']) || !isset($_SESSION['email'])){
+    header('Location:' . BASE_URL . '/pages/conta/login.php');
+}
 ?>
 
 <!DOCTYPE html>

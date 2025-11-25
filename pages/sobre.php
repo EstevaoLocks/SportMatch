@@ -168,7 +168,7 @@
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-img-wrapper">
-                            <img src="/../../assets" alt="Estevão">
+                            <img src="<?php echo BASE_URL; ?>/assets/img/estevao.jpeg" alt="Estevão">
                         </div>
                         <h3>Estevão</h3>
                         <span class="team-role">Fullstack Developer</span>
