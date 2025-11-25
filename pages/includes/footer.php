@@ -23,18 +23,20 @@
             <div class="colLinksFooter">
                 <h6 class="tituloLinksFooter">Serviços</h6>
                 <ul>
-                    <li class="linkFooter"><a href="#">Crie uma conta</a></li>
-                    <li class="linkFooter"><a href="#">Procure quadras</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/categorias.php">Procure quadras</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/conta/registro.php">Crie uma conta</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/profile/profile.php">Gerencie sua conta</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/sobre.php">Por que nos escolher?</a></li>
                 </ul>
             </div>
 
             <div class="colLinksFooter">
                 <h6 class="tituloLinksFooter">Páginas</h6>
                 <ul>
-                    <li class="linkFooter"><a href="#">Home</a></li>
-                    <li class="linkFooter"><a href="#">Login</a></li>
-                    <li class="linkFooter"><a href="#">Pesquisar</a></li>
-                    <li class="linkFooter"><a href="#">Sua conta</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/index.php">Home</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/conta/login.php">Login</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/categorias.php">Pesquisar</a></li>
+                    <li class="linkFooter"><a href="<?php echo BASE_URL; ?>/pages/profile/profile.php">Sua conta</a></li>
                 </ul>
             </div>
 
@@ -60,10 +62,10 @@
                         </a>
                     </li>
                     <li class="linkFooter">
-                        <a class="linkContato-Footer" href="#">
+                        <p class="linkContato-Footer" href="#">
                             <img id="iconeLocal-Footer" class="iconeLocal-Footer" src="<?php echo BASE_URL; ?>/assets/img/icons/iconeLocal.svg" alt="Ícone de localização">
                             Em todos os estados do Brasil!
-                        </a>
+                        </p>
                     </li>
                 </ul>
             </div>
@@ -71,13 +73,13 @@
         <hr class="linhaFooter">
         <div class="rowFooter">
             <div class="colBottomFooter">
-                <p>&copy; <a href="#" class="linkFooter">2025 SportMatch</a>. Todos os direitos reservados.</p>
+                <p>&copy; <a href="<?php echo BASE_URL; ?>/index.php" class="linkFooter">2025 SportMatch</a>. Todos os direitos reservados.</p>
             </div>
             <div class="colBottomFooter colBottomRightFooter">
                 <ul class="linksBottomFooter">
-                    <li class="linkFooter"><a href="">Privacy Plicy</a></li>
-                    <li class="linkFooter"><a href="">Termos de Serviço</a></li>
-                    <li class="linkFooter"><a href="">Safety</a></li>
+                    <li class="linkFooter"><a href="#">Privacy Plicy</a></li>
+                    <li class="linkFooter"><a href="#">Termos de Serviço</a></li>
+                    <li class="linkFooter"><a href="#">Safety</a></li>
                 </ul>
             </div>
         </div>
