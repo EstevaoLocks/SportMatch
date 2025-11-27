@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Nov-2025 às 12:08
+-- Tempo de geração: 27-Nov-2025 às 15:28
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_reservaquadras`
 --
+CREATE DATABASE IF NOT EXISTS `bd_reservaquadras` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_reservaquadras`;
 
 -- --------------------------------------------------------
 

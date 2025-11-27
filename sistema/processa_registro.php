@@ -8,7 +8,7 @@
     $nome = $_POST['nome'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $telefone = $_POST['telefone'];
     
     // Endereço
